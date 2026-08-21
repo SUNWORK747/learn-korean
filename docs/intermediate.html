@@ -7,44 +7,63 @@
 <meta name="description" content="TOPIK II (Levels 3–4) · connective endings and spoken nuance. 34 free Korean grammar lessons.">
 <link rel="icon" href="favicon.svg">
 <style>
-:root{--navy:#1B2A4A;--red:#DC3E4A;--muted:#8A94A6;--body:#1F2430;}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+:root{
+  --sk-bg:#F2ECE1;--sk-surface:#FFFFFF;--sk-ink:#1B2A4A;--sk-ink-soft:#445068;
+  --sk-accent:#DC3E4A;--sk-accent-text:#FFFFFF;--sk-accent-soft:#F6D9DB;
+  --sk-tip-bg:#E8F5E9;--sk-tip-line:#2E7D32;--sk-muted:#8A94A6;--sk-border:rgba(27,42,74,0.14);
+  --sk-head:'Poppins','Pretendard Variable','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --sk-body:'Inter','Pretendard Variable','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+}
+html,body{background:var(--sk-bg) !important;}
+.sk-nav{background:var(--sk-bg);border-bottom:1px solid var(--sk-border);font-family:var(--sk-body);}
+.sk-nav .inner{max-width:64rem;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 24px;flex-wrap:wrap;}
+.sk-nav a{color:var(--sk-ink-soft);text-decoration:none;font-size:13px;font-weight:600;}
+.sk-nav a:hover{color:var(--sk-accent);}
+.sk-nav .brand{color:var(--sk-ink);font-family:var(--sk-head);font-size:16px;font-weight:700;margin-right:auto;}
+.sk-cta{margin:36px 44px 8px 44px;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:24px 26px;font-family:var(--sk-body);}
+.sk-cta h3{margin:0 0 8px 0;font-family:var(--sk-head);font-size:16px;color:var(--sk-ink);}
+.sk-cta p{margin:0 0 14px 0;font-size:13.5px;line-height:1.7;color:var(--sk-ink-soft);}
+.sk-cta ul{margin:0 0 16px 18px;padding:0;font-size:13px;line-height:1.8;color:var(--sk-ink-soft);}
+.sk-cta .btn{display:inline-block;background:var(--sk-accent);color:var(--sk-accent-text);text-decoration:none;font-weight:600;font-size:14px;padding:11px 22px;border-radius:8px;transition:box-shadow .15s ease,transform .15s ease;}
+.sk-cta .btn:hover{box-shadow:4px 4px 0 var(--sk-ink);transform:translate(-2px,-2px);}
+.sk-prevnext{max-width:800px;margin:14px auto 0 auto;padding:0 12px;display:flex;justify-content:space-between;gap:12px;font-family:var(--sk-body);font-size:13px;}
+.sk-prevnext a{color:var(--sk-ink);text-decoration:none;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:10px 14px;max-width:48%;transition:box-shadow .15s ease,transform .15s ease;}
+.sk-prevnext a:hover{box-shadow:3px 3px 0 var(--sk-accent);transform:translate(-1px,-1px);}
+.sk-footer{max-width:64rem;margin:28px auto 40px auto;padding:0 24px;text-align:center;font-family:var(--sk-body);font-size:12px;color:var(--sk-muted);line-height:1.8;}
+.sk-footer a{color:var(--sk-ink);}
+
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --sk-bg:#10172A;--sk-surface:#161F38;--sk-ink:#F2ECE1;--sk-ink-soft:#C9CEDB;
+    --sk-accent:#FF7A82;--sk-accent-text:#2A1013;--sk-accent-soft:#3A2226;
+    --sk-tip-bg:#16321B;--sk-tip-line:#7FCB8B;--sk-muted:#93A0BE;--sk-border:rgba(242,236,225,0.16);
+  }
+}
+
 *{box-sizing:border-box;}
-body{margin:0;background:#EEF0F3;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:var(--body);}
-.wrap{max-width:800px;margin:24px auto;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.08);}
-.hero{background:var(--navy);color:#fff;padding:44px;}
-.hero .eyebrow{font-size:11px;letter-spacing:2px;color:#9FB0D0;font-weight:600;margin-bottom:10px;}
-.hero h1{font-size:30px;font-weight:800;margin:0 0 8px 0;line-height:1.3;}
-.hero p{font-size:14px;color:#C4CEE3;margin:0;line-height:1.7;}
-.content{padding:34px 44px 44px 44px;}
-.card{display:block;border:1px solid #D5DAE3;border-radius:10px;padding:20px 22px;margin-bottom:14px;text-decoration:none;color:var(--body);}
-.card:hover{border-color:var(--navy);}
-.card h2{margin:0 0 4px 0;font-size:17px;color:var(--navy);}
-.card p{margin:0;font-size:13px;color:var(--muted);line-height:1.6;}
-.card .count{float:right;font-size:12px;color:var(--red);font-weight:700;}
-.lesson{display:flex;gap:12px;padding:11px 4px;border-bottom:1px solid #EEF0F3;text-decoration:none;color:var(--body);font-size:14px;align-items:baseline;}
-.lesson:hover .pt{color:var(--red);}
-.lesson .id{font-size:11px;color:var(--muted);min-width:110px;font-weight:600;}
-.lesson .pt{font-weight:700;color:var(--navy);}
-.lesson .en{font-size:12.5px;color:var(--muted);}
-h2.cat{font-size:14px;color:var(--red);letter-spacing:1px;margin:30px 0 8px 0;text-transform:uppercase;}
-
-.sk-nav{background:#141F38;padding:0;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
-.sk-nav .inner{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px;flex-wrap:wrap;}
-.sk-nav a{color:#C4CEE3;text-decoration:none;font-size:13px;font-weight:600;}
-.sk-nav a:hover{color:#fff;}
-.sk-nav .brand{color:#fff;font-size:16px;font-weight:800;letter-spacing:0.5px;margin-right:auto;}
-.sk-cta{margin:36px 44px 8px 44px;border:2px solid #DC3E4A;border-radius:10px;padding:24px 26px;background:#FFF6F6;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
-.sk-cta h3{margin:0 0 8px 0;font-size:17px;color:#1B2A4A;}
-.sk-cta p{margin:0 0 14px 0;font-size:13.5px;line-height:1.7;color:#1F2430;}
-.sk-cta ul{margin:0 0 16px 18px;padding:0;font-size:13px;line-height:1.8;color:#1F2430;}
-.sk-cta .btn{display:inline-block;background:#DC3E4A;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:11px 22px;border-radius:6px;}
-.sk-cta .btn:hover{background:#c33440;}
-.sk-prevnext{max-width:800px;margin:14px auto 0 auto;display:flex;justify-content:space-between;gap:12px;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:13px;}
-.sk-prevnext a{color:#1B2A4A;text-decoration:none;background:#fff;border:1px solid #D5DAE3;border-radius:6px;padding:10px 14px;max-width:48%;}
-.sk-prevnext a:hover{border-color:#1B2A4A;}
-.sk-footer{max-width:800px;margin:28px auto 40px auto;text-align:center;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:12px;color:#8A94A6;line-height:1.8;}
-.sk-footer a{color:#1B2A4A;}
-
+body{margin:0;font-family:var(--sk-body);color:var(--sk-ink);}
+.wrap{max-width:64rem;margin:0 auto;padding:3rem 1.5rem 2rem;}
+.hero{margin-bottom:2.25rem;}
+.hero .eyebrow{display:block;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--sk-accent);margin-bottom:8px;}
+.hero h1{font-family:var(--sk-head);font-size:1.75rem;font-weight:700;margin:0 0 10px 0;line-height:1.25;text-wrap:balance;}
+.hero p{font-size:15px;color:var(--sk-ink-soft);margin:0;line-height:1.7;max-width:40rem;}
+.card{display:block;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:20px 22px;margin-bottom:14px;text-decoration:none;color:var(--sk-ink);transition:box-shadow .15s ease,transform .15s ease;}
+.card:hover{box-shadow:4px 4px 0 var(--sk-accent);transform:translate(-2px,-2px);}
+.card h2{margin:0 0 4px 0;font-family:var(--sk-head);font-size:16px;color:var(--sk-ink);}
+.card p{margin:0;font-size:13px;color:var(--sk-muted);line-height:1.6;}
+.card .count{float:right;font-size:12px;color:var(--sk-accent);font-weight:600;}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:2.25rem 0 0.9rem 0;border-bottom:1px solid var(--sk-border);padding-bottom:9px;}
+.section-head h2{font-family:var(--sk-head);font-size:1.05rem;font-weight:700;margin:0;color:var(--sk-ink);}
+.section-head .kr{font-family:var(--sk-body);font-weight:500;font-size:12.5px;color:var(--sk-muted);margin-left:8px;}
+.lesson{display:flex;gap:14px;align-items:center;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:11px 16px;margin-bottom:8px;text-decoration:none;color:var(--sk-ink);font-size:14px;transition:box-shadow .15s ease,transform .15s ease;}
+.lesson:hover{box-shadow:3px 3px 0 var(--sk-accent);transform:translate(-1px,-1px);}
+.lesson .id{font-size:10.5px;color:var(--sk-muted);min-width:64px;font-weight:600;letter-spacing:0.04em;}
+.lesson .pt{font-weight:600;color:var(--sk-ink);white-space:nowrap;}
+.lesson .en{font-size:12.5px;color:var(--sk-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+@media(max-width:640px){.lesson .en{display:none;}}
 </style>
 </head>
 <body>
@@ -57,48 +76,48 @@ h2.cat{font-size:14px;color:var(--red);letter-spacing:1px;margin:30px 0 8px 0;te
   <a href="vocabulary.html">Vocabulary</a>
 </div></nav>
 <div class="wrap">
-<div class="hero"><div class="eyebrow">KOREAN GRAMMAR</div><h1>Intermediate</h1><p>TOPIK II (Levels 3–4) · connective endings and spoken nuance · 34 lessons, free to read.</p></div>
-<div class="content"><h2 class="cat">More Connective Endings · 연결어미 확장</h2>
-<a class="lesson" href="grammar/gram-int-001.html"><span class="id">GRAM-INT-001</span><span class="pt">-(으)ㄴ데/는데</span><span class="en">Background &amp; Mild Contrast</span></a>
-<a class="lesson" href="grammar/gram-int-002.html"><span class="id">GRAM-INT-002</span><span class="pt">-거나</span><span class="en">Choice / Alternatives ("Or")</span></a>
-<a class="lesson" href="grammar/gram-int-003.html"><span class="id">GRAM-INT-003</span><span class="pt">-든지</span><span class="en">Free Choice &amp; Indifference ("No Matter Which")</span></a>
-<a class="lesson" href="grammar/gram-int-004.html"><span class="id">GRAM-INT-004</span><span class="pt">-자마자</span><span class="en">Immediate Sequential Action</span></a>
-<a class="lesson" href="grammar/gram-int-005.html"><span class="id">GRAM-INT-005</span><span class="pt">-는 동안</span><span class="en">While / During (Ongoing Duration)</span></a>
-<a class="lesson" href="grammar/gram-int-006.html"><span class="id">GRAM-INT-006</span><span class="pt">-(으)면서</span><span class="en">Simultaneous Actions</span></a>
-<a class="lesson" href="grammar/gram-int-007.html"><span class="id">GRAM-INT-007</span><span class="pt">-느라고</span><span class="en">Cause &amp; Negative Result</span></a>
-<a class="lesson" href="grammar/gram-int-008.html"><span class="id">GRAM-INT-008</span><span class="pt">-(으)ㄹ수록</span><span class="en">Proportional "The More... The More"</span></a>
-<a class="lesson" href="grammar/gram-int-009.html"><span class="id">GRAM-INT-009</span><span class="pt">-다가</span><span class="en">Action Switching &amp; Interruption</span></a>
-<a class="lesson" href="grammar/gram-int-010.html"><span class="id">GRAM-INT-010</span><span class="pt">-는 김에</span><span class="en">Taking the Opportunity ("While I'm At It")</span></a>
-<a class="lesson" href="grammar/gram-int-011.html"><span class="id">GRAM-INT-011</span><span class="pt">-(으)ㄴ/는데도</span><span class="en">Even Though... Still (Concessive)</span></a>
-<h2 class="cat">Conjecture &amp; Intention · 추측·의지 표현</h2>
-<a class="lesson" href="grammar/gram-int-012.html"><span class="id">GRAM-INT-012</span><span class="pt">-(으)ㄹ 것 같다</span><span class="en">Vague Conjecture</span></a>
-<a class="lesson" href="grammar/gram-int-013.html"><span class="id">GRAM-INT-013</span><span class="pt">-나 보다/-(으)ㄴ가 보다</span><span class="en">Evidence-Based Conjecture</span></a>
-<a class="lesson" href="grammar/gram-int-014.html"><span class="id">GRAM-INT-014</span><span class="pt">-겠-</span><span class="en">Conjecture &amp; Volition</span></a>
-<a class="lesson" href="grammar/gram-int-015.html"><span class="id">GRAM-INT-015</span><span class="pt">-(으)려고 하다</span><span class="en">Plans &amp; Intentions</span></a>
-<a class="lesson" href="grammar/gram-int-016.html"><span class="id">GRAM-INT-016</span><span class="pt">-기로 하다</span><span class="en">Firm Decisions &amp; Promises</span></a>
-<a class="lesson" href="grammar/gram-int-017.html"><span class="id">GRAM-INT-017</span><span class="pt">-(으)ㄹ 뻔하다</span><span class="en">The Near-Miss Pattern</span></a>
-<h2 class="cat">Passive &amp; Causative · 피동·사동</h2>
-<a class="lesson" href="grammar/gram-int-018.html"><span class="id">GRAM-INT-018</span><span class="pt">피동 표현</span><span class="en">Passive Expressions</span></a>
-<a class="lesson" href="grammar/gram-int-019.html"><span class="id">GRAM-INT-019</span><span class="pt">사동 표현</span><span class="en">Causative Expressions</span></a>
-<h2 class="cat">Quotation &amp; Reported Speech · 인용·간접화법</h2>
-<a class="lesson" href="grammar/gram-int-020.html"><span class="id">GRAM-INT-020</span><span class="pt">-다고 하다</span><span class="en">Reported Speech for Statements</span></a>
-<a class="lesson" href="grammar/gram-int-021.html"><span class="id">GRAM-INT-021</span><span class="pt">-냐고 하다</span><span class="en">Reported Speech: Questions</span></a>
-<a class="lesson" href="grammar/gram-int-022.html"><span class="id">GRAM-INT-022</span><span class="pt">-자고 하다</span><span class="en">Reported Suggestions</span></a>
-<a class="lesson" href="grammar/gram-int-023.html"><span class="id">GRAM-INT-023</span><span class="pt">-(으)라고 하다</span><span class="en">Reported Commands</span></a>
-<h2 class="cat">Particles &amp; Bound Nouns · 조사·의존명사 확장</h2>
-<a class="lesson" href="grammar/gram-int-024.html"><span class="id">GRAM-INT-024</span><span class="pt">-밖에</span><span class="en">Only, and Nothing But</span></a>
-<a class="lesson" href="grammar/gram-int-025.html"><span class="id">GRAM-INT-025</span><span class="pt">-조차/마저</span><span class="en">Extreme Inclusion ("Even")</span></a>
-<a class="lesson" href="grammar/gram-int-026.html"><span class="id">GRAM-INT-026</span><span class="pt">-(이)나</span><span class="en">Alternative Choice &amp; Surprising Degree</span></a>
-<a class="lesson" href="grammar/gram-int-027.html"><span class="id">GRAM-INT-027</span><span class="pt">-(이)라도</span><span class="en">Settling for the Next-Best Option</span></a>
-<a class="lesson" href="grammar/gram-int-028.html"><span class="id">GRAM-INT-028</span><span class="pt">-치고</span><span class="en">No Exception, or Surprisingly For a Typical X</span></a>
-<a class="lesson" href="grammar/gram-int-029.html"><span class="id">GRAM-INT-029</span><span class="pt">-는 대로</span><span class="en">Immediate Sequence &amp; Exactly As</span></a>
-<h2 class="cat">Other Intermediate Patterns · 기타 중급 표현</h2>
-<a class="lesson" href="grammar/gram-int-030.html"><span class="id">GRAM-INT-030</span><span class="pt">-아/어 보이다</span><span class="en">Looks/Seems (Appearance-Based Impression)</span></a>
-<a class="lesson" href="grammar/gram-int-031.html"><span class="id">GRAM-INT-031</span><span class="pt">-기 때문에</span><span class="en">Formal Reason &amp; Cause</span></a>
-<a class="lesson" href="grammar/gram-int-032.html"><span class="id">GRAM-INT-032</span><span class="pt">-는 바람에</span><span class="en">Unexpected, Negative Cause</span></a>
-<a class="lesson" href="grammar/gram-int-033.html"><span class="id">GRAM-INT-033</span><span class="pt">-(으)ㄴ 지</span><span class="en">Elapsed Time Since an Action</span></a>
-<a class="lesson" href="grammar/gram-int-034.html"><span class="id">GRAM-INT-034</span><span class="pt">-(으)ㄹ까 하다</span><span class="en">Vague, Tentative Plans</span></a>
-</div>
+<div class="hero"><span class="eyebrow">KOREAN GRAMMAR</span><h1>Intermediate</h1><p>TOPIK II (Levels 3–4) · connective endings and spoken nuance · 34 lessons, free to read.</p></div>
+<div class="section-head"><h2>More Connective Endings<span class="kr">연결어미 확장</span></h2></div>
+<a class="lesson" href="grammar/gram-int-001.html"><span class="id">INT-001</span><span class="pt">-(으)ㄴ데/는데</span><span class="en">Background &amp; Mild Contrast</span></a>
+<a class="lesson" href="grammar/gram-int-002.html"><span class="id">INT-002</span><span class="pt">-거나</span><span class="en">Choice / Alternatives ("Or")</span></a>
+<a class="lesson" href="grammar/gram-int-003.html"><span class="id">INT-003</span><span class="pt">-든지</span><span class="en">Free Choice &amp; Indifference ("No Matter Which")</span></a>
+<a class="lesson" href="grammar/gram-int-004.html"><span class="id">INT-004</span><span class="pt">-자마자</span><span class="en">Immediate Sequential Action</span></a>
+<a class="lesson" href="grammar/gram-int-005.html"><span class="id">INT-005</span><span class="pt">-는 동안</span><span class="en">While / During (Ongoing Duration)</span></a>
+<a class="lesson" href="grammar/gram-int-006.html"><span class="id">INT-006</span><span class="pt">-(으)면서</span><span class="en">Simultaneous Actions</span></a>
+<a class="lesson" href="grammar/gram-int-007.html"><span class="id">INT-007</span><span class="pt">-느라고</span><span class="en">Cause &amp; Negative Result</span></a>
+<a class="lesson" href="grammar/gram-int-008.html"><span class="id">INT-008</span><span class="pt">-(으)ㄹ수록</span><span class="en">Proportional "The More... The More"</span></a>
+<a class="lesson" href="grammar/gram-int-009.html"><span class="id">INT-009</span><span class="pt">-다가</span><span class="en">Action Switching &amp; Interruption</span></a>
+<a class="lesson" href="grammar/gram-int-010.html"><span class="id">INT-010</span><span class="pt">-는 김에</span><span class="en">Taking the Opportunity ("While I'm At It")</span></a>
+<a class="lesson" href="grammar/gram-int-011.html"><span class="id">INT-011</span><span class="pt">-(으)ㄴ/는데도</span><span class="en">Even Though... Still (Concessive)</span></a>
+<div class="section-head"><h2>Conjecture &amp; Intention<span class="kr">추측·의지 표현</span></h2></div>
+<a class="lesson" href="grammar/gram-int-012.html"><span class="id">INT-012</span><span class="pt">-(으)ㄹ 것 같다</span><span class="en">Vague Conjecture</span></a>
+<a class="lesson" href="grammar/gram-int-013.html"><span class="id">INT-013</span><span class="pt">-나 보다/-(으)ㄴ가 보다</span><span class="en">Evidence-Based Conjecture</span></a>
+<a class="lesson" href="grammar/gram-int-014.html"><span class="id">INT-014</span><span class="pt">-겠-</span><span class="en">Conjecture &amp; Volition</span></a>
+<a class="lesson" href="grammar/gram-int-015.html"><span class="id">INT-015</span><span class="pt">-(으)려고 하다</span><span class="en">Plans &amp; Intentions</span></a>
+<a class="lesson" href="grammar/gram-int-016.html"><span class="id">INT-016</span><span class="pt">-기로 하다</span><span class="en">Firm Decisions &amp; Promises</span></a>
+<a class="lesson" href="grammar/gram-int-017.html"><span class="id">INT-017</span><span class="pt">-(으)ㄹ 뻔하다</span><span class="en">The Near-Miss Pattern</span></a>
+<div class="section-head"><h2>Passive &amp; Causative<span class="kr">피동·사동</span></h2></div>
+<a class="lesson" href="grammar/gram-int-018.html"><span class="id">INT-018</span><span class="pt">피동 표현</span><span class="en">Passive Expressions</span></a>
+<a class="lesson" href="grammar/gram-int-019.html"><span class="id">INT-019</span><span class="pt">사동 표현</span><span class="en">Causative Expressions</span></a>
+<div class="section-head"><h2>Quotation &amp; Reported Speech<span class="kr">인용·간접화법</span></h2></div>
+<a class="lesson" href="grammar/gram-int-020.html"><span class="id">INT-020</span><span class="pt">-다고 하다</span><span class="en">Reported Speech for Statements</span></a>
+<a class="lesson" href="grammar/gram-int-021.html"><span class="id">INT-021</span><span class="pt">-냐고 하다</span><span class="en">Reported Speech: Questions</span></a>
+<a class="lesson" href="grammar/gram-int-022.html"><span class="id">INT-022</span><span class="pt">-자고 하다</span><span class="en">Reported Suggestions</span></a>
+<a class="lesson" href="grammar/gram-int-023.html"><span class="id">INT-023</span><span class="pt">-(으)라고 하다</span><span class="en">Reported Commands</span></a>
+<div class="section-head"><h2>Particles &amp; Bound Nouns<span class="kr">조사·의존명사 확장</span></h2></div>
+<a class="lesson" href="grammar/gram-int-024.html"><span class="id">INT-024</span><span class="pt">-밖에</span><span class="en">Only, and Nothing But</span></a>
+<a class="lesson" href="grammar/gram-int-025.html"><span class="id">INT-025</span><span class="pt">-조차/마저</span><span class="en">Extreme Inclusion ("Even")</span></a>
+<a class="lesson" href="grammar/gram-int-026.html"><span class="id">INT-026</span><span class="pt">-(이)나</span><span class="en">Alternative Choice &amp; Surprising Degree</span></a>
+<a class="lesson" href="grammar/gram-int-027.html"><span class="id">INT-027</span><span class="pt">-(이)라도</span><span class="en">Settling for the Next-Best Option</span></a>
+<a class="lesson" href="grammar/gram-int-028.html"><span class="id">INT-028</span><span class="pt">-치고</span><span class="en">No Exception, or Surprisingly For a Typical X</span></a>
+<a class="lesson" href="grammar/gram-int-029.html"><span class="id">INT-029</span><span class="pt">-는 대로</span><span class="en">Immediate Sequence &amp; Exactly As</span></a>
+<div class="section-head"><h2>Other Intermediate Patterns<span class="kr">기타 중급 표현</span></h2></div>
+<a class="lesson" href="grammar/gram-int-030.html"><span class="id">INT-030</span><span class="pt">-아/어 보이다</span><span class="en">Looks/Seems (Appearance-Based Impression)</span></a>
+<a class="lesson" href="grammar/gram-int-031.html"><span class="id">INT-031</span><span class="pt">-기 때문에</span><span class="en">Formal Reason &amp; Cause</span></a>
+<a class="lesson" href="grammar/gram-int-032.html"><span class="id">INT-032</span><span class="pt">-는 바람에</span><span class="en">Unexpected, Negative Cause</span></a>
+<a class="lesson" href="grammar/gram-int-033.html"><span class="id">INT-033</span><span class="pt">-(으)ㄴ 지</span><span class="en">Elapsed Time Since an Action</span></a>
+<a class="lesson" href="grammar/gram-int-034.html"><span class="id">INT-034</span><span class="pt">-(으)ㄹ까 하다</span><span class="en">Vague, Tentative Plans</span></a>
+
 </div>
 <div class="sk-footer">© Sunshine Korean · Free Korean lessons, from Hangul to advanced grammar.<br>
 Complete lessons with practice &amp; answer keys: <a href="https://sunshinework.gumroad.com" rel="noopener">sunshinework.gumroad.com</a></div>

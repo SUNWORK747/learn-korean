@@ -342,22 +342,31 @@
   }
 </style>
 <style>
-.sk-nav{background:#141F38;padding:0;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
-.sk-nav .inner{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px;flex-wrap:wrap;}
-.sk-nav a{color:#C4CEE3;text-decoration:none;font-size:13px;font-weight:600;}
-.sk-nav a:hover{color:#fff;}
-.sk-nav .brand{color:#fff;font-size:16px;font-weight:800;letter-spacing:0.5px;margin-right:auto;}
-.sk-cta{margin:36px 44px 8px 44px;border:2px solid #DC3E4A;border-radius:10px;padding:24px 26px;background:#FFF6F6;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
-.sk-cta h3{margin:0 0 8px 0;font-size:17px;color:#1B2A4A;}
-.sk-cta p{margin:0 0 14px 0;font-size:13.5px;line-height:1.7;color:#1F2430;}
-.sk-cta ul{margin:0 0 16px 18px;padding:0;font-size:13px;line-height:1.8;color:#1F2430;}
-.sk-cta .btn{display:inline-block;background:#DC3E4A;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:11px 22px;border-radius:6px;}
-.sk-cta .btn:hover{background:#c33440;}
-.sk-prevnext{max-width:800px;margin:14px auto 0 auto;display:flex;justify-content:space-between;gap:12px;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:13px;}
-.sk-prevnext a{color:#1B2A4A;text-decoration:none;background:#fff;border:1px solid #D5DAE3;border-radius:6px;padding:10px 14px;max-width:48%;}
-.sk-prevnext a:hover{border-color:#1B2A4A;}
-.sk-footer{max-width:800px;margin:28px auto 40px auto;text-align:center;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:12px;color:#8A94A6;line-height:1.8;}
-.sk-footer a{color:#1B2A4A;}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+:root{
+  --sk-bg:#F2ECE1;--sk-surface:#FFFFFF;--sk-ink:#1B2A4A;--sk-ink-soft:#445068;
+  --sk-accent:#DC3E4A;--sk-accent-text:#FFFFFF;--sk-accent-soft:#F6D9DB;
+  --sk-tip-bg:#E8F5E9;--sk-tip-line:#2E7D32;--sk-muted:#8A94A6;--sk-border:rgba(27,42,74,0.14);
+  --sk-head:'Poppins','Pretendard Variable','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --sk-body:'Inter','Pretendard Variable','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+}
+html,body{background:var(--sk-bg) !important;}
+.sk-nav{background:var(--sk-bg);border-bottom:1px solid var(--sk-border);font-family:var(--sk-body);}
+.sk-nav .inner{max-width:64rem;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 24px;flex-wrap:wrap;}
+.sk-nav a{color:var(--sk-ink-soft);text-decoration:none;font-size:13px;font-weight:600;}
+.sk-nav a:hover{color:var(--sk-accent);}
+.sk-nav .brand{color:var(--sk-ink);font-family:var(--sk-head);font-size:16px;font-weight:700;margin-right:auto;}
+.sk-cta{margin:36px 44px 8px 44px;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:24px 26px;font-family:var(--sk-body);}
+.sk-cta h3{margin:0 0 8px 0;font-family:var(--sk-head);font-size:16px;color:var(--sk-ink);}
+.sk-cta p{margin:0 0 14px 0;font-size:13.5px;line-height:1.7;color:var(--sk-ink-soft);}
+.sk-cta ul{margin:0 0 16px 18px;padding:0;font-size:13px;line-height:1.8;color:var(--sk-ink-soft);}
+.sk-cta .btn{display:inline-block;background:var(--sk-accent);color:var(--sk-accent-text);text-decoration:none;font-weight:600;font-size:14px;padding:11px 22px;border-radius:8px;transition:box-shadow .15s ease,transform .15s ease;}
+.sk-cta .btn:hover{box-shadow:4px 4px 0 var(--sk-ink);transform:translate(-2px,-2px);}
+.sk-prevnext{max-width:800px;margin:14px auto 0 auto;padding:0 12px;display:flex;justify-content:space-between;gap:12px;font-family:var(--sk-body);font-size:13px;}
+.sk-prevnext a{color:var(--sk-ink);text-decoration:none;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:10px 14px;max-width:48%;transition:box-shadow .15s ease,transform .15s ease;}
+.sk-prevnext a:hover{box-shadow:3px 3px 0 var(--sk-accent);transform:translate(-1px,-1px);}
+.sk-footer{max-width:64rem;margin:28px auto 40px auto;padding:0 24px;text-align:center;font-family:var(--sk-body);font-size:12px;color:var(--sk-muted);line-height:1.8;}
+.sk-footer a{color:var(--sk-ink);}
 </style>
 <meta name="description" content="-아/어 보이다 — free Korean grammar lesson (Intermediate). Looks/Seems (Appearance-Based Impression)">
 <link rel="icon" href="../favicon.svg">

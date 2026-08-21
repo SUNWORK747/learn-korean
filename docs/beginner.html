@@ -7,44 +7,63 @@
 <meta name="description" content="TOPIK I (Levels 1–2) · core particles, tenses and everyday endings. 39 free Korean grammar lessons.">
 <link rel="icon" href="favicon.svg">
 <style>
-:root{--navy:#1B2A4A;--red:#DC3E4A;--muted:#8A94A6;--body:#1F2430;}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+:root{
+  --sk-bg:#F2ECE1;--sk-surface:#FFFFFF;--sk-ink:#1B2A4A;--sk-ink-soft:#445068;
+  --sk-accent:#DC3E4A;--sk-accent-text:#FFFFFF;--sk-accent-soft:#F6D9DB;
+  --sk-tip-bg:#E8F5E9;--sk-tip-line:#2E7D32;--sk-muted:#8A94A6;--sk-border:rgba(27,42,74,0.14);
+  --sk-head:'Poppins','Pretendard Variable','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --sk-body:'Inter','Pretendard Variable','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+}
+html,body{background:var(--sk-bg) !important;}
+.sk-nav{background:var(--sk-bg);border-bottom:1px solid var(--sk-border);font-family:var(--sk-body);}
+.sk-nav .inner{max-width:64rem;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 24px;flex-wrap:wrap;}
+.sk-nav a{color:var(--sk-ink-soft);text-decoration:none;font-size:13px;font-weight:600;}
+.sk-nav a:hover{color:var(--sk-accent);}
+.sk-nav .brand{color:var(--sk-ink);font-family:var(--sk-head);font-size:16px;font-weight:700;margin-right:auto;}
+.sk-cta{margin:36px 44px 8px 44px;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:24px 26px;font-family:var(--sk-body);}
+.sk-cta h3{margin:0 0 8px 0;font-family:var(--sk-head);font-size:16px;color:var(--sk-ink);}
+.sk-cta p{margin:0 0 14px 0;font-size:13.5px;line-height:1.7;color:var(--sk-ink-soft);}
+.sk-cta ul{margin:0 0 16px 18px;padding:0;font-size:13px;line-height:1.8;color:var(--sk-ink-soft);}
+.sk-cta .btn{display:inline-block;background:var(--sk-accent);color:var(--sk-accent-text);text-decoration:none;font-weight:600;font-size:14px;padding:11px 22px;border-radius:8px;transition:box-shadow .15s ease,transform .15s ease;}
+.sk-cta .btn:hover{box-shadow:4px 4px 0 var(--sk-ink);transform:translate(-2px,-2px);}
+.sk-prevnext{max-width:800px;margin:14px auto 0 auto;padding:0 12px;display:flex;justify-content:space-between;gap:12px;font-family:var(--sk-body);font-size:13px;}
+.sk-prevnext a{color:var(--sk-ink);text-decoration:none;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:10px 14px;max-width:48%;transition:box-shadow .15s ease,transform .15s ease;}
+.sk-prevnext a:hover{box-shadow:3px 3px 0 var(--sk-accent);transform:translate(-1px,-1px);}
+.sk-footer{max-width:64rem;margin:28px auto 40px auto;padding:0 24px;text-align:center;font-family:var(--sk-body);font-size:12px;color:var(--sk-muted);line-height:1.8;}
+.sk-footer a{color:var(--sk-ink);}
+
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --sk-bg:#10172A;--sk-surface:#161F38;--sk-ink:#F2ECE1;--sk-ink-soft:#C9CEDB;
+    --sk-accent:#FF7A82;--sk-accent-text:#2A1013;--sk-accent-soft:#3A2226;
+    --sk-tip-bg:#16321B;--sk-tip-line:#7FCB8B;--sk-muted:#93A0BE;--sk-border:rgba(242,236,225,0.16);
+  }
+}
+
 *{box-sizing:border-box;}
-body{margin:0;background:#EEF0F3;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:var(--body);}
-.wrap{max-width:800px;margin:24px auto;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.08);}
-.hero{background:var(--navy);color:#fff;padding:44px;}
-.hero .eyebrow{font-size:11px;letter-spacing:2px;color:#9FB0D0;font-weight:600;margin-bottom:10px;}
-.hero h1{font-size:30px;font-weight:800;margin:0 0 8px 0;line-height:1.3;}
-.hero p{font-size:14px;color:#C4CEE3;margin:0;line-height:1.7;}
-.content{padding:34px 44px 44px 44px;}
-.card{display:block;border:1px solid #D5DAE3;border-radius:10px;padding:20px 22px;margin-bottom:14px;text-decoration:none;color:var(--body);}
-.card:hover{border-color:var(--navy);}
-.card h2{margin:0 0 4px 0;font-size:17px;color:var(--navy);}
-.card p{margin:0;font-size:13px;color:var(--muted);line-height:1.6;}
-.card .count{float:right;font-size:12px;color:var(--red);font-weight:700;}
-.lesson{display:flex;gap:12px;padding:11px 4px;border-bottom:1px solid #EEF0F3;text-decoration:none;color:var(--body);font-size:14px;align-items:baseline;}
-.lesson:hover .pt{color:var(--red);}
-.lesson .id{font-size:11px;color:var(--muted);min-width:110px;font-weight:600;}
-.lesson .pt{font-weight:700;color:var(--navy);}
-.lesson .en{font-size:12.5px;color:var(--muted);}
-h2.cat{font-size:14px;color:var(--red);letter-spacing:1px;margin:30px 0 8px 0;text-transform:uppercase;}
-
-.sk-nav{background:#141F38;padding:0;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
-.sk-nav .inner{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px;flex-wrap:wrap;}
-.sk-nav a{color:#C4CEE3;text-decoration:none;font-size:13px;font-weight:600;}
-.sk-nav a:hover{color:#fff;}
-.sk-nav .brand{color:#fff;font-size:16px;font-weight:800;letter-spacing:0.5px;margin-right:auto;}
-.sk-cta{margin:36px 44px 8px 44px;border:2px solid #DC3E4A;border-radius:10px;padding:24px 26px;background:#FFF6F6;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
-.sk-cta h3{margin:0 0 8px 0;font-size:17px;color:#1B2A4A;}
-.sk-cta p{margin:0 0 14px 0;font-size:13.5px;line-height:1.7;color:#1F2430;}
-.sk-cta ul{margin:0 0 16px 18px;padding:0;font-size:13px;line-height:1.8;color:#1F2430;}
-.sk-cta .btn{display:inline-block;background:#DC3E4A;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:11px 22px;border-radius:6px;}
-.sk-cta .btn:hover{background:#c33440;}
-.sk-prevnext{max-width:800px;margin:14px auto 0 auto;display:flex;justify-content:space-between;gap:12px;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:13px;}
-.sk-prevnext a{color:#1B2A4A;text-decoration:none;background:#fff;border:1px solid #D5DAE3;border-radius:6px;padding:10px 14px;max-width:48%;}
-.sk-prevnext a:hover{border-color:#1B2A4A;}
-.sk-footer{max-width:800px;margin:28px auto 40px auto;text-align:center;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:12px;color:#8A94A6;line-height:1.8;}
-.sk-footer a{color:#1B2A4A;}
-
+body{margin:0;font-family:var(--sk-body);color:var(--sk-ink);}
+.wrap{max-width:64rem;margin:0 auto;padding:3rem 1.5rem 2rem;}
+.hero{margin-bottom:2.25rem;}
+.hero .eyebrow{display:block;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--sk-accent);margin-bottom:8px;}
+.hero h1{font-family:var(--sk-head);font-size:1.75rem;font-weight:700;margin:0 0 10px 0;line-height:1.25;text-wrap:balance;}
+.hero p{font-size:15px;color:var(--sk-ink-soft);margin:0;line-height:1.7;max-width:40rem;}
+.card{display:block;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:20px 22px;margin-bottom:14px;text-decoration:none;color:var(--sk-ink);transition:box-shadow .15s ease,transform .15s ease;}
+.card:hover{box-shadow:4px 4px 0 var(--sk-accent);transform:translate(-2px,-2px);}
+.card h2{margin:0 0 4px 0;font-family:var(--sk-head);font-size:16px;color:var(--sk-ink);}
+.card p{margin:0;font-size:13px;color:var(--sk-muted);line-height:1.6;}
+.card .count{float:right;font-size:12px;color:var(--sk-accent);font-weight:600;}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:2.25rem 0 0.9rem 0;border-bottom:1px solid var(--sk-border);padding-bottom:9px;}
+.section-head h2{font-family:var(--sk-head);font-size:1.05rem;font-weight:700;margin:0;color:var(--sk-ink);}
+.section-head .kr{font-family:var(--sk-body);font-weight:500;font-size:12.5px;color:var(--sk-muted);margin-left:8px;}
+.lesson{display:flex;gap:14px;align-items:center;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:11px 16px;margin-bottom:8px;text-decoration:none;color:var(--sk-ink);font-size:14px;transition:box-shadow .15s ease,transform .15s ease;}
+.lesson:hover{box-shadow:3px 3px 0 var(--sk-accent);transform:translate(-1px,-1px);}
+.lesson .id{font-size:10.5px;color:var(--sk-muted);min-width:64px;font-weight:600;letter-spacing:0.04em;}
+.lesson .pt{font-weight:600;color:var(--sk-ink);white-space:nowrap;}
+.lesson .en{font-size:12.5px;color:var(--sk-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+@media(max-width:640px){.lesson .en{display:none;}}
 </style>
 </head>
 <body>
@@ -57,52 +76,52 @@ h2.cat{font-size:14px;color:var(--red);letter-spacing:1px;margin:30px 0 8px 0;te
   <a href="vocabulary.html">Vocabulary</a>
 </div></nav>
 <div class="wrap">
-<div class="hero"><div class="eyebrow">KOREAN GRAMMAR</div><h1>Beginner</h1><p>TOPIK I (Levels 1–2) · core particles, tenses and everyday endings · 39 lessons, free to read.</p></div>
-<div class="content"><h2 class="cat">Particles · 조사</h2>
-<a class="lesson" href="grammar/gram-beg-001.html"><span class="id">GRAM-BEG-001</span><span class="pt">은/는</span><span class="en">Topic Particle</span></a>
-<a class="lesson" href="grammar/gram-beg-002.html"><span class="id">GRAM-BEG-002</span><span class="pt">이/가</span><span class="en">Subject Particle</span></a>
-<a class="lesson" href="grammar/gram-beg-003.html"><span class="id">GRAM-BEG-003</span><span class="pt">을/를</span><span class="en">Object Particle</span></a>
-<a class="lesson" href="grammar/gram-beg-004.html"><span class="id">GRAM-BEG-004</span><span class="pt">의</span><span class="en">Possessive Particle</span></a>
-<a class="lesson" href="grammar/gram-beg-005.html"><span class="id">GRAM-BEG-005</span><span class="pt">에</span><span class="en">Time &amp; Location Particle</span></a>
-<a class="lesson" href="grammar/gram-beg-006.html"><span class="id">GRAM-BEG-006</span><span class="pt">에서</span><span class="en">Location of Action &amp; Starting Point</span></a>
-<a class="lesson" href="grammar/gram-beg-007.html"><span class="id">GRAM-BEG-007</span><span class="pt">도</span><span class="en">Also/Too</span></a>
-<a class="lesson" href="grammar/gram-beg-008.html"><span class="id">GRAM-BEG-008</span><span class="pt">만 (한정)</span><span class="en">Only</span></a>
-<a class="lesson" href="grammar/gram-beg-009.html"><span class="id">GRAM-BEG-009</span><span class="pt">와/과, 하고, (이)랑</span><span class="en">And/With</span></a>
-<a class="lesson" href="grammar/gram-beg-010.html"><span class="id">GRAM-BEG-010</span><span class="pt">(으)로</span><span class="en">Means &amp; Direction</span></a>
-<a class="lesson" href="grammar/gram-beg-011.html"><span class="id">GRAM-BEG-011</span><span class="pt">부터~까지</span><span class="en">Range: From~To</span></a>
-<a class="lesson" href="grammar/gram-beg-012.html"><span class="id">GRAM-BEG-012</span><span class="pt">보다</span><span class="en">Comparison</span></a>
-<h2 class="cat">Sentence Endings · 종결어미 (문장 끝맺음)</h2>
-<a class="lesson" href="grammar/gram-beg-013.html"><span class="id">GRAM-BEG-013</span><span class="pt">-아/어요</span><span class="en">Polite Casual Style (해요체)</span></a>
-<a class="lesson" href="grammar/gram-beg-014.html"><span class="id">GRAM-BEG-014</span><span class="pt">-ㅂ니다/습니다</span><span class="en">Formal Style (합쇼체)</span></a>
-<a class="lesson" href="grammar/gram-beg-015.html"><span class="id">GRAM-BEG-015</span><span class="pt">-았/었-</span><span class="en">Past Tense</span></a>
-<a class="lesson" href="grammar/gram-beg-016.html"><span class="id">GRAM-BEG-016</span><span class="pt">-(으)ㄹ 거예요</span><span class="en">Future/Presumption</span></a>
-<a class="lesson" href="grammar/gram-beg-017.html"><span class="id">GRAM-BEG-017</span><span class="pt">-지 마세요</span><span class="en">Prohibition</span></a>
-<a class="lesson" href="grammar/gram-beg-018.html"><span class="id">GRAM-BEG-018</span><span class="pt">-(으)세요</span><span class="en">Polite Command/Suggestion</span></a>
-<a class="lesson" href="grammar/gram-beg-019.html"><span class="id">GRAM-BEG-019</span><span class="pt">-(으)ㄹ게요</span><span class="en">Intention/Promise</span></a>
-<a class="lesson" href="grammar/gram-beg-020.html"><span class="id">GRAM-BEG-020</span><span class="pt">-네요</span><span class="en">Exclamation/Realization</span></a>
-<a class="lesson" href="grammar/gram-beg-021.html"><span class="id">GRAM-BEG-021</span><span class="pt">-죠/지요</span><span class="en">Confirming/Seeking Agreement</span></a>
-<a class="lesson" href="grammar/gram-beg-022.html"><span class="id">GRAM-BEG-022</span><span class="pt">-고 싶다</span><span class="en">Desire ("Want To")</span></a>
-<h2 class="cat">Connective Endings · 연결어미</h2>
-<a class="lesson" href="grammar/gram-beg-023.html"><span class="id">GRAM-BEG-023</span><span class="pt">-고</span><span class="en">Connective: Listing ("And")</span></a>
-<a class="lesson" href="grammar/gram-beg-024.html"><span class="id">GRAM-BEG-024</span><span class="pt">-지만</span><span class="en">Connective: Contrast ("But")</span></a>
-<a class="lesson" href="grammar/gram-beg-025.html"><span class="id">GRAM-BEG-025</span><span class="pt">-아/어서</span><span class="en">Connective: Reason / Sequence</span></a>
-<a class="lesson" href="grammar/gram-beg-026.html"><span class="id">GRAM-BEG-026</span><span class="pt">-(으)니까</span><span class="en">Because (Reason → Suggestion/Command)</span></a>
-<a class="lesson" href="grammar/gram-beg-027.html"><span class="id">GRAM-BEG-027</span><span class="pt">-(으)면</span><span class="en">If / When (Condition)</span></a>
-<a class="lesson" href="grammar/gram-beg-028.html"><span class="id">GRAM-BEG-028</span><span class="pt">-(으)러</span><span class="en">In Order To (Purpose + Motion Verb)</span></a>
-<a class="lesson" href="grammar/gram-beg-029.html"><span class="id">GRAM-BEG-029</span><span class="pt">-(으)려고</span><span class="en">Intention ("Intend To / In Order To")</span></a>
-<h2 class="cat">Negation &amp; Ability · 부정·가능</h2>
-<a class="lesson" href="grammar/gram-beg-030.html"><span class="id">GRAM-BEG-030</span><span class="pt">안/-지 않다</span><span class="en">Negation</span></a>
-<a class="lesson" href="grammar/gram-beg-031.html"><span class="id">GRAM-BEG-031</span><span class="pt">못/-지 못하다</span><span class="en">Inability</span></a>
-<a class="lesson" href="grammar/gram-beg-032.html"><span class="id">GRAM-BEG-032</span><span class="pt">-(으)ㄹ 수 있다/없다</span><span class="en">Ability &amp; Possibility ("Can / Cannot")</span></a>
-<h2 class="cat">Other Essential Patterns · 기타 필수 표현</h2>
-<a class="lesson" href="grammar/gram-beg-033.html"><span class="id">GRAM-BEG-033</span><span class="pt">-고 있다</span><span class="en">Present Progressive ("-ing")</span></a>
-<a class="lesson" href="grammar/gram-beg-034.html"><span class="id">GRAM-BEG-034</span><span class="pt">-아/어 있다</span><span class="en">Resultant State ("Is/Has Been Left ~ed")</span></a>
-<a class="lesson" href="grammar/gram-beg-035.html"><span class="id">GRAM-BEG-035</span><span class="pt">-아/어 주세요</span><span class="en">Polite Request ("Please Do [For Me]")</span></a>
-<a class="lesson" href="grammar/gram-beg-036.html"><span class="id">GRAM-BEG-036</span><span class="pt">-아/어야 하다/되다</span><span class="en">Obligation ("Must / Have To")</span></a>
-<a class="lesson" href="grammar/gram-beg-037.html"><span class="id">GRAM-BEG-037</span><span class="pt">-기 전에 / -(으)ㄴ 후에</span><span class="en">Before / After</span></a>
-<a class="lesson" href="grammar/gram-beg-038.html"><span class="id">GRAM-BEG-038</span><span class="pt">-는 것</span><span class="en">Nominalizer ("The Act/Fact of ~ing")</span></a>
-<a class="lesson" href="grammar/gram-beg-039.html"><span class="id">GRAM-BEG-039</span><span class="pt">숫자(한자어·고유어) + 단위명사</span><span class="en">Numbers + Counters</span></a>
-</div>
+<div class="hero"><span class="eyebrow">KOREAN GRAMMAR</span><h1>Beginner</h1><p>TOPIK I (Levels 1–2) · core particles, tenses and everyday endings · 39 lessons, free to read.</p></div>
+<div class="section-head"><h2>Particles<span class="kr">조사</span></h2></div>
+<a class="lesson" href="grammar/gram-beg-001.html"><span class="id">BEG-001</span><span class="pt">은/는</span><span class="en">Topic Particle</span></a>
+<a class="lesson" href="grammar/gram-beg-002.html"><span class="id">BEG-002</span><span class="pt">이/가</span><span class="en">Subject Particle</span></a>
+<a class="lesson" href="grammar/gram-beg-003.html"><span class="id">BEG-003</span><span class="pt">을/를</span><span class="en">Object Particle</span></a>
+<a class="lesson" href="grammar/gram-beg-004.html"><span class="id">BEG-004</span><span class="pt">의</span><span class="en">Possessive Particle</span></a>
+<a class="lesson" href="grammar/gram-beg-005.html"><span class="id">BEG-005</span><span class="pt">에</span><span class="en">Time &amp; Location Particle</span></a>
+<a class="lesson" href="grammar/gram-beg-006.html"><span class="id">BEG-006</span><span class="pt">에서</span><span class="en">Location of Action &amp; Starting Point</span></a>
+<a class="lesson" href="grammar/gram-beg-007.html"><span class="id">BEG-007</span><span class="pt">도</span><span class="en">Also/Too</span></a>
+<a class="lesson" href="grammar/gram-beg-008.html"><span class="id">BEG-008</span><span class="pt">만 (한정)</span><span class="en">Only</span></a>
+<a class="lesson" href="grammar/gram-beg-009.html"><span class="id">BEG-009</span><span class="pt">와/과, 하고, (이)랑</span><span class="en">And/With</span></a>
+<a class="lesson" href="grammar/gram-beg-010.html"><span class="id">BEG-010</span><span class="pt">(으)로</span><span class="en">Means &amp; Direction</span></a>
+<a class="lesson" href="grammar/gram-beg-011.html"><span class="id">BEG-011</span><span class="pt">부터~까지</span><span class="en">Range: From~To</span></a>
+<a class="lesson" href="grammar/gram-beg-012.html"><span class="id">BEG-012</span><span class="pt">보다</span><span class="en">Comparison</span></a>
+<div class="section-head"><h2>Sentence Endings<span class="kr">종결어미 (문장 끝맺음)</span></h2></div>
+<a class="lesson" href="grammar/gram-beg-013.html"><span class="id">BEG-013</span><span class="pt">-아/어요</span><span class="en">Polite Casual Style (해요체)</span></a>
+<a class="lesson" href="grammar/gram-beg-014.html"><span class="id">BEG-014</span><span class="pt">-ㅂ니다/습니다</span><span class="en">Formal Style (합쇼체)</span></a>
+<a class="lesson" href="grammar/gram-beg-015.html"><span class="id">BEG-015</span><span class="pt">-았/었-</span><span class="en">Past Tense</span></a>
+<a class="lesson" href="grammar/gram-beg-016.html"><span class="id">BEG-016</span><span class="pt">-(으)ㄹ 거예요</span><span class="en">Future/Presumption</span></a>
+<a class="lesson" href="grammar/gram-beg-017.html"><span class="id">BEG-017</span><span class="pt">-지 마세요</span><span class="en">Prohibition</span></a>
+<a class="lesson" href="grammar/gram-beg-018.html"><span class="id">BEG-018</span><span class="pt">-(으)세요</span><span class="en">Polite Command/Suggestion</span></a>
+<a class="lesson" href="grammar/gram-beg-019.html"><span class="id">BEG-019</span><span class="pt">-(으)ㄹ게요</span><span class="en">Intention/Promise</span></a>
+<a class="lesson" href="grammar/gram-beg-020.html"><span class="id">BEG-020</span><span class="pt">-네요</span><span class="en">Exclamation/Realization</span></a>
+<a class="lesson" href="grammar/gram-beg-021.html"><span class="id">BEG-021</span><span class="pt">-죠/지요</span><span class="en">Confirming/Seeking Agreement</span></a>
+<a class="lesson" href="grammar/gram-beg-022.html"><span class="id">BEG-022</span><span class="pt">-고 싶다</span><span class="en">Desire ("Want To")</span></a>
+<div class="section-head"><h2>Connective Endings<span class="kr">연결어미</span></h2></div>
+<a class="lesson" href="grammar/gram-beg-023.html"><span class="id">BEG-023</span><span class="pt">-고</span><span class="en">Connective: Listing ("And")</span></a>
+<a class="lesson" href="grammar/gram-beg-024.html"><span class="id">BEG-024</span><span class="pt">-지만</span><span class="en">Connective: Contrast ("But")</span></a>
+<a class="lesson" href="grammar/gram-beg-025.html"><span class="id">BEG-025</span><span class="pt">-아/어서</span><span class="en">Connective: Reason / Sequence</span></a>
+<a class="lesson" href="grammar/gram-beg-026.html"><span class="id">BEG-026</span><span class="pt">-(으)니까</span><span class="en">Because (Reason → Suggestion/Command)</span></a>
+<a class="lesson" href="grammar/gram-beg-027.html"><span class="id">BEG-027</span><span class="pt">-(으)면</span><span class="en">If / When (Condition)</span></a>
+<a class="lesson" href="grammar/gram-beg-028.html"><span class="id">BEG-028</span><span class="pt">-(으)러</span><span class="en">In Order To (Purpose + Motion Verb)</span></a>
+<a class="lesson" href="grammar/gram-beg-029.html"><span class="id">BEG-029</span><span class="pt">-(으)려고</span><span class="en">Intention ("Intend To / In Order To")</span></a>
+<div class="section-head"><h2>Negation &amp; Ability<span class="kr">부정·가능</span></h2></div>
+<a class="lesson" href="grammar/gram-beg-030.html"><span class="id">BEG-030</span><span class="pt">안/-지 않다</span><span class="en">Negation</span></a>
+<a class="lesson" href="grammar/gram-beg-031.html"><span class="id">BEG-031</span><span class="pt">못/-지 못하다</span><span class="en">Inability</span></a>
+<a class="lesson" href="grammar/gram-beg-032.html"><span class="id">BEG-032</span><span class="pt">-(으)ㄹ 수 있다/없다</span><span class="en">Ability &amp; Possibility ("Can / Cannot")</span></a>
+<div class="section-head"><h2>Other Essential Patterns<span class="kr">기타 필수 표현</span></h2></div>
+<a class="lesson" href="grammar/gram-beg-033.html"><span class="id">BEG-033</span><span class="pt">-고 있다</span><span class="en">Present Progressive ("-ing")</span></a>
+<a class="lesson" href="grammar/gram-beg-034.html"><span class="id">BEG-034</span><span class="pt">-아/어 있다</span><span class="en">Resultant State ("Is/Has Been Left ~ed")</span></a>
+<a class="lesson" href="grammar/gram-beg-035.html"><span class="id">BEG-035</span><span class="pt">-아/어 주세요</span><span class="en">Polite Request ("Please Do [For Me]")</span></a>
+<a class="lesson" href="grammar/gram-beg-036.html"><span class="id">BEG-036</span><span class="pt">-아/어야 하다/되다</span><span class="en">Obligation ("Must / Have To")</span></a>
+<a class="lesson" href="grammar/gram-beg-037.html"><span class="id">BEG-037</span><span class="pt">-기 전에 / -(으)ㄴ 후에</span><span class="en">Before / After</span></a>
+<a class="lesson" href="grammar/gram-beg-038.html"><span class="id">BEG-038</span><span class="pt">-는 것</span><span class="en">Nominalizer ("The Act/Fact of ~ing")</span></a>
+<a class="lesson" href="grammar/gram-beg-039.html"><span class="id">BEG-039</span><span class="pt">숫자(한자어·고유어) + 단위명사</span><span class="en">Numbers + Counters</span></a>
+
 </div>
 <div class="sk-footer">© Sunshine Korean · Free Korean lessons, from Hangul to advanced grammar.<br>
 Complete lessons with practice &amp; answer keys: <a href="https://sunshinework.gumroad.com" rel="noopener">sunshinework.gumroad.com</a></div>

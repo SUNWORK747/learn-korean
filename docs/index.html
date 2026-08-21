@@ -7,84 +7,105 @@
 <meta name="description" content="117 free Korean grammar lessons from Hangul to TOPIK II advanced, plus daily vocabulary. Learn Korean with clear English explanations.">
 <link rel="icon" href="favicon.svg">
 <style>
-:root{--navy:#1B2A4A;--navy-deep:#141F38;--red:#DC3E4A;--muted:#8A94A6;--body:#1F2430;--line:#E2E6EC;}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+:root{
+  --sk-bg:#F2ECE1;--sk-surface:#FFFFFF;--sk-ink:#1B2A4A;--sk-ink-soft:#445068;
+  --sk-accent:#DC3E4A;--sk-accent-text:#FFFFFF;--sk-accent-soft:#F6D9DB;
+  --sk-tip-bg:#E8F5E9;--sk-tip-line:#2E7D32;--sk-muted:#8A94A6;--sk-border:rgba(27,42,74,0.14);
+  --sk-head:'Poppins','Pretendard Variable','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --sk-body:'Inter','Pretendard Variable','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+}
+html,body{background:var(--sk-bg) !important;}
+.sk-nav{background:var(--sk-bg);border-bottom:1px solid var(--sk-border);font-family:var(--sk-body);}
+.sk-nav .inner{max-width:64rem;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 24px;flex-wrap:wrap;}
+.sk-nav a{color:var(--sk-ink-soft);text-decoration:none;font-size:13px;font-weight:600;}
+.sk-nav a:hover{color:var(--sk-accent);}
+.sk-nav .brand{color:var(--sk-ink);font-family:var(--sk-head);font-size:16px;font-weight:700;margin-right:auto;}
+.sk-cta{margin:36px 44px 8px 44px;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:24px 26px;font-family:var(--sk-body);}
+.sk-cta h3{margin:0 0 8px 0;font-family:var(--sk-head);font-size:16px;color:var(--sk-ink);}
+.sk-cta p{margin:0 0 14px 0;font-size:13.5px;line-height:1.7;color:var(--sk-ink-soft);}
+.sk-cta ul{margin:0 0 16px 18px;padding:0;font-size:13px;line-height:1.8;color:var(--sk-ink-soft);}
+.sk-cta .btn{display:inline-block;background:var(--sk-accent);color:var(--sk-accent-text);text-decoration:none;font-weight:600;font-size:14px;padding:11px 22px;border-radius:8px;transition:box-shadow .15s ease,transform .15s ease;}
+.sk-cta .btn:hover{box-shadow:4px 4px 0 var(--sk-ink);transform:translate(-2px,-2px);}
+.sk-prevnext{max-width:800px;margin:14px auto 0 auto;padding:0 12px;display:flex;justify-content:space-between;gap:12px;font-family:var(--sk-body);font-size:13px;}
+.sk-prevnext a{color:var(--sk-ink);text-decoration:none;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:10px 14px;max-width:48%;transition:box-shadow .15s ease,transform .15s ease;}
+.sk-prevnext a:hover{box-shadow:3px 3px 0 var(--sk-accent);transform:translate(-1px,-1px);}
+.sk-footer{max-width:64rem;margin:28px auto 40px auto;padding:0 24px;text-align:center;font-family:var(--sk-body);font-size:12px;color:var(--sk-muted);line-height:1.8;}
+.sk-footer a{color:var(--sk-ink);}
+
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --sk-bg:#10172A;--sk-surface:#161F38;--sk-ink:#F2ECE1;--sk-ink-soft:#C9CEDB;
+    --sk-accent:#FF7A82;--sk-accent-text:#2A1013;--sk-accent-soft:#3A2226;
+    --sk-tip-bg:#16321B;--sk-tip-line:#7FCB8B;--sk-muted:#93A0BE;--sk-border:rgba(242,236,225,0.16);
+  }
+}
+
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{margin:0;background:#F4F5F8;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:var(--body);}
-a{text-decoration:none;}
-.container{max-width:960px;margin:0 auto;padding:0 24px;}
+body{margin:0;font-family:var(--sk-body);color:var(--sk-ink);}
+a{color:inherit;}
+main{max-width:64rem;margin:0 auto;padding:3rem 1.5rem 2rem;}
 
-.hero{background:linear-gradient(135deg,#10192E 0%,#1B2A4A 55%,#2E4372 100%);color:#fff;position:relative;overflow:hidden;}
-.hero-inner{max-width:960px;margin:0 auto;padding:72px 24px 64px 24px;position:relative;}
-.hero-mark{position:absolute;right:-10px;top:-40px;font-size:340px;font-weight:900;color:rgba(255,255,255,0.045);line-height:1;pointer-events:none;user-select:none;}
-.eyebrow{font-size:12px;letter-spacing:3px;color:#9FB0D0;font-weight:700;margin-bottom:16px;}
-.hero h1{font-size:44px;font-weight:800;margin:0 0 16px 0;line-height:1.2;}
-.hero h1 em{font-style:normal;color:#FF6B76;}
-.lede{font-size:16px;color:#C4CEE3;line-height:1.7;margin:0 0 28px 0;max-width:560px;}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px;}
-.btn-primary{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:15px;padding:13px 26px;border-radius:8px;}
-.btn-primary:hover{background:#c33440;}
-.btn-ghost{display:inline-block;border:1px solid rgba(255,255,255,0.35);color:#fff;font-weight:600;font-size:15px;padding:13px 26px;border-radius:8px;}
-.btn-ghost:hover{background:rgba(255,255,255,0.08);}
-.stats{display:flex;gap:40px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.12);padding-top:24px;}
-.stat b{display:block;font-size:26px;font-weight:800;}
-.stat span{font-size:12.5px;color:#9FB0D0;}
+.hero .eyebrow{display:block;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--sk-accent);margin-bottom:10px;}
+.hero h1{font-family:var(--sk-head);font-size:2.15rem;font-weight:700;margin:0 0 14px 0;line-height:1.22;text-wrap:balance;}
+.hero h1 em{font-style:normal;color:var(--sk-accent);}
+.lede{font-size:16px;color:var(--sk-ink-soft);line-height:1.7;margin:0;max-width:40rem;}
+.lede .kr{display:block;font-size:13.5px;color:var(--sk-muted);margin-top:6px;}
+.tip{margin:1.6rem 0 0;border-left:4px solid var(--sk-tip-line);background:var(--sk-tip-bg);border-radius:2px;padding:14px 18px;max-width:40rem;}
+.tip .tip-title{font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--sk-tip-line);margin-bottom:6px;}
+.tip p{margin:0;font-size:14px;color:var(--sk-ink);line-height:1.65;}
+.tip a{color:var(--sk-accent);font-weight:600;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:1.6rem 0 0;}
+.btn-primary{display:inline-block;background:var(--sk-accent);color:var(--sk-accent-text);text-decoration:none;font-weight:600;font-size:14.5px;padding:12px 24px;border-radius:8px;transition:box-shadow .15s ease,transform .15s ease;}
+.btn-primary:hover{box-shadow:4px 4px 0 var(--sk-ink);transform:translate(-2px,-2px);}
+.btn-ghost{display:inline-block;background:var(--sk-surface);border:1px solid var(--sk-border);color:var(--sk-ink);text-decoration:none;font-weight:600;font-size:14.5px;padding:12px 24px;border-radius:8px;transition:box-shadow .15s ease,transform .15s ease;}
+.btn-ghost:hover{box-shadow:4px 4px 0 var(--sk-accent);transform:translate(-2px,-2px);}
+.stats{display:flex;gap:36px;flex-wrap:wrap;border-top:1px solid var(--sk-border);margin-top:2rem;padding-top:1.2rem;}
+.stat b{display:block;font-family:var(--sk-head);font-size:22px;font-weight:700;color:var(--sk-ink);}
+.stat span{font-size:12.5px;color:var(--sk-muted);}
 
-.sec-title{font-size:22px;font-weight:800;color:var(--navy);margin:0 0 18px 0;}
-.sec-sub{font-size:14px;font-weight:600;color:var(--muted);}
-.levels,.toc{max-width:960px;margin:0 auto;padding:44px 24px 8px 24px;}
-.lv-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-@media(max-width:680px){.lv-grid{grid-template-columns:1fr;}.hero h1{font-size:32px;}.hero-mark{font-size:220px;}}
-.lv-card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:12px;padding:22px 24px;color:var(--body);box-shadow:0 1px 4px rgba(20,31,56,0.05);transition:box-shadow .15s,transform .15s;display:block;}
-.lv-card:hover{box-shadow:0 6px 18px rgba(20,31,56,0.12);transform:translateY(-2px);}
-.lv-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
-.lv-tag{font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--accent);}
-.lv-count{font-size:12px;color:var(--muted);font-weight:600;}
-.lv-card h3{margin:0 0 6px 0;font-size:19px;color:var(--navy);}
-.lv-card p{margin:0 0 14px 0;font-size:13.5px;color:#5A6373;line-height:1.65;}
-.lv-go{font-size:13px;font-weight:700;color:var(--accent);}
+section{margin-top:2.75rem;}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:1rem;border-bottom:1px solid var(--sk-border);padding-bottom:10px;}
+.section-head h2{font-family:var(--sk-head);font-size:1.2rem;font-weight:700;margin:0;color:var(--sk-ink);}
+.section-head .kr{font-family:var(--sk-body);font-weight:500;font-size:13px;color:var(--sk-muted);margin-left:8px;}
+.section-note{font-size:12.5px;color:var(--sk-muted);white-space:nowrap;}
 
-.gumroad-strip{max-width:912px;margin:44px auto 0 auto;background:var(--navy-deep);border-radius:14px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 32px;flex-wrap:wrap;}
-.gs-text h2{margin:0 0 6px 0;font-size:19px;}
-.gs-text p{margin:0;font-size:13.5px;color:#C4CEE3;line-height:1.65;max-width:560px;}
+.lv-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+@media(max-width:680px){.lv-grid{grid-template-columns:1fr;}.hero h1{font-size:1.7rem;}}
+.lv-card{display:block;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:1.1rem 1.25rem;color:var(--sk-ink);text-decoration:none;transition:box-shadow .15s ease,transform .15s ease;}
+.lv-card:hover{box-shadow:4px 4px 0 var(--sk-accent);transform:translate(-2px,-2px);}
+.lv-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.lv-tag{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sk-accent);}
+.lv-count{font-size:12px;color:var(--sk-muted);font-weight:500;}
+.lv-card h3{margin:0 0 5px 0;font-family:var(--sk-head);font-size:1rem;font-weight:600;color:var(--sk-ink);}
+.lv-card p{margin:0 0 12px 0;font-size:13.5px;color:var(--sk-ink-soft);line-height:1.6;}
+.lv-go{font-size:13px;font-weight:600;color:var(--sk-accent);}
 
-.toc-level{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;margin-bottom:12px;overflow:hidden;}
-.toc-level summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 22px;flex-wrap:wrap;}
+.gumroad-strip{background:var(--sk-accent-soft);border:1px solid var(--sk-border);border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:1.5rem 1.75rem;flex-wrap:wrap;}
+.gs-text h2{font-family:var(--sk-head);margin:0 0 6px 0;font-size:1.05rem;color:var(--sk-ink);}
+.gs-text p{margin:0;font-size:13.5px;color:var(--sk-ink-soft);line-height:1.65;max-width:36rem;}
+
+.toc-level{background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;margin-bottom:10px;overflow:hidden;}
+.toc-level summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;flex-wrap:wrap;}
 .toc-level summary::-webkit-details-marker{display:none;}
-.toc-level summary:hover{background:#F8F9FB;}
-.toc-lv-name{font-size:16px;font-weight:800;color:var(--navy);}
-.toc-lv-name::before{content:'▸';color:var(--accent);margin-right:10px;transition:transform .15s;display:inline-block;}
+.toc-level summary:hover{background:var(--sk-accent-soft);}
+.toc-lv-name{font-family:var(--sk-head);font-size:15px;font-weight:600;color:var(--sk-ink);}
+.toc-lv-name::before{content:'▸';color:var(--sk-accent);margin-right:10px;transition:transform .15s;display:inline-block;}
 .toc-level[open] .toc-lv-name::before{transform:rotate(90deg);}
-.toc-lv-meta{font-size:12px;color:var(--muted);font-weight:600;}
-.toc-body{padding:4px 22px 18px 22px;border-top:1px solid var(--line);}
-.toc-cat{font-size:11.5px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);margin:16px 0 6px 0;}
-.toc-item{display:flex;gap:12px;align-items:baseline;padding:7px 4px;border-bottom:1px solid #F1F3F6;color:var(--body);font-size:14px;}
-.toc-item:hover .toc-pt{color:var(--red);}
+.toc-lv-meta{font-size:12px;color:var(--sk-muted);font-weight:500;}
+.toc-body{padding:2px 20px 16px 20px;border-top:1px solid var(--sk-border);}
+.toc-cat{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--sk-accent);margin:16px 0 6px 0;}
+.toc-cat .kr{font-weight:500;text-transform:none;letter-spacing:0;color:var(--sk-muted);margin-left:8px;}
+.toc-item{display:flex;gap:12px;align-items:baseline;padding:7px 2px;border-bottom:1px solid var(--sk-border);color:var(--sk-ink);font-size:14px;text-decoration:none;}
+.toc-item:hover .toc-pt{color:var(--sk-accent);}
 .toc-item:last-child{border-bottom:none;}
-.toc-id{font-size:11px;color:var(--muted);min-width:70px;font-weight:600;font-variant-numeric:tabular-nums;}
-.toc-pt{font-weight:700;color:var(--navy);white-space:nowrap;}
-.toc-en{font-size:12.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-@media(max-width:680px){.toc-en{display:none;}}
-
-.sk-nav{background:#141F38;padding:0;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
-.sk-nav .inner{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px;flex-wrap:wrap;}
-.sk-nav a{color:#C4CEE3;text-decoration:none;font-size:13px;font-weight:600;}
-.sk-nav a:hover{color:#fff;}
-.sk-nav .brand{color:#fff;font-size:16px;font-weight:800;letter-spacing:0.5px;margin-right:auto;}
-.sk-cta{margin:36px 44px 8px 44px;border:2px solid #DC3E4A;border-radius:10px;padding:24px 26px;background:#FFF6F6;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
-.sk-cta h3{margin:0 0 8px 0;font-size:17px;color:#1B2A4A;}
-.sk-cta p{margin:0 0 14px 0;font-size:13.5px;line-height:1.7;color:#1F2430;}
-.sk-cta ul{margin:0 0 16px 18px;padding:0;font-size:13px;line-height:1.8;color:#1F2430;}
-.sk-cta .btn{display:inline-block;background:#DC3E4A;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:11px 22px;border-radius:6px;}
-.sk-cta .btn:hover{background:#c33440;}
-.sk-prevnext{max-width:800px;margin:14px auto 0 auto;display:flex;justify-content:space-between;gap:12px;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:13px;}
-.sk-prevnext a{color:#1B2A4A;text-decoration:none;background:#fff;border:1px solid #D5DAE3;border-radius:6px;padding:10px 14px;max-width:48%;}
-.sk-prevnext a:hover{border-color:#1B2A4A;}
-.sk-footer{max-width:800px;margin:28px auto 40px auto;text-align:center;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:12px;color:#8A94A6;line-height:1.8;}
-.sk-footer a{color:#1B2A4A;}
-
-.sk-nav .inner{max-width:960px;}
-.sk-footer{margin-top:44px;}
+.toc-id{font-size:10.5px;color:var(--sk-muted);min-width:64px;font-weight:600;letter-spacing:0.04em;}
+.toc-pt{font-weight:600;color:var(--sk-ink);white-space:nowrap;}
+.toc-en{font-size:12.5px;color:var(--sk-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+@media(max-width:640px){.toc-en{display:none;}}
 </style>
 </head>
 <body>
@@ -96,46 +117,49 @@ a{text-decoration:none;}
   <a href="advanced.html">Advanced</a>
   <a href="vocabulary.html">Vocabulary</a>
 </div></nav>
+<main>
 
 <header class="hero">
-  <div class="hero-inner">
-    <div class="hero-mark" aria-hidden="true">한</div>
-    <div class="eyebrow">FREE KOREAN GRAMMAR &amp; VOCABULARY</div>
-    <h1>Learn Korean properly,<br>from <em>Hangul</em> to advanced.</h1>
-    <p class="lede">117 structured grammar lessons following the TOPIK curriculum, written in plain English — every one free to read.</p>
-    <div class="hero-actions">
-      <a class="btn-primary" href="grammar/gram-pre-002.html">Start with Hangul →</a>
-      <a class="btn-ghost" href="#curriculum">See the full curriculum</a>
-    </div>
-    <div class="stats">
-      <div class="stat"><b>117</b><span>grammar lessons</span></div>
-      <div class="stat"><b>4</b><span>levels, Pre-TOPIK → TOPIK II</span></div>
-      <div class="stat"><b>100%</b><span>free to read</span></div>
-    </div>
+  <span class="eyebrow">FREE KOREAN GRAMMAR &amp; VOCABULARY</span>
+  <h1>Learn Korean properly,<br>from <em>Hangul</em> to advanced.</h1>
+  <p class="lede">117 structured grammar lessons following the TOPIK curriculum, written in plain English — every one free to read.
+  <span class="kr">한글부터 TOPIK II 고급 문법까지, 전부 무료로 읽을 수 있습니다.</span></p>
+  <div class="tip">
+    <div class="tip-title">Free by design</div>
+    <p>Every lesson on this site is free — no sign-up, no paywall. If you want the complete editions (full explanations, practice with answer keys, print-ready PDFs), they live on <a href="https://sunshinework.gumroad.com" rel="noopener" target="_blank">Gumroad</a>.</p>
+  </div>
+  <div class="hero-actions">
+    <a class="btn-primary" href="grammar/gram-pre-002.html">Start with Hangul →</a>
+    <a class="btn-ghost" href="#curriculum">See the full curriculum</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>117</b><span>grammar lessons</span></div>
+    <div class="stat"><b>4</b><span>levels, Pre-TOPIK → TOPIK II</span></div>
+    <div class="stat"><b>100%</b><span>free to read</span></div>
   </div>
 </header>
 
-<section class="levels">
-  <h2 class="sec-title">Pick your level</h2>
-  <div class="lv-grid"><a class="lv-card" href="hangul-basics.html" style="--accent:#0E7C7B;">
+<section>
+  <div class="section-head"><h2>Pick your level<span class="kr">단계별 문법</span></h2><span class="section-note">117 lessons total</span></div>
+  <div class="lv-grid"><a class="lv-card" href="hangul-basics.html">
   <div class="lv-top"><span class="lv-tag">PRE-TOPIK</span><span class="lv-count">21 lessons</span></div>
   <h3>Hangul &amp; Basics</h3>
   <p>the alphabet, pronunciation and sentence skeleton</p>
   <span class="lv-go">Browse lessons →</span>
 </a>
-<a class="lv-card" href="beginner.html" style="--accent:#2456A6;">
+<a class="lv-card" href="beginner.html">
   <div class="lv-top"><span class="lv-tag">TOPIK I · 1–2</span><span class="lv-count">39 lessons</span></div>
   <h3>Beginner</h3>
   <p>core particles, tenses and everyday endings</p>
   <span class="lv-go">Browse lessons →</span>
 </a>
-<a class="lv-card" href="intermediate.html" style="--accent:#C77800;">
+<a class="lv-card" href="intermediate.html">
   <div class="lv-top"><span class="lv-tag">TOPIK II · 3–4</span><span class="lv-count">34 lessons</span></div>
   <h3>Intermediate</h3>
   <p>connective endings and spoken nuance</p>
   <span class="lv-go">Browse lessons →</span>
 </a>
-<a class="lv-card" href="advanced.html" style="--accent:#B3261E;">
+<a class="lv-card" href="advanced.html">
   <div class="lv-top"><span class="lv-tag">TOPIK II · 5–6</span><span class="lv-count">23 lessons</span></div>
   <h3>Advanced</h3>
   <p>formal and written-register Korean</p>
@@ -151,11 +175,11 @@ a{text-decoration:none;}
   <a class="btn-primary" href="https://sunshinework.gumroad.com" rel="noopener" target="_blank">Visit the store →</a>
 </section>
 
-<section class="toc" id="curriculum">
-  <h2 class="sec-title">Full curriculum <span class="sec-sub">— all 117 lessons, in order</span></h2>
-  <details class="toc-level" style="--accent:#0E7C7B;" open>
+<section id="curriculum">
+  <div class="section-head"><h2>Full curriculum<span class="kr">전체 목차</span></h2><span class="section-note">all 117 lessons, in order</span></div>
+  <details class="toc-level" open>
 <summary><span class="toc-lv-name">Hangul &amp; Basics</span><span class="toc-lv-meta">PRE-TOPIK · 21 lessons</span></summary>
-<div class="toc-body"><div class="toc-cat">Hangul: Letters &amp; Pronunciation</div>
+<div class="toc-body"><div class="toc-cat">Hangul: Letters &amp; Pronunciation<span class="kr">한글 (자모·발음)</span></div>
 <a class="toc-item" href="grammar/gram-pre-002.html"><span class="toc-id">PRE-002</span><span class="toc-pt">Vowels</span><span class="toc-en"></span></a>
 <a class="toc-item" href="grammar/gram-pre-003.html"><span class="toc-id">PRE-003</span><span class="toc-pt">Consonants</span><span class="toc-en"></span></a>
 <a class="toc-item" href="grammar/gram-pre-004.html"><span class="toc-id">PRE-004</span><span class="toc-pt">Syllable Structure &amp; Final Consonants</span><span class="toc-en"></span></a>
@@ -167,7 +191,7 @@ a{text-decoration:none;}
 <a class="toc-item" href="grammar/gram-pre-010.html"><span class="toc-id">PRE-010</span><span class="toc-pt">Palatalization</span><span class="toc-en"></span></a>
 <a class="toc-item" href="grammar/gram-pre-011.html"><span class="toc-id">PRE-011</span><span class="toc-pt">Tensification</span><span class="toc-en"></span></a>
 <a class="toc-item" href="grammar/gram-pre-012.html"><span class="toc-id">PRE-012</span><span class="toc-pt">Initial Sound Rule</span><span class="toc-en"></span></a>
-<div class="toc-cat">Basic Sentence Structure</div>
+<div class="toc-cat">Basic Sentence Structure<span class="kr">문장의 기본 골격</span></div>
 <a class="toc-item" href="grammar/gram-pre-013.html"><span class="toc-id">PRE-013</span><span class="toc-pt">Korean Word Order (SOV) vs. English Word Order (SVO)</span><span class="toc-en"></span></a>
 <a class="toc-item" href="grammar/gram-pre-014.html"><span class="toc-id">PRE-014</span><span class="toc-pt">What Are Particles?</span><span class="toc-en"></span></a>
 <a class="toc-item" href="grammar/gram-pre-015.html"><span class="toc-id">PRE-015</span><span class="toc-pt">The 4 Sentence-Ending Types</span><span class="toc-en"></span></a>
@@ -180,9 +204,9 @@ a{text-decoration:none;}
 <a class="toc-item" href="grammar/gram-pre-022.html"><span class="toc-id">PRE-022</span><span class="toc-pt">Basic Negation with 안/못</span><span class="toc-en"></span></a>
 </div>
 </details>
-<details class="toc-level" style="--accent:#2456A6;">
+<details class="toc-level">
 <summary><span class="toc-lv-name">Beginner</span><span class="toc-lv-meta">TOPIK I · 1–2 · 39 lessons</span></summary>
-<div class="toc-body"><div class="toc-cat">Particles</div>
+<div class="toc-body"><div class="toc-cat">Particles<span class="kr">조사</span></div>
 <a class="toc-item" href="grammar/gram-beg-001.html"><span class="toc-id">BEG-001</span><span class="toc-pt">은/는</span><span class="toc-en">Topic Particle</span></a>
 <a class="toc-item" href="grammar/gram-beg-002.html"><span class="toc-id">BEG-002</span><span class="toc-pt">이/가</span><span class="toc-en">Subject Particle</span></a>
 <a class="toc-item" href="grammar/gram-beg-003.html"><span class="toc-id">BEG-003</span><span class="toc-pt">을/를</span><span class="toc-en">Object Particle</span></a>
@@ -195,7 +219,7 @@ a{text-decoration:none;}
 <a class="toc-item" href="grammar/gram-beg-010.html"><span class="toc-id">BEG-010</span><span class="toc-pt">(으)로</span><span class="toc-en">Means &amp; Direction</span></a>
 <a class="toc-item" href="grammar/gram-beg-011.html"><span class="toc-id">BEG-011</span><span class="toc-pt">부터~까지</span><span class="toc-en">Range: From~To</span></a>
 <a class="toc-item" href="grammar/gram-beg-012.html"><span class="toc-id">BEG-012</span><span class="toc-pt">보다</span><span class="toc-en">Comparison</span></a>
-<div class="toc-cat">Sentence Endings</div>
+<div class="toc-cat">Sentence Endings<span class="kr">종결어미 (문장 끝맺음)</span></div>
 <a class="toc-item" href="grammar/gram-beg-013.html"><span class="toc-id">BEG-013</span><span class="toc-pt">-아/어요</span><span class="toc-en">Polite Casual Style (해요체)</span></a>
 <a class="toc-item" href="grammar/gram-beg-014.html"><span class="toc-id">BEG-014</span><span class="toc-pt">-ㅂ니다/습니다</span><span class="toc-en">Formal Style (합쇼체)</span></a>
 <a class="toc-item" href="grammar/gram-beg-015.html"><span class="toc-id">BEG-015</span><span class="toc-pt">-았/었-</span><span class="toc-en">Past Tense</span></a>
@@ -206,7 +230,7 @@ a{text-decoration:none;}
 <a class="toc-item" href="grammar/gram-beg-020.html"><span class="toc-id">BEG-020</span><span class="toc-pt">-네요</span><span class="toc-en">Exclamation/Realization</span></a>
 <a class="toc-item" href="grammar/gram-beg-021.html"><span class="toc-id">BEG-021</span><span class="toc-pt">-죠/지요</span><span class="toc-en">Confirming/Seeking Agreement</span></a>
 <a class="toc-item" href="grammar/gram-beg-022.html"><span class="toc-id">BEG-022</span><span class="toc-pt">-고 싶다</span><span class="toc-en">Desire ("Want To")</span></a>
-<div class="toc-cat">Connective Endings</div>
+<div class="toc-cat">Connective Endings<span class="kr">연결어미</span></div>
 <a class="toc-item" href="grammar/gram-beg-023.html"><span class="toc-id">BEG-023</span><span class="toc-pt">-고</span><span class="toc-en">Connective: Listing ("And")</span></a>
 <a class="toc-item" href="grammar/gram-beg-024.html"><span class="toc-id">BEG-024</span><span class="toc-pt">-지만</span><span class="toc-en">Connective: Contrast ("But")</span></a>
 <a class="toc-item" href="grammar/gram-beg-025.html"><span class="toc-id">BEG-025</span><span class="toc-pt">-아/어서</span><span class="toc-en">Connective: Reason / Sequence</span></a>
@@ -214,11 +238,11 @@ a{text-decoration:none;}
 <a class="toc-item" href="grammar/gram-beg-027.html"><span class="toc-id">BEG-027</span><span class="toc-pt">-(으)면</span><span class="toc-en">If / When (Condition)</span></a>
 <a class="toc-item" href="grammar/gram-beg-028.html"><span class="toc-id">BEG-028</span><span class="toc-pt">-(으)러</span><span class="toc-en">In Order To (Purpose + Motion Verb)</span></a>
 <a class="toc-item" href="grammar/gram-beg-029.html"><span class="toc-id">BEG-029</span><span class="toc-pt">-(으)려고</span><span class="toc-en">Intention ("Intend To / In Order To")</span></a>
-<div class="toc-cat">Negation &amp; Ability</div>
+<div class="toc-cat">Negation &amp; Ability<span class="kr">부정·가능</span></div>
 <a class="toc-item" href="grammar/gram-beg-030.html"><span class="toc-id">BEG-030</span><span class="toc-pt">안/-지 않다</span><span class="toc-en">Negation</span></a>
 <a class="toc-item" href="grammar/gram-beg-031.html"><span class="toc-id">BEG-031</span><span class="toc-pt">못/-지 못하다</span><span class="toc-en">Inability</span></a>
 <a class="toc-item" href="grammar/gram-beg-032.html"><span class="toc-id">BEG-032</span><span class="toc-pt">-(으)ㄹ 수 있다/없다</span><span class="toc-en">Ability &amp; Possibility ("Can / Cannot")</span></a>
-<div class="toc-cat">Other Essential Patterns</div>
+<div class="toc-cat">Other Essential Patterns<span class="kr">기타 필수 표현</span></div>
 <a class="toc-item" href="grammar/gram-beg-033.html"><span class="toc-id">BEG-033</span><span class="toc-pt">-고 있다</span><span class="toc-en">Present Progressive ("-ing")</span></a>
 <a class="toc-item" href="grammar/gram-beg-034.html"><span class="toc-id">BEG-034</span><span class="toc-pt">-아/어 있다</span><span class="toc-en">Resultant State ("Is/Has Been Left ~ed")</span></a>
 <a class="toc-item" href="grammar/gram-beg-035.html"><span class="toc-id">BEG-035</span><span class="toc-pt">-아/어 주세요</span><span class="toc-en">Polite Request ("Please Do [For Me]")</span></a>
@@ -228,9 +252,9 @@ a{text-decoration:none;}
 <a class="toc-item" href="grammar/gram-beg-039.html"><span class="toc-id">BEG-039</span><span class="toc-pt">숫자(한자어·고유어) + 단위명사</span><span class="toc-en">Numbers + Counters</span></a>
 </div>
 </details>
-<details class="toc-level" style="--accent:#C77800;">
+<details class="toc-level">
 <summary><span class="toc-lv-name">Intermediate</span><span class="toc-lv-meta">TOPIK II · 3–4 · 34 lessons</span></summary>
-<div class="toc-body"><div class="toc-cat">More Connective Endings</div>
+<div class="toc-body"><div class="toc-cat">More Connective Endings<span class="kr">연결어미 확장</span></div>
 <a class="toc-item" href="grammar/gram-int-001.html"><span class="toc-id">INT-001</span><span class="toc-pt">-(으)ㄴ데/는데</span><span class="toc-en">Background &amp; Mild Contrast</span></a>
 <a class="toc-item" href="grammar/gram-int-002.html"><span class="toc-id">INT-002</span><span class="toc-pt">-거나</span><span class="toc-en">Choice / Alternatives ("Or")</span></a>
 <a class="toc-item" href="grammar/gram-int-003.html"><span class="toc-id">INT-003</span><span class="toc-pt">-든지</span><span class="toc-en">Free Choice &amp; Indifference ("No Matter Which")</span></a>
@@ -242,29 +266,29 @@ a{text-decoration:none;}
 <a class="toc-item" href="grammar/gram-int-009.html"><span class="toc-id">INT-009</span><span class="toc-pt">-다가</span><span class="toc-en">Action Switching &amp; Interruption</span></a>
 <a class="toc-item" href="grammar/gram-int-010.html"><span class="toc-id">INT-010</span><span class="toc-pt">-는 김에</span><span class="toc-en">Taking the Opportunity ("While I'm At It")</span></a>
 <a class="toc-item" href="grammar/gram-int-011.html"><span class="toc-id">INT-011</span><span class="toc-pt">-(으)ㄴ/는데도</span><span class="toc-en">Even Though... Still (Concessive)</span></a>
-<div class="toc-cat">Conjecture &amp; Intention</div>
+<div class="toc-cat">Conjecture &amp; Intention<span class="kr">추측·의지 표현</span></div>
 <a class="toc-item" href="grammar/gram-int-012.html"><span class="toc-id">INT-012</span><span class="toc-pt">-(으)ㄹ 것 같다</span><span class="toc-en">Vague Conjecture</span></a>
 <a class="toc-item" href="grammar/gram-int-013.html"><span class="toc-id">INT-013</span><span class="toc-pt">-나 보다/-(으)ㄴ가 보다</span><span class="toc-en">Evidence-Based Conjecture</span></a>
 <a class="toc-item" href="grammar/gram-int-014.html"><span class="toc-id">INT-014</span><span class="toc-pt">-겠-</span><span class="toc-en">Conjecture &amp; Volition</span></a>
 <a class="toc-item" href="grammar/gram-int-015.html"><span class="toc-id">INT-015</span><span class="toc-pt">-(으)려고 하다</span><span class="toc-en">Plans &amp; Intentions</span></a>
 <a class="toc-item" href="grammar/gram-int-016.html"><span class="toc-id">INT-016</span><span class="toc-pt">-기로 하다</span><span class="toc-en">Firm Decisions &amp; Promises</span></a>
 <a class="toc-item" href="grammar/gram-int-017.html"><span class="toc-id">INT-017</span><span class="toc-pt">-(으)ㄹ 뻔하다</span><span class="toc-en">The Near-Miss Pattern</span></a>
-<div class="toc-cat">Passive &amp; Causative</div>
+<div class="toc-cat">Passive &amp; Causative<span class="kr">피동·사동</span></div>
 <a class="toc-item" href="grammar/gram-int-018.html"><span class="toc-id">INT-018</span><span class="toc-pt">피동 표현</span><span class="toc-en">Passive Expressions</span></a>
 <a class="toc-item" href="grammar/gram-int-019.html"><span class="toc-id">INT-019</span><span class="toc-pt">사동 표현</span><span class="toc-en">Causative Expressions</span></a>
-<div class="toc-cat">Quotation &amp; Reported Speech</div>
+<div class="toc-cat">Quotation &amp; Reported Speech<span class="kr">인용·간접화법</span></div>
 <a class="toc-item" href="grammar/gram-int-020.html"><span class="toc-id">INT-020</span><span class="toc-pt">-다고 하다</span><span class="toc-en">Reported Speech for Statements</span></a>
 <a class="toc-item" href="grammar/gram-int-021.html"><span class="toc-id">INT-021</span><span class="toc-pt">-냐고 하다</span><span class="toc-en">Reported Speech: Questions</span></a>
 <a class="toc-item" href="grammar/gram-int-022.html"><span class="toc-id">INT-022</span><span class="toc-pt">-자고 하다</span><span class="toc-en">Reported Suggestions</span></a>
 <a class="toc-item" href="grammar/gram-int-023.html"><span class="toc-id">INT-023</span><span class="toc-pt">-(으)라고 하다</span><span class="toc-en">Reported Commands</span></a>
-<div class="toc-cat">Particles &amp; Bound Nouns</div>
+<div class="toc-cat">Particles &amp; Bound Nouns<span class="kr">조사·의존명사 확장</span></div>
 <a class="toc-item" href="grammar/gram-int-024.html"><span class="toc-id">INT-024</span><span class="toc-pt">-밖에</span><span class="toc-en">Only, and Nothing But</span></a>
 <a class="toc-item" href="grammar/gram-int-025.html"><span class="toc-id">INT-025</span><span class="toc-pt">-조차/마저</span><span class="toc-en">Extreme Inclusion ("Even")</span></a>
 <a class="toc-item" href="grammar/gram-int-026.html"><span class="toc-id">INT-026</span><span class="toc-pt">-(이)나</span><span class="toc-en">Alternative Choice &amp; Surprising Degree</span></a>
 <a class="toc-item" href="grammar/gram-int-027.html"><span class="toc-id">INT-027</span><span class="toc-pt">-(이)라도</span><span class="toc-en">Settling for the Next-Best Option</span></a>
 <a class="toc-item" href="grammar/gram-int-028.html"><span class="toc-id">INT-028</span><span class="toc-pt">-치고</span><span class="toc-en">No Exception, or Surprisingly For a Typical X</span></a>
 <a class="toc-item" href="grammar/gram-int-029.html"><span class="toc-id">INT-029</span><span class="toc-pt">-는 대로</span><span class="toc-en">Immediate Sequence &amp; Exactly As</span></a>
-<div class="toc-cat">Other Intermediate Patterns</div>
+<div class="toc-cat">Other Intermediate Patterns<span class="kr">기타 중급 표현</span></div>
 <a class="toc-item" href="grammar/gram-int-030.html"><span class="toc-id">INT-030</span><span class="toc-pt">-아/어 보이다</span><span class="toc-en">Looks/Seems (Appearance-Based Impression)</span></a>
 <a class="toc-item" href="grammar/gram-int-031.html"><span class="toc-id">INT-031</span><span class="toc-pt">-기 때문에</span><span class="toc-en">Formal Reason &amp; Cause</span></a>
 <a class="toc-item" href="grammar/gram-int-032.html"><span class="toc-id">INT-032</span><span class="toc-pt">-는 바람에</span><span class="toc-en">Unexpected, Negative Cause</span></a>
@@ -272,32 +296,32 @@ a{text-decoration:none;}
 <a class="toc-item" href="grammar/gram-int-034.html"><span class="toc-id">INT-034</span><span class="toc-pt">-(으)ㄹ까 하다</span><span class="toc-en">Vague, Tentative Plans</span></a>
 </div>
 </details>
-<details class="toc-level" style="--accent:#B3261E;">
+<details class="toc-level">
 <summary><span class="toc-lv-name">Advanced</span><span class="toc-lv-meta">TOPIK II · 5–6 · 23 lessons</span></summary>
-<div class="toc-body"><div class="toc-cat">Formal &amp; Written Style</div>
+<div class="toc-body"><div class="toc-cat">Formal &amp; Written Style<span class="kr">문어체·격식 표현</span></div>
 <a class="toc-item" href="grammar/gram-adv-001.html"><span class="toc-id">ADV-001</span><span class="toc-pt">-(으)ㅁ</span><span class="toc-en">Nominalizer &amp; Formal Written Sentence Ending</span></a>
 <a class="toc-item" href="grammar/gram-adv-002.html"><span class="toc-id">ADV-002</span><span class="toc-pt">-(으)로 인해(서)</span><span class="toc-en">Formal Written Cause</span></a>
 <a class="toc-item" href="grammar/gram-adv-003.html"><span class="toc-id">ADV-003</span><span class="toc-pt">-는 한</span><span class="toc-en">The Boundary of a Condition</span></a>
 <a class="toc-item" href="grammar/gram-adv-004.html"><span class="toc-id">ADV-004</span><span class="toc-pt">-(으)ㅁ으로써</span><span class="toc-en">Formal Means &amp; Method</span></a>
 <a class="toc-item" href="grammar/gram-adv-005.html"><span class="toc-id">ADV-005</span><span class="toc-pt">-는바</span><span class="toc-en">Formal Connective, Presenting a Situation</span></a>
 <a class="toc-item" href="grammar/gram-adv-006.html"><span class="toc-id">ADV-006</span><span class="toc-pt">-다시피 하다</span><span class="toc-en">Nearly / Practically the Same as Doing</span></a>
-<div class="toc-cat">Concession &amp; Contrast</div>
+<div class="toc-cat">Concession &amp; Contrast<span class="kr">양보·대조 고급 표현</span></div>
 <a class="toc-item" href="grammar/gram-adv-007.html"><span class="toc-id">ADV-007</span><span class="toc-pt">-(으)ㄹ지라도</span><span class="toc-en">Strong Concessive "Even If"</span></a>
 <a class="toc-item" href="grammar/gram-adv-008.html"><span class="toc-id">ADV-008</span><span class="toc-pt">-더라도</span><span class="toc-en">Concession, "Even If"</span></a>
 <a class="toc-item" href="grammar/gram-adv-009.html"><span class="toc-id">ADV-009</span><span class="toc-pt">-(으)ㄴ들</span><span class="toc-en">Concession, "Even If... It Wouldn't Matter"</span></a>
 <a class="toc-item" href="grammar/gram-adv-010.html"><span class="toc-id">ADV-010</span><span class="toc-pt">-(으)나마</span><span class="toc-en">Such as It Is, a Resigned Concession</span></a>
 <a class="toc-item" href="grammar/gram-adv-011.html"><span class="toc-id">ADV-011</span><span class="toc-pt">-(으)ㅁ에도 불구하고</span><span class="toc-en">Strong Contrast "Despite / In Spite Of"</span></a>
-<div class="toc-cat">Cause &amp; Condition</div>
+<div class="toc-cat">Cause &amp; Condition<span class="kr">인과·조건 고급 표현</span></div>
 <a class="toc-item" href="grammar/gram-adv-012.html"><span class="toc-id">ADV-012</span><span class="toc-pt">-는 이상</span><span class="toc-en">An Established Fact That Makes the Conclusion Inevitable</span></a>
 <a class="toc-item" href="grammar/gram-adv-013.html"><span class="toc-id">ADV-013</span><span class="toc-pt">-(으)ㄹ망정</span><span class="toc-en">A Proud, Defiant Concession</span></a>
 <a class="toc-item" href="grammar/gram-adv-014.html"><span class="toc-id">ADV-014</span><span class="toc-pt">-(으)ㄴ/는 나머지</span><span class="toc-en">Excessive Degree Leading to a Result</span></a>
 <a class="toc-item" href="grammar/gram-adv-015.html"><span class="toc-id">ADV-015</span><span class="toc-pt">-(으)ㄹ 뿐(만) 아니라</span><span class="toc-en">Not Only... But Also (Addition)</span></a>
-<div class="toc-cat">Conjecture &amp; Hearsay</div>
+<div class="toc-cat">Conjecture &amp; Hearsay<span class="kr">추측·전문(傳聞) 고급 표현</span></div>
 <a class="toc-item" href="grammar/gram-adv-016.html"><span class="toc-id">ADV-016</span><span class="toc-pt">-(으)ㄹ 리가 없다</span><span class="toc-en">Strong Negative Conjecture</span></a>
 <a class="toc-item" href="grammar/gram-adv-017.html"><span class="toc-id">ADV-017</span><span class="toc-pt">-(으)ㄴ/는 듯하다</span><span class="toc-en">Formal Literary Conjecture</span></a>
 <a class="toc-item" href="grammar/gram-adv-018.html"><span class="toc-id">ADV-018</span><span class="toc-pt">-(으)ㄹ 법하다</span><span class="toc-en">Conjecture of Plausibility</span></a>
 <a class="toc-item" href="grammar/gram-adv-019.html"><span class="toc-id">ADV-019</span><span class="toc-pt">-(으)ㄴ/는 셈이다</span><span class="toc-en">Evaluative Equivalence</span></a>
-<div class="toc-cat">Discourse &amp; Argumentation</div>
+<div class="toc-cat">Discourse &amp; Argumentation<span class="kr">담화·논증 표현</span></div>
 <a class="toc-item" href="grammar/gram-adv-020.html"><span class="toc-id">ADV-020</span><span class="toc-pt">-되</span><span class="toc-en">Conditional Concession (Granted, But...)</span></a>
 <a class="toc-item" href="grammar/gram-adv-021.html"><span class="toc-id">ADV-021</span><span class="toc-pt">-(으)려니와</span><span class="toc-en">Acknowledging Plus Addition</span></a>
 <a class="toc-item" href="grammar/gram-adv-022.html"><span class="toc-id">ADV-022</span><span class="toc-pt">-기는커녕</span><span class="toc-en">Far From X, Not Even Y</span></a>
@@ -306,16 +330,16 @@ a{text-decoration:none;}
 </details>
 </section>
 
-<section class="levels">
-  <h2 class="sec-title">Daily vocabulary</h2>
+<section>
+  <div class="section-head"><h2>Daily vocabulary<span class="kr">일일 어휘</span></h2></div>
   <div class="lv-grid">
-    <a class="lv-card" href="vocab/day-1.html" style="--accent:#6A3FB5;">
+    <a class="lv-card" href="vocab/day-1.html">
       <div class="lv-top"><span class="lv-tag">DAY 1</span><span class="lv-count">31 words</span></div>
       <h3>Greetings &amp; Basic Expressions</h3>
       <p>The first words every learner needs — with romanization and example sentences.</p>
       <span class="lv-go">Start Day 1 →</span>
     </a>
-    <a class="lv-card" href="vocabulary.html" style="--accent:#6A3FB5;">
+    <a class="lv-card" href="vocabulary.html">
       <div class="lv-top"><span class="lv-tag">SERIES</span><span class="lv-count">growing</span></div>
       <h3>All vocabulary days</h3>
       <p>Themed word sets, added day by day as the series grows.</p>
@@ -323,6 +347,7 @@ a{text-decoration:none;}
     </a>
   </div>
 </section>
+</main>
 <div class="sk-footer">© Sunshine Korean · Free Korean lessons, from Hangul to advanced grammar.<br>
 Complete lessons with practice &amp; answer keys: <a href="https://sunshinework.gumroad.com" rel="noopener">sunshinework.gumroad.com</a></div>
 </body>

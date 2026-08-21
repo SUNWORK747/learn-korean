@@ -7,44 +7,63 @@
 <meta name="description" content="TOPIK II (Levels 5–6) · formal and written-register Korean. 23 free Korean grammar lessons.">
 <link rel="icon" href="favicon.svg">
 <style>
-:root{--navy:#1B2A4A;--red:#DC3E4A;--muted:#8A94A6;--body:#1F2430;}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+:root{
+  --sk-bg:#F2ECE1;--sk-surface:#FFFFFF;--sk-ink:#1B2A4A;--sk-ink-soft:#445068;
+  --sk-accent:#DC3E4A;--sk-accent-text:#FFFFFF;--sk-accent-soft:#F6D9DB;
+  --sk-tip-bg:#E8F5E9;--sk-tip-line:#2E7D32;--sk-muted:#8A94A6;--sk-border:rgba(27,42,74,0.14);
+  --sk-head:'Poppins','Pretendard Variable','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --sk-body:'Inter','Pretendard Variable','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+}
+html,body{background:var(--sk-bg) !important;}
+.sk-nav{background:var(--sk-bg);border-bottom:1px solid var(--sk-border);font-family:var(--sk-body);}
+.sk-nav .inner{max-width:64rem;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 24px;flex-wrap:wrap;}
+.sk-nav a{color:var(--sk-ink-soft);text-decoration:none;font-size:13px;font-weight:600;}
+.sk-nav a:hover{color:var(--sk-accent);}
+.sk-nav .brand{color:var(--sk-ink);font-family:var(--sk-head);font-size:16px;font-weight:700;margin-right:auto;}
+.sk-cta{margin:36px 44px 8px 44px;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:24px 26px;font-family:var(--sk-body);}
+.sk-cta h3{margin:0 0 8px 0;font-family:var(--sk-head);font-size:16px;color:var(--sk-ink);}
+.sk-cta p{margin:0 0 14px 0;font-size:13.5px;line-height:1.7;color:var(--sk-ink-soft);}
+.sk-cta ul{margin:0 0 16px 18px;padding:0;font-size:13px;line-height:1.8;color:var(--sk-ink-soft);}
+.sk-cta .btn{display:inline-block;background:var(--sk-accent);color:var(--sk-accent-text);text-decoration:none;font-weight:600;font-size:14px;padding:11px 22px;border-radius:8px;transition:box-shadow .15s ease,transform .15s ease;}
+.sk-cta .btn:hover{box-shadow:4px 4px 0 var(--sk-ink);transform:translate(-2px,-2px);}
+.sk-prevnext{max-width:800px;margin:14px auto 0 auto;padding:0 12px;display:flex;justify-content:space-between;gap:12px;font-family:var(--sk-body);font-size:13px;}
+.sk-prevnext a{color:var(--sk-ink);text-decoration:none;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:10px 14px;max-width:48%;transition:box-shadow .15s ease,transform .15s ease;}
+.sk-prevnext a:hover{box-shadow:3px 3px 0 var(--sk-accent);transform:translate(-1px,-1px);}
+.sk-footer{max-width:64rem;margin:28px auto 40px auto;padding:0 24px;text-align:center;font-family:var(--sk-body);font-size:12px;color:var(--sk-muted);line-height:1.8;}
+.sk-footer a{color:var(--sk-ink);}
+
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --sk-bg:#10172A;--sk-surface:#161F38;--sk-ink:#F2ECE1;--sk-ink-soft:#C9CEDB;
+    --sk-accent:#FF7A82;--sk-accent-text:#2A1013;--sk-accent-soft:#3A2226;
+    --sk-tip-bg:#16321B;--sk-tip-line:#7FCB8B;--sk-muted:#93A0BE;--sk-border:rgba(242,236,225,0.16);
+  }
+}
+
 *{box-sizing:border-box;}
-body{margin:0;background:#EEF0F3;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:var(--body);}
-.wrap{max-width:800px;margin:24px auto;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.08);}
-.hero{background:var(--navy);color:#fff;padding:44px;}
-.hero .eyebrow{font-size:11px;letter-spacing:2px;color:#9FB0D0;font-weight:600;margin-bottom:10px;}
-.hero h1{font-size:30px;font-weight:800;margin:0 0 8px 0;line-height:1.3;}
-.hero p{font-size:14px;color:#C4CEE3;margin:0;line-height:1.7;}
-.content{padding:34px 44px 44px 44px;}
-.card{display:block;border:1px solid #D5DAE3;border-radius:10px;padding:20px 22px;margin-bottom:14px;text-decoration:none;color:var(--body);}
-.card:hover{border-color:var(--navy);}
-.card h2{margin:0 0 4px 0;font-size:17px;color:var(--navy);}
-.card p{margin:0;font-size:13px;color:var(--muted);line-height:1.6;}
-.card .count{float:right;font-size:12px;color:var(--red);font-weight:700;}
-.lesson{display:flex;gap:12px;padding:11px 4px;border-bottom:1px solid #EEF0F3;text-decoration:none;color:var(--body);font-size:14px;align-items:baseline;}
-.lesson:hover .pt{color:var(--red);}
-.lesson .id{font-size:11px;color:var(--muted);min-width:110px;font-weight:600;}
-.lesson .pt{font-weight:700;color:var(--navy);}
-.lesson .en{font-size:12.5px;color:var(--muted);}
-h2.cat{font-size:14px;color:var(--red);letter-spacing:1px;margin:30px 0 8px 0;text-transform:uppercase;}
-
-.sk-nav{background:#141F38;padding:0;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
-.sk-nav .inner{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px;flex-wrap:wrap;}
-.sk-nav a{color:#C4CEE3;text-decoration:none;font-size:13px;font-weight:600;}
-.sk-nav a:hover{color:#fff;}
-.sk-nav .brand{color:#fff;font-size:16px;font-weight:800;letter-spacing:0.5px;margin-right:auto;}
-.sk-cta{margin:36px 44px 8px 44px;border:2px solid #DC3E4A;border-radius:10px;padding:24px 26px;background:#FFF6F6;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
-.sk-cta h3{margin:0 0 8px 0;font-size:17px;color:#1B2A4A;}
-.sk-cta p{margin:0 0 14px 0;font-size:13.5px;line-height:1.7;color:#1F2430;}
-.sk-cta ul{margin:0 0 16px 18px;padding:0;font-size:13px;line-height:1.8;color:#1F2430;}
-.sk-cta .btn{display:inline-block;background:#DC3E4A;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:11px 22px;border-radius:6px;}
-.sk-cta .btn:hover{background:#c33440;}
-.sk-prevnext{max-width:800px;margin:14px auto 0 auto;display:flex;justify-content:space-between;gap:12px;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:13px;}
-.sk-prevnext a{color:#1B2A4A;text-decoration:none;background:#fff;border:1px solid #D5DAE3;border-radius:6px;padding:10px 14px;max-width:48%;}
-.sk-prevnext a:hover{border-color:#1B2A4A;}
-.sk-footer{max-width:800px;margin:28px auto 40px auto;text-align:center;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:12px;color:#8A94A6;line-height:1.8;}
-.sk-footer a{color:#1B2A4A;}
-
+body{margin:0;font-family:var(--sk-body);color:var(--sk-ink);}
+.wrap{max-width:64rem;margin:0 auto;padding:3rem 1.5rem 2rem;}
+.hero{margin-bottom:2.25rem;}
+.hero .eyebrow{display:block;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--sk-accent);margin-bottom:8px;}
+.hero h1{font-family:var(--sk-head);font-size:1.75rem;font-weight:700;margin:0 0 10px 0;line-height:1.25;text-wrap:balance;}
+.hero p{font-size:15px;color:var(--sk-ink-soft);margin:0;line-height:1.7;max-width:40rem;}
+.card{display:block;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:20px 22px;margin-bottom:14px;text-decoration:none;color:var(--sk-ink);transition:box-shadow .15s ease,transform .15s ease;}
+.card:hover{box-shadow:4px 4px 0 var(--sk-accent);transform:translate(-2px,-2px);}
+.card h2{margin:0 0 4px 0;font-family:var(--sk-head);font-size:16px;color:var(--sk-ink);}
+.card p{margin:0;font-size:13px;color:var(--sk-muted);line-height:1.6;}
+.card .count{float:right;font-size:12px;color:var(--sk-accent);font-weight:600;}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:2.25rem 0 0.9rem 0;border-bottom:1px solid var(--sk-border);padding-bottom:9px;}
+.section-head h2{font-family:var(--sk-head);font-size:1.05rem;font-weight:700;margin:0;color:var(--sk-ink);}
+.section-head .kr{font-family:var(--sk-body);font-weight:500;font-size:12.5px;color:var(--sk-muted);margin-left:8px;}
+.lesson{display:flex;gap:14px;align-items:center;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:11px 16px;margin-bottom:8px;text-decoration:none;color:var(--sk-ink);font-size:14px;transition:box-shadow .15s ease,transform .15s ease;}
+.lesson:hover{box-shadow:3px 3px 0 var(--sk-accent);transform:translate(-1px,-1px);}
+.lesson .id{font-size:10.5px;color:var(--sk-muted);min-width:64px;font-weight:600;letter-spacing:0.04em;}
+.lesson .pt{font-weight:600;color:var(--sk-ink);white-space:nowrap;}
+.lesson .en{font-size:12.5px;color:var(--sk-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+@media(max-width:640px){.lesson .en{display:none;}}
 </style>
 </head>
 <body>
@@ -57,36 +76,36 @@ h2.cat{font-size:14px;color:var(--red);letter-spacing:1px;margin:30px 0 8px 0;te
   <a href="vocabulary.html">Vocabulary</a>
 </div></nav>
 <div class="wrap">
-<div class="hero"><div class="eyebrow">KOREAN GRAMMAR</div><h1>Advanced</h1><p>TOPIK II (Levels 5–6) · formal and written-register Korean · 23 lessons, free to read.</p></div>
-<div class="content"><h2 class="cat">Formal &amp; Written Style · 문어체·격식 표현</h2>
-<a class="lesson" href="grammar/gram-adv-001.html"><span class="id">GRAM-ADV-001</span><span class="pt">-(으)ㅁ</span><span class="en">Nominalizer &amp; Formal Written Sentence Ending</span></a>
-<a class="lesson" href="grammar/gram-adv-002.html"><span class="id">GRAM-ADV-002</span><span class="pt">-(으)로 인해(서)</span><span class="en">Formal Written Cause</span></a>
-<a class="lesson" href="grammar/gram-adv-003.html"><span class="id">GRAM-ADV-003</span><span class="pt">-는 한</span><span class="en">The Boundary of a Condition</span></a>
-<a class="lesson" href="grammar/gram-adv-004.html"><span class="id">GRAM-ADV-004</span><span class="pt">-(으)ㅁ으로써</span><span class="en">Formal Means &amp; Method</span></a>
-<a class="lesson" href="grammar/gram-adv-005.html"><span class="id">GRAM-ADV-005</span><span class="pt">-는바</span><span class="en">Formal Connective, Presenting a Situation</span></a>
-<a class="lesson" href="grammar/gram-adv-006.html"><span class="id">GRAM-ADV-006</span><span class="pt">-다시피 하다</span><span class="en">Nearly / Practically the Same as Doing</span></a>
-<h2 class="cat">Concession &amp; Contrast · 양보·대조 고급 표현</h2>
-<a class="lesson" href="grammar/gram-adv-007.html"><span class="id">GRAM-ADV-007</span><span class="pt">-(으)ㄹ지라도</span><span class="en">Strong Concessive "Even If"</span></a>
-<a class="lesson" href="grammar/gram-adv-008.html"><span class="id">GRAM-ADV-008</span><span class="pt">-더라도</span><span class="en">Concession, "Even If"</span></a>
-<a class="lesson" href="grammar/gram-adv-009.html"><span class="id">GRAM-ADV-009</span><span class="pt">-(으)ㄴ들</span><span class="en">Concession, "Even If... It Wouldn't Matter"</span></a>
-<a class="lesson" href="grammar/gram-adv-010.html"><span class="id">GRAM-ADV-010</span><span class="pt">-(으)나마</span><span class="en">Such as It Is, a Resigned Concession</span></a>
-<a class="lesson" href="grammar/gram-adv-011.html"><span class="id">GRAM-ADV-011</span><span class="pt">-(으)ㅁ에도 불구하고</span><span class="en">Strong Contrast "Despite / In Spite Of"</span></a>
-<h2 class="cat">Cause &amp; Condition · 인과·조건 고급 표현</h2>
-<a class="lesson" href="grammar/gram-adv-012.html"><span class="id">GRAM-ADV-012</span><span class="pt">-는 이상</span><span class="en">An Established Fact That Makes the Conclusion Inevitable</span></a>
-<a class="lesson" href="grammar/gram-adv-013.html"><span class="id">GRAM-ADV-013</span><span class="pt">-(으)ㄹ망정</span><span class="en">A Proud, Defiant Concession</span></a>
-<a class="lesson" href="grammar/gram-adv-014.html"><span class="id">GRAM-ADV-014</span><span class="pt">-(으)ㄴ/는 나머지</span><span class="en">Excessive Degree Leading to a Result</span></a>
-<a class="lesson" href="grammar/gram-adv-015.html"><span class="id">GRAM-ADV-015</span><span class="pt">-(으)ㄹ 뿐(만) 아니라</span><span class="en">Not Only... But Also (Addition)</span></a>
-<h2 class="cat">Conjecture &amp; Hearsay · 추측·전문(傳聞) 고급 표현</h2>
-<a class="lesson" href="grammar/gram-adv-016.html"><span class="id">GRAM-ADV-016</span><span class="pt">-(으)ㄹ 리가 없다</span><span class="en">Strong Negative Conjecture</span></a>
-<a class="lesson" href="grammar/gram-adv-017.html"><span class="id">GRAM-ADV-017</span><span class="pt">-(으)ㄴ/는 듯하다</span><span class="en">Formal Literary Conjecture</span></a>
-<a class="lesson" href="grammar/gram-adv-018.html"><span class="id">GRAM-ADV-018</span><span class="pt">-(으)ㄹ 법하다</span><span class="en">Conjecture of Plausibility</span></a>
-<a class="lesson" href="grammar/gram-adv-019.html"><span class="id">GRAM-ADV-019</span><span class="pt">-(으)ㄴ/는 셈이다</span><span class="en">Evaluative Equivalence</span></a>
-<h2 class="cat">Discourse &amp; Argumentation · 담화·논증 표현</h2>
-<a class="lesson" href="grammar/gram-adv-020.html"><span class="id">GRAM-ADV-020</span><span class="pt">-되</span><span class="en">Conditional Concession (Granted, But...)</span></a>
-<a class="lesson" href="grammar/gram-adv-021.html"><span class="id">GRAM-ADV-021</span><span class="pt">-(으)려니와</span><span class="en">Acknowledging Plus Addition</span></a>
-<a class="lesson" href="grammar/gram-adv-022.html"><span class="id">GRAM-ADV-022</span><span class="pt">-기는커녕</span><span class="en">Far From X, Not Even Y</span></a>
-<a class="lesson" href="grammar/gram-adv-023.html"><span class="id">GRAM-ADV-023</span><span class="pt">-(으)ㄹ지언정</span><span class="en">The Strongest, Most Literary Defiant Concession</span></a>
-</div>
+<div class="hero"><span class="eyebrow">KOREAN GRAMMAR</span><h1>Advanced</h1><p>TOPIK II (Levels 5–6) · formal and written-register Korean · 23 lessons, free to read.</p></div>
+<div class="section-head"><h2>Formal &amp; Written Style<span class="kr">문어체·격식 표현</span></h2></div>
+<a class="lesson" href="grammar/gram-adv-001.html"><span class="id">ADV-001</span><span class="pt">-(으)ㅁ</span><span class="en">Nominalizer &amp; Formal Written Sentence Ending</span></a>
+<a class="lesson" href="grammar/gram-adv-002.html"><span class="id">ADV-002</span><span class="pt">-(으)로 인해(서)</span><span class="en">Formal Written Cause</span></a>
+<a class="lesson" href="grammar/gram-adv-003.html"><span class="id">ADV-003</span><span class="pt">-는 한</span><span class="en">The Boundary of a Condition</span></a>
+<a class="lesson" href="grammar/gram-adv-004.html"><span class="id">ADV-004</span><span class="pt">-(으)ㅁ으로써</span><span class="en">Formal Means &amp; Method</span></a>
+<a class="lesson" href="grammar/gram-adv-005.html"><span class="id">ADV-005</span><span class="pt">-는바</span><span class="en">Formal Connective, Presenting a Situation</span></a>
+<a class="lesson" href="grammar/gram-adv-006.html"><span class="id">ADV-006</span><span class="pt">-다시피 하다</span><span class="en">Nearly / Practically the Same as Doing</span></a>
+<div class="section-head"><h2>Concession &amp; Contrast<span class="kr">양보·대조 고급 표현</span></h2></div>
+<a class="lesson" href="grammar/gram-adv-007.html"><span class="id">ADV-007</span><span class="pt">-(으)ㄹ지라도</span><span class="en">Strong Concessive "Even If"</span></a>
+<a class="lesson" href="grammar/gram-adv-008.html"><span class="id">ADV-008</span><span class="pt">-더라도</span><span class="en">Concession, "Even If"</span></a>
+<a class="lesson" href="grammar/gram-adv-009.html"><span class="id">ADV-009</span><span class="pt">-(으)ㄴ들</span><span class="en">Concession, "Even If... It Wouldn't Matter"</span></a>
+<a class="lesson" href="grammar/gram-adv-010.html"><span class="id">ADV-010</span><span class="pt">-(으)나마</span><span class="en">Such as It Is, a Resigned Concession</span></a>
+<a class="lesson" href="grammar/gram-adv-011.html"><span class="id">ADV-011</span><span class="pt">-(으)ㅁ에도 불구하고</span><span class="en">Strong Contrast "Despite / In Spite Of"</span></a>
+<div class="section-head"><h2>Cause &amp; Condition<span class="kr">인과·조건 고급 표현</span></h2></div>
+<a class="lesson" href="grammar/gram-adv-012.html"><span class="id">ADV-012</span><span class="pt">-는 이상</span><span class="en">An Established Fact That Makes the Conclusion Inevitable</span></a>
+<a class="lesson" href="grammar/gram-adv-013.html"><span class="id">ADV-013</span><span class="pt">-(으)ㄹ망정</span><span class="en">A Proud, Defiant Concession</span></a>
+<a class="lesson" href="grammar/gram-adv-014.html"><span class="id">ADV-014</span><span class="pt">-(으)ㄴ/는 나머지</span><span class="en">Excessive Degree Leading to a Result</span></a>
+<a class="lesson" href="grammar/gram-adv-015.html"><span class="id">ADV-015</span><span class="pt">-(으)ㄹ 뿐(만) 아니라</span><span class="en">Not Only... But Also (Addition)</span></a>
+<div class="section-head"><h2>Conjecture &amp; Hearsay<span class="kr">추측·전문(傳聞) 고급 표현</span></h2></div>
+<a class="lesson" href="grammar/gram-adv-016.html"><span class="id">ADV-016</span><span class="pt">-(으)ㄹ 리가 없다</span><span class="en">Strong Negative Conjecture</span></a>
+<a class="lesson" href="grammar/gram-adv-017.html"><span class="id">ADV-017</span><span class="pt">-(으)ㄴ/는 듯하다</span><span class="en">Formal Literary Conjecture</span></a>
+<a class="lesson" href="grammar/gram-adv-018.html"><span class="id">ADV-018</span><span class="pt">-(으)ㄹ 법하다</span><span class="en">Conjecture of Plausibility</span></a>
+<a class="lesson" href="grammar/gram-adv-019.html"><span class="id">ADV-019</span><span class="pt">-(으)ㄴ/는 셈이다</span><span class="en">Evaluative Equivalence</span></a>
+<div class="section-head"><h2>Discourse &amp; Argumentation<span class="kr">담화·논증 표현</span></h2></div>
+<a class="lesson" href="grammar/gram-adv-020.html"><span class="id">ADV-020</span><span class="pt">-되</span><span class="en">Conditional Concession (Granted, But...)</span></a>
+<a class="lesson" href="grammar/gram-adv-021.html"><span class="id">ADV-021</span><span class="pt">-(으)려니와</span><span class="en">Acknowledging Plus Addition</span></a>
+<a class="lesson" href="grammar/gram-adv-022.html"><span class="id">ADV-022</span><span class="pt">-기는커녕</span><span class="en">Far From X, Not Even Y</span></a>
+<a class="lesson" href="grammar/gram-adv-023.html"><span class="id">ADV-023</span><span class="pt">-(으)ㄹ지언정</span><span class="en">The Strongest, Most Literary Defiant Concession</span></a>
+
 </div>
 <div class="sk-footer">© Sunshine Korean · Free Korean lessons, from Hangul to advanced grammar.<br>
 Complete lessons with practice &amp; answer keys: <a href="https://sunshinework.gumroad.com" rel="noopener">sunshinework.gumroad.com</a></div>

@@ -76,23 +76,46 @@ function loadGumroadMap() {
   return map;
 }
 
+// Design tokens mirrored from the sunshinework.gumroad.com landing page
+// (cream bg, hairline-ring surface cards, hard offset-shadow hover, Poppins/Inter).
 const SITE_CSS = `
-.sk-nav{background:#141F38;padding:0;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
-.sk-nav .inner{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px;flex-wrap:wrap;}
-.sk-nav a{color:#C4CEE3;text-decoration:none;font-size:13px;font-weight:600;}
-.sk-nav a:hover{color:#fff;}
-.sk-nav .brand{color:#fff;font-size:16px;font-weight:800;letter-spacing:0.5px;margin-right:auto;}
-.sk-cta{margin:36px 44px 8px 44px;border:2px solid #DC3E4A;border-radius:10px;padding:24px 26px;background:#FFF6F6;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
-.sk-cta h3{margin:0 0 8px 0;font-size:17px;color:#1B2A4A;}
-.sk-cta p{margin:0 0 14px 0;font-size:13.5px;line-height:1.7;color:#1F2430;}
-.sk-cta ul{margin:0 0 16px 18px;padding:0;font-size:13px;line-height:1.8;color:#1F2430;}
-.sk-cta .btn{display:inline-block;background:#DC3E4A;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:11px 22px;border-radius:6px;}
-.sk-cta .btn:hover{background:#c33440;}
-.sk-prevnext{max-width:800px;margin:14px auto 0 auto;display:flex;justify-content:space-between;gap:12px;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:13px;}
-.sk-prevnext a{color:#1B2A4A;text-decoration:none;background:#fff;border:1px solid #D5DAE3;border-radius:6px;padding:10px 14px;max-width:48%;}
-.sk-prevnext a:hover{border-color:#1B2A4A;}
-.sk-footer{max-width:800px;margin:28px auto 40px auto;text-align:center;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:12px;color:#8A94A6;line-height:1.8;}
-.sk-footer a{color:#1B2A4A;}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+:root{
+  --sk-bg:#F2ECE1;--sk-surface:#FFFFFF;--sk-ink:#1B2A4A;--sk-ink-soft:#445068;
+  --sk-accent:#DC3E4A;--sk-accent-text:#FFFFFF;--sk-accent-soft:#F6D9DB;
+  --sk-tip-bg:#E8F5E9;--sk-tip-line:#2E7D32;--sk-muted:#8A94A6;--sk-border:rgba(27,42,74,0.14);
+  --sk-head:'Poppins','Pretendard Variable','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --sk-body:'Inter','Pretendard Variable','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+}
+html,body{background:var(--sk-bg) !important;}
+.sk-nav{background:var(--sk-bg);border-bottom:1px solid var(--sk-border);font-family:var(--sk-body);}
+.sk-nav .inner{max-width:64rem;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 24px;flex-wrap:wrap;}
+.sk-nav a{color:var(--sk-ink-soft);text-decoration:none;font-size:13px;font-weight:600;}
+.sk-nav a:hover{color:var(--sk-accent);}
+.sk-nav .brand{color:var(--sk-ink);font-family:var(--sk-head);font-size:16px;font-weight:700;margin-right:auto;}
+.sk-cta{margin:36px 44px 8px 44px;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:24px 26px;font-family:var(--sk-body);}
+.sk-cta h3{margin:0 0 8px 0;font-family:var(--sk-head);font-size:16px;color:var(--sk-ink);}
+.sk-cta p{margin:0 0 14px 0;font-size:13.5px;line-height:1.7;color:var(--sk-ink-soft);}
+.sk-cta ul{margin:0 0 16px 18px;padding:0;font-size:13px;line-height:1.8;color:var(--sk-ink-soft);}
+.sk-cta .btn{display:inline-block;background:var(--sk-accent);color:var(--sk-accent-text);text-decoration:none;font-weight:600;font-size:14px;padding:11px 22px;border-radius:8px;transition:box-shadow .15s ease,transform .15s ease;}
+.sk-cta .btn:hover{box-shadow:4px 4px 0 var(--sk-ink);transform:translate(-2px,-2px);}
+.sk-prevnext{max-width:800px;margin:14px auto 0 auto;padding:0 12px;display:flex;justify-content:space-between;gap:12px;font-family:var(--sk-body);font-size:13px;}
+.sk-prevnext a{color:var(--sk-ink);text-decoration:none;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:10px 14px;max-width:48%;transition:box-shadow .15s ease,transform .15s ease;}
+.sk-prevnext a:hover{box-shadow:3px 3px 0 var(--sk-accent);transform:translate(-1px,-1px);}
+.sk-footer{max-width:64rem;margin:28px auto 40px auto;padding:0 24px;text-align:center;font-family:var(--sk-body);font-size:12px;color:var(--sk-muted);line-height:1.8;}
+.sk-footer a{color:var(--sk-ink);}
+`;
+
+// prefers-color-scheme token swap, only for pages whose whole body uses the
+// sk- tokens (home/level shells) — lesson docs keep their fixed light layout.
+const DARK_CSS = `
+@media (prefers-color-scheme: dark){
+  :root{
+    --sk-bg:#10172A;--sk-surface:#161F38;--sk-ink:#F2ECE1;--sk-ink-soft:#C9CEDB;
+    --sk-accent:#FF7A82;--sk-accent-text:#2A1013;--sk-accent-soft:#3A2226;
+    --sk-tip-bg:#16321B;--sk-tip-line:#7FCB8B;--sk-muted:#93A0BE;--sk-border:rgba(242,236,225,0.16);
+  }
+}
 `;
 
 function navHtml(depth) {
@@ -210,27 +233,29 @@ function pageShell({ title, desc, body, depth = 0 }) {
 <meta name="description" content="${esc(desc)}">
 <link rel="icon" href="${depth ? '../' : ''}favicon.svg">
 <style>
-:root{--navy:#1B2A4A;--red:#DC3E4A;--muted:#8A94A6;--body:#1F2430;}
-*{box-sizing:border-box;}
-body{margin:0;background:#EEF0F3;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:var(--body);}
-.wrap{max-width:800px;margin:24px auto;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.08);}
-.hero{background:var(--navy);color:#fff;padding:44px;}
-.hero .eyebrow{font-size:11px;letter-spacing:2px;color:#9FB0D0;font-weight:600;margin-bottom:10px;}
-.hero h1{font-size:30px;font-weight:800;margin:0 0 8px 0;line-height:1.3;}
-.hero p{font-size:14px;color:#C4CEE3;margin:0;line-height:1.7;}
-.content{padding:34px 44px 44px 44px;}
-.card{display:block;border:1px solid #D5DAE3;border-radius:10px;padding:20px 22px;margin-bottom:14px;text-decoration:none;color:var(--body);}
-.card:hover{border-color:var(--navy);}
-.card h2{margin:0 0 4px 0;font-size:17px;color:var(--navy);}
-.card p{margin:0;font-size:13px;color:var(--muted);line-height:1.6;}
-.card .count{float:right;font-size:12px;color:var(--red);font-weight:700;}
-.lesson{display:flex;gap:12px;padding:11px 4px;border-bottom:1px solid #EEF0F3;text-decoration:none;color:var(--body);font-size:14px;align-items:baseline;}
-.lesson:hover .pt{color:var(--red);}
-.lesson .id{font-size:11px;color:var(--muted);min-width:110px;font-weight:600;}
-.lesson .pt{font-weight:700;color:var(--navy);}
-.lesson .en{font-size:12.5px;color:var(--muted);}
-h2.cat{font-size:14px;color:var(--red);letter-spacing:1px;margin:30px 0 8px 0;text-transform:uppercase;}
 ${SITE_CSS}
+${DARK_CSS}
+*{box-sizing:border-box;}
+body{margin:0;font-family:var(--sk-body);color:var(--sk-ink);}
+.wrap{max-width:64rem;margin:0 auto;padding:3rem 1.5rem 2rem;}
+.hero{margin-bottom:2.25rem;}
+.hero .eyebrow{display:block;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--sk-accent);margin-bottom:8px;}
+.hero h1{font-family:var(--sk-head);font-size:1.75rem;font-weight:700;margin:0 0 10px 0;line-height:1.25;text-wrap:balance;}
+.hero p{font-size:15px;color:var(--sk-ink-soft);margin:0;line-height:1.7;max-width:40rem;}
+.card{display:block;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:20px 22px;margin-bottom:14px;text-decoration:none;color:var(--sk-ink);transition:box-shadow .15s ease,transform .15s ease;}
+.card:hover{box-shadow:4px 4px 0 var(--sk-accent);transform:translate(-2px,-2px);}
+.card h2{margin:0 0 4px 0;font-family:var(--sk-head);font-size:16px;color:var(--sk-ink);}
+.card p{margin:0;font-size:13px;color:var(--sk-muted);line-height:1.6;}
+.card .count{float:right;font-size:12px;color:var(--sk-accent);font-weight:600;}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:2.25rem 0 0.9rem 0;border-bottom:1px solid var(--sk-border);padding-bottom:9px;}
+.section-head h2{font-family:var(--sk-head);font-size:1.05rem;font-weight:700;margin:0;color:var(--sk-ink);}
+.section-head .kr{font-family:var(--sk-body);font-weight:500;font-size:12.5px;color:var(--sk-muted);margin-left:8px;}
+.lesson{display:flex;gap:14px;align-items:center;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:11px 16px;margin-bottom:8px;text-decoration:none;color:var(--sk-ink);font-size:14px;transition:box-shadow .15s ease,transform .15s ease;}
+.lesson:hover{box-shadow:3px 3px 0 var(--sk-accent);transform:translate(-1px,-1px);}
+.lesson .id{font-size:10.5px;color:var(--sk-muted);min-width:64px;font-weight:600;letter-spacing:0.04em;}
+.lesson .pt{font-weight:600;color:var(--sk-ink);white-space:nowrap;}
+.lesson .en{font-size:12.5px;color:var(--sk-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+@media(max-width:640px){.lesson .en{display:none;}}
 </style>
 </head>
 <body>
@@ -244,20 +269,19 @@ ${footerHtml()}
 }
 
 // ---------- home page ----------
-const LEVEL_ACCENT = { PRE: '#0E7C7B', BEG: '#2456A6', INT: '#C77800', ADV: '#B3261E' };
 const LEVEL_TAG = { PRE: 'PRE-TOPIK', BEG: 'TOPIK I · 1–2', INT: 'TOPIK II · 3–4', ADV: 'TOPIK II · 5–6' };
 
 function buildHome(docs, day1) {
   const counts = Object.fromEntries(LEVEL_ORDER.map((lv) => [lv, docs.filter((d) => d.level === lv).length]));
   const firstOf = Object.fromEntries(LEVEL_ORDER.map((lv) => [lv, docs.find((d) => d.level === lv)]));
-  const catOf = (d) => d.category.split(' · ')[0] || '';
 
   const levelCards = LEVEL_ORDER.map((lv) => {
     const L = LEVELS[lv];
-    return `<a class="lv-card" href="${L.slug}.html" style="--accent:${LEVEL_ACCENT[lv]};">
+    const subText = L.sub.split('·').slice(1).join('·').trim() || L.sub;
+    return `<a class="lv-card" href="${L.slug}.html">
   <div class="lv-top"><span class="lv-tag">${LEVEL_TAG[lv]}</span><span class="lv-count">${counts[lv]} lessons</span></div>
   <h3>${esc(L.label)}</h3>
-  <p>${esc(L.sub.split('·')[1] ? L.sub.split('·').slice(1).join('·').trim() : L.sub)}</p>
+  <p>${esc(subText)}</p>
   <span class="lv-go">Browse lessons →</span>
 </a>`;
   }).join('\n');
@@ -268,11 +292,15 @@ function buildHome(docs, day1) {
     let inner = '';
     let lastCat = null;
     for (const d of lvDocs) {
-      const c = catOf(d);
-      if (c && c !== lastCat) { inner += `<div class="toc-cat">${esc(c)}</div>\n`; lastCat = c; }
+      const c = d.category;
+      if (c && c !== lastCat) {
+        const [en, kr] = c.split(' · ');
+        inner += `<div class="toc-cat">${esc(en)}${kr ? `<span class="kr">${esc(kr)}</span>` : ''}</div>\n`;
+        lastCat = c;
+      }
       inner += `<a class="toc-item" href="grammar/${slugOf(d)}.html"><span class="toc-id">${d.id.replace('GRAM-', '')}</span><span class="toc-pt">${esc(d.point)}</span><span class="toc-en">${esc(d.engTitle)}</span></a>\n`;
     }
-    return `<details class="toc-level" style="--accent:${LEVEL_ACCENT[lv]};"${idx === 0 ? ' open' : ''}>
+    return `<details class="toc-level"${idx === 0 ? ' open' : ''}>
 <summary><span class="toc-lv-name">${esc(L.label)}</span><span class="toc-lv-meta">${LEVEL_TAG[lv]} · ${lvDocs.length} lessons</span></summary>
 <div class="toc-body">${inner}</div>
 </details>`;
@@ -280,25 +308,27 @@ function buildHome(docs, day1) {
 
   const body = `
 <header class="hero">
-  <div class="hero-inner">
-    <div class="hero-mark" aria-hidden="true">한</div>
-    <div class="eyebrow">FREE KOREAN GRAMMAR &amp; VOCABULARY</div>
-    <h1>Learn Korean properly,<br>from <em>Hangul</em> to advanced.</h1>
-    <p class="lede">${docs.length} structured grammar lessons following the TOPIK curriculum, written in plain English — every one free to read.</p>
-    <div class="hero-actions">
-      <a class="btn-primary" href="grammar/${slugOf(firstOf.PRE)}.html">Start with Hangul →</a>
-      <a class="btn-ghost" href="#curriculum">See the full curriculum</a>
-    </div>
-    <div class="stats">
-      <div class="stat"><b>${docs.length}</b><span>grammar lessons</span></div>
-      <div class="stat"><b>4</b><span>levels, Pre-TOPIK → TOPIK II</span></div>
-      <div class="stat"><b>100%</b><span>free to read</span></div>
-    </div>
+  <span class="eyebrow">FREE KOREAN GRAMMAR &amp; VOCABULARY</span>
+  <h1>Learn Korean properly,<br>from <em>Hangul</em> to advanced.</h1>
+  <p class="lede">${docs.length} structured grammar lessons following the TOPIK curriculum, written in plain English — every one free to read.
+  <span class="kr">한글부터 TOPIK II 고급 문법까지, 전부 무료로 읽을 수 있습니다.</span></p>
+  <div class="tip">
+    <div class="tip-title">Free by design</div>
+    <p>Every lesson on this site is free — no sign-up, no paywall. If you want the complete editions (full explanations, practice with answer keys, print-ready PDFs), they live on <a href="${STORE_URL}" rel="noopener" target="_blank">Gumroad</a>.</p>
+  </div>
+  <div class="hero-actions">
+    <a class="btn-primary" href="grammar/${slugOf(firstOf.PRE)}.html">Start with Hangul →</a>
+    <a class="btn-ghost" href="#curriculum">See the full curriculum</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>${docs.length}</b><span>grammar lessons</span></div>
+    <div class="stat"><b>4</b><span>levels, Pre-TOPIK → TOPIK II</span></div>
+    <div class="stat"><b>100%</b><span>free to read</span></div>
   </div>
 </header>
 
-<section class="levels">
-  <h2 class="sec-title">Pick your level</h2>
+<section>
+  <div class="section-head"><h2>Pick your level<span class="kr">단계별 문법</span></h2><span class="section-note">${docs.length} lessons total</span></div>
   <div class="lv-grid">${levelCards}</div>
 </section>
 
@@ -310,21 +340,21 @@ function buildHome(docs, day1) {
   <a class="btn-primary" href="${STORE_URL}" rel="noopener" target="_blank">Visit the store →</a>
 </section>
 
-<section class="toc" id="curriculum">
-  <h2 class="sec-title">Full curriculum <span class="sec-sub">— all ${docs.length} lessons, in order</span></h2>
+<section id="curriculum">
+  <div class="section-head"><h2>Full curriculum<span class="kr">전체 목차</span></h2><span class="section-note">all ${docs.length} lessons, in order</span></div>
   ${tocSections}
 </section>
 
-<section class="levels">
-  <h2 class="sec-title">Daily vocabulary</h2>
+<section>
+  <div class="section-head"><h2>Daily vocabulary<span class="kr">일일 어휘</span></h2></div>
   <div class="lv-grid">
-    <a class="lv-card" href="${day1 ? `vocab/${day1.file}` : 'vocabulary.html'}" style="--accent:#6A3FB5;">
+    <a class="lv-card" href="${day1 ? `vocab/${day1.file}` : 'vocabulary.html'}">
       <div class="lv-top"><span class="lv-tag">DAY 1</span><span class="lv-count">31 words</span></div>
       <h3>Greetings &amp; Basic Expressions</h3>
       <p>The first words every learner needs — with romanization and example sentences.</p>
       <span class="lv-go">Start Day 1 →</span>
     </a>
-    <a class="lv-card" href="vocabulary.html" style="--accent:#6A3FB5;">
+    <a class="lv-card" href="vocabulary.html">
       <div class="lv-top"><span class="lv-tag">SERIES</span><span class="lv-count">growing</span></div>
       <h3>All vocabulary days</h3>
       <p>Themed word sets, added day by day as the series grows.</p>
@@ -342,77 +372,82 @@ function buildHome(docs, day1) {
 <meta name="description" content="${docs.length} free Korean grammar lessons from Hangul to TOPIK II advanced, plus daily vocabulary. Learn Korean with clear English explanations.">
 <link rel="icon" href="favicon.svg">
 <style>
-:root{--navy:#1B2A4A;--navy-deep:#141F38;--red:#DC3E4A;--muted:#8A94A6;--body:#1F2430;--line:#E2E6EC;}
+${SITE_CSS}
+${DARK_CSS}
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{margin:0;background:#F4F5F8;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:var(--body);}
-a{text-decoration:none;}
-.container{max-width:960px;margin:0 auto;padding:0 24px;}
+body{margin:0;font-family:var(--sk-body);color:var(--sk-ink);}
+a{color:inherit;}
+main{max-width:64rem;margin:0 auto;padding:3rem 1.5rem 2rem;}
 
-.hero{background:linear-gradient(135deg,#10192E 0%,#1B2A4A 55%,#2E4372 100%);color:#fff;position:relative;overflow:hidden;}
-.hero-inner{max-width:960px;margin:0 auto;padding:72px 24px 64px 24px;position:relative;}
-.hero-mark{position:absolute;right:-10px;top:-40px;font-size:340px;font-weight:900;color:rgba(255,255,255,0.045);line-height:1;pointer-events:none;user-select:none;}
-.eyebrow{font-size:12px;letter-spacing:3px;color:#9FB0D0;font-weight:700;margin-bottom:16px;}
-.hero h1{font-size:44px;font-weight:800;margin:0 0 16px 0;line-height:1.2;}
-.hero h1 em{font-style:normal;color:#FF6B76;}
-.lede{font-size:16px;color:#C4CEE3;line-height:1.7;margin:0 0 28px 0;max-width:560px;}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px;}
-.btn-primary{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:15px;padding:13px 26px;border-radius:8px;}
-.btn-primary:hover{background:#c33440;}
-.btn-ghost{display:inline-block;border:1px solid rgba(255,255,255,0.35);color:#fff;font-weight:600;font-size:15px;padding:13px 26px;border-radius:8px;}
-.btn-ghost:hover{background:rgba(255,255,255,0.08);}
-.stats{display:flex;gap:40px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.12);padding-top:24px;}
-.stat b{display:block;font-size:26px;font-weight:800;}
-.stat span{font-size:12.5px;color:#9FB0D0;}
+.hero .eyebrow{display:block;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--sk-accent);margin-bottom:10px;}
+.hero h1{font-family:var(--sk-head);font-size:2.15rem;font-weight:700;margin:0 0 14px 0;line-height:1.22;text-wrap:balance;}
+.hero h1 em{font-style:normal;color:var(--sk-accent);}
+.lede{font-size:16px;color:var(--sk-ink-soft);line-height:1.7;margin:0;max-width:40rem;}
+.lede .kr{display:block;font-size:13.5px;color:var(--sk-muted);margin-top:6px;}
+.tip{margin:1.6rem 0 0;border-left:4px solid var(--sk-tip-line);background:var(--sk-tip-bg);border-radius:2px;padding:14px 18px;max-width:40rem;}
+.tip .tip-title{font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--sk-tip-line);margin-bottom:6px;}
+.tip p{margin:0;font-size:14px;color:var(--sk-ink);line-height:1.65;}
+.tip a{color:var(--sk-accent);font-weight:600;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:1.6rem 0 0;}
+.btn-primary{display:inline-block;background:var(--sk-accent);color:var(--sk-accent-text);text-decoration:none;font-weight:600;font-size:14.5px;padding:12px 24px;border-radius:8px;transition:box-shadow .15s ease,transform .15s ease;}
+.btn-primary:hover{box-shadow:4px 4px 0 var(--sk-ink);transform:translate(-2px,-2px);}
+.btn-ghost{display:inline-block;background:var(--sk-surface);border:1px solid var(--sk-border);color:var(--sk-ink);text-decoration:none;font-weight:600;font-size:14.5px;padding:12px 24px;border-radius:8px;transition:box-shadow .15s ease,transform .15s ease;}
+.btn-ghost:hover{box-shadow:4px 4px 0 var(--sk-accent);transform:translate(-2px,-2px);}
+.stats{display:flex;gap:36px;flex-wrap:wrap;border-top:1px solid var(--sk-border);margin-top:2rem;padding-top:1.2rem;}
+.stat b{display:block;font-family:var(--sk-head);font-size:22px;font-weight:700;color:var(--sk-ink);}
+.stat span{font-size:12.5px;color:var(--sk-muted);}
 
-.sec-title{font-size:22px;font-weight:800;color:var(--navy);margin:0 0 18px 0;}
-.sec-sub{font-size:14px;font-weight:600;color:var(--muted);}
-.levels,.toc{max-width:960px;margin:0 auto;padding:44px 24px 8px 24px;}
-.lv-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-@media(max-width:680px){.lv-grid{grid-template-columns:1fr;}.hero h1{font-size:32px;}.hero-mark{font-size:220px;}}
-.lv-card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:12px;padding:22px 24px;color:var(--body);box-shadow:0 1px 4px rgba(20,31,56,0.05);transition:box-shadow .15s,transform .15s;display:block;}
-.lv-card:hover{box-shadow:0 6px 18px rgba(20,31,56,0.12);transform:translateY(-2px);}
-.lv-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
-.lv-tag{font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--accent);}
-.lv-count{font-size:12px;color:var(--muted);font-weight:600;}
-.lv-card h3{margin:0 0 6px 0;font-size:19px;color:var(--navy);}
-.lv-card p{margin:0 0 14px 0;font-size:13.5px;color:#5A6373;line-height:1.65;}
-.lv-go{font-size:13px;font-weight:700;color:var(--accent);}
+section{margin-top:2.75rem;}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:1rem;border-bottom:1px solid var(--sk-border);padding-bottom:10px;}
+.section-head h2{font-family:var(--sk-head);font-size:1.2rem;font-weight:700;margin:0;color:var(--sk-ink);}
+.section-head .kr{font-family:var(--sk-body);font-weight:500;font-size:13px;color:var(--sk-muted);margin-left:8px;}
+.section-note{font-size:12.5px;color:var(--sk-muted);white-space:nowrap;}
 
-.gumroad-strip{max-width:912px;margin:44px auto 0 auto;background:var(--navy-deep);border-radius:14px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 32px;flex-wrap:wrap;}
-.gs-text h2{margin:0 0 6px 0;font-size:19px;}
-.gs-text p{margin:0;font-size:13.5px;color:#C4CEE3;line-height:1.65;max-width:560px;}
+.lv-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+@media(max-width:680px){.lv-grid{grid-template-columns:1fr;}.hero h1{font-size:1.7rem;}}
+.lv-card{display:block;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:1.1rem 1.25rem;color:var(--sk-ink);text-decoration:none;transition:box-shadow .15s ease,transform .15s ease;}
+.lv-card:hover{box-shadow:4px 4px 0 var(--sk-accent);transform:translate(-2px,-2px);}
+.lv-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.lv-tag{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sk-accent);}
+.lv-count{font-size:12px;color:var(--sk-muted);font-weight:500;}
+.lv-card h3{margin:0 0 5px 0;font-family:var(--sk-head);font-size:1rem;font-weight:600;color:var(--sk-ink);}
+.lv-card p{margin:0 0 12px 0;font-size:13.5px;color:var(--sk-ink-soft);line-height:1.6;}
+.lv-go{font-size:13px;font-weight:600;color:var(--sk-accent);}
 
-.toc-level{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;margin-bottom:12px;overflow:hidden;}
-.toc-level summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 22px;flex-wrap:wrap;}
+.gumroad-strip{background:var(--sk-accent-soft);border:1px solid var(--sk-border);border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:1.5rem 1.75rem;flex-wrap:wrap;}
+.gs-text h2{font-family:var(--sk-head);margin:0 0 6px 0;font-size:1.05rem;color:var(--sk-ink);}
+.gs-text p{margin:0;font-size:13.5px;color:var(--sk-ink-soft);line-height:1.65;max-width:36rem;}
+
+.toc-level{background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;margin-bottom:10px;overflow:hidden;}
+.toc-level summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;flex-wrap:wrap;}
 .toc-level summary::-webkit-details-marker{display:none;}
-.toc-level summary:hover{background:#F8F9FB;}
-.toc-lv-name{font-size:16px;font-weight:800;color:var(--navy);}
-.toc-lv-name::before{content:'▸';color:var(--accent);margin-right:10px;transition:transform .15s;display:inline-block;}
+.toc-level summary:hover{background:var(--sk-accent-soft);}
+.toc-lv-name{font-family:var(--sk-head);font-size:15px;font-weight:600;color:var(--sk-ink);}
+.toc-lv-name::before{content:'▸';color:var(--sk-accent);margin-right:10px;transition:transform .15s;display:inline-block;}
 .toc-level[open] .toc-lv-name::before{transform:rotate(90deg);}
-.toc-lv-meta{font-size:12px;color:var(--muted);font-weight:600;}
-.toc-body{padding:4px 22px 18px 22px;border-top:1px solid var(--line);}
-.toc-cat{font-size:11.5px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);margin:16px 0 6px 0;}
-.toc-item{display:flex;gap:12px;align-items:baseline;padding:7px 4px;border-bottom:1px solid #F1F3F6;color:var(--body);font-size:14px;}
-.toc-item:hover .toc-pt{color:var(--red);}
+.toc-lv-meta{font-size:12px;color:var(--sk-muted);font-weight:500;}
+.toc-body{padding:2px 20px 16px 20px;border-top:1px solid var(--sk-border);}
+.toc-cat{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--sk-accent);margin:16px 0 6px 0;}
+.toc-cat .kr{font-weight:500;text-transform:none;letter-spacing:0;color:var(--sk-muted);margin-left:8px;}
+.toc-item{display:flex;gap:12px;align-items:baseline;padding:7px 2px;border-bottom:1px solid var(--sk-border);color:var(--sk-ink);font-size:14px;text-decoration:none;}
+.toc-item:hover .toc-pt{color:var(--sk-accent);}
 .toc-item:last-child{border-bottom:none;}
-.toc-id{font-size:11px;color:var(--muted);min-width:70px;font-weight:600;font-variant-numeric:tabular-nums;}
-.toc-pt{font-weight:700;color:var(--navy);white-space:nowrap;}
-.toc-en{font-size:12.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-@media(max-width:680px){.toc-en{display:none;}}
-${SITE_CSS}
-.sk-nav .inner{max-width:960px;}
-.sk-footer{margin-top:44px;}
+.toc-id{font-size:10.5px;color:var(--sk-muted);min-width:64px;font-weight:600;letter-spacing:0.04em;}
+.toc-pt{font-weight:600;color:var(--sk-ink);white-space:nowrap;}
+.toc-en{font-size:12.5px;color:var(--sk-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+@media(max-width:640px){.toc-en{display:none;}}
 </style>
 </head>
 <body>
 ${navHtml(0)}
+<main>
 ${body}
+</main>
 ${footerHtml()}
 </body>
 </html>`;
 }
-
 // ---------- main ----------
 function main() {
   fs.rmSync(OUT, { recursive: true, force: true });
@@ -438,16 +473,19 @@ function main() {
   for (const lv of LEVEL_ORDER) {
     const L = LEVELS[lv];
     const lvDocs = docs.filter((d) => d.level === lv);
-    const catOf = (d) => d.category.replace(/\s*\((final|last|opening)[^)]*\)\s*$/i, '').trim();
     let list = '';
     let lastCat = null;
     for (const d of lvDocs) {
-      const c = catOf(d);
-      if (c && c !== lastCat) { list += `<h2 class="cat">${esc(c)}</h2>\n`; lastCat = c; }
-      list += `<a class="lesson" href="grammar/${slugOf(d)}.html"><span class="id">${d.id}</span><span class="pt">${esc(d.point)}</span><span class="en">${esc(d.engTitle)}</span></a>\n`;
+      const c = d.category;
+      if (c && c !== lastCat) {
+        const [en, kr] = c.split(' · ');
+        list += `<div class="section-head"><h2>${esc(en)}${kr ? `<span class="kr">${esc(kr)}</span>` : ''}</h2></div>\n`;
+        lastCat = c;
+      }
+      list += `<a class="lesson" href="grammar/${slugOf(d)}.html"><span class="id">${d.id.replace('GRAM-', '')}</span><span class="pt">${esc(d.point)}</span><span class="en">${esc(d.engTitle)}</span></a>\n`;
     }
-    const body = `<div class="hero"><div class="eyebrow">KOREAN GRAMMAR</div><h1>${esc(L.label)}</h1><p>${esc(L.sub)} · ${lvDocs.length} lessons, free to read.</p></div>
-<div class="content">${list}</div>`;
+    const body = `<div class="hero"><span class="eyebrow">KOREAN GRAMMAR</span><h1>${esc(L.label)}</h1><p>${esc(L.sub)} · ${lvDocs.length} lessons, free to read.</p></div>
+${list}`;
     fs.writeFileSync(path.join(OUT, `${L.slug}.html`), pageShell({ title: `${L.label} Korean Grammar | ${SITE_NAME}`, desc: `${L.sub}. ${lvDocs.length} free Korean grammar lessons.`, body }));
   }
 
