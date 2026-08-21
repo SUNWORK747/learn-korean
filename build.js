@@ -243,6 +243,176 @@ ${footerHtml()}
 </html>`;
 }
 
+// ---------- home page ----------
+const LEVEL_ACCENT = { PRE: '#0E7C7B', BEG: '#2456A6', INT: '#C77800', ADV: '#B3261E' };
+const LEVEL_TAG = { PRE: 'PRE-TOPIK', BEG: 'TOPIK I · 1–2', INT: 'TOPIK II · 3–4', ADV: 'TOPIK II · 5–6' };
+
+function buildHome(docs, day1) {
+  const counts = Object.fromEntries(LEVEL_ORDER.map((lv) => [lv, docs.filter((d) => d.level === lv).length]));
+  const firstOf = Object.fromEntries(LEVEL_ORDER.map((lv) => [lv, docs.find((d) => d.level === lv)]));
+  const catOf = (d) => d.category.split(' · ')[0] || '';
+
+  const levelCards = LEVEL_ORDER.map((lv) => {
+    const L = LEVELS[lv];
+    return `<a class="lv-card" href="${L.slug}.html" style="--accent:${LEVEL_ACCENT[lv]};">
+  <div class="lv-top"><span class="lv-tag">${LEVEL_TAG[lv]}</span><span class="lv-count">${counts[lv]} lessons</span></div>
+  <h3>${esc(L.label)}</h3>
+  <p>${esc(L.sub.split('·')[1] ? L.sub.split('·').slice(1).join('·').trim() : L.sub)}</p>
+  <span class="lv-go">Browse lessons →</span>
+</a>`;
+  }).join('\n');
+
+  const tocSections = LEVEL_ORDER.map((lv, idx) => {
+    const L = LEVELS[lv];
+    const lvDocs = docs.filter((d) => d.level === lv);
+    let inner = '';
+    let lastCat = null;
+    for (const d of lvDocs) {
+      const c = catOf(d);
+      if (c && c !== lastCat) { inner += `<div class="toc-cat">${esc(c)}</div>\n`; lastCat = c; }
+      inner += `<a class="toc-item" href="grammar/${slugOf(d)}.html"><span class="toc-id">${d.id.replace('GRAM-', '')}</span><span class="toc-pt">${esc(d.point)}</span><span class="toc-en">${esc(d.engTitle)}</span></a>\n`;
+    }
+    return `<details class="toc-level" style="--accent:${LEVEL_ACCENT[lv]};"${idx === 0 ? ' open' : ''}>
+<summary><span class="toc-lv-name">${esc(L.label)}</span><span class="toc-lv-meta">${LEVEL_TAG[lv]} · ${lvDocs.length} lessons</span></summary>
+<div class="toc-body">${inner}</div>
+</details>`;
+  }).join('\n');
+
+  const body = `
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-mark" aria-hidden="true">한</div>
+    <div class="eyebrow">FREE KOREAN GRAMMAR &amp; VOCABULARY</div>
+    <h1>Learn Korean properly,<br>from <em>Hangul</em> to advanced.</h1>
+    <p class="lede">${docs.length} structured grammar lessons following the TOPIK curriculum, written in plain English — every one free to read.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="grammar/${slugOf(firstOf.PRE)}.html">Start with Hangul →</a>
+      <a class="btn-ghost" href="#curriculum">See the full curriculum</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>${docs.length}</b><span>grammar lessons</span></div>
+      <div class="stat"><b>4</b><span>levels, Pre-TOPIK → TOPIK II</span></div>
+      <div class="stat"><b>100%</b><span>free to read</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="levels">
+  <h2 class="sec-title">Pick your level</h2>
+  <div class="lv-grid">${levelCards}</div>
+</section>
+
+<section class="gumroad-strip">
+  <div class="gs-text">
+    <h2>Want the complete editions?</h2>
+    <p>Every lesson here is a free preview. The full versions — complete explanations, all example sets, practice questions with answer keys, print-ready PDFs — are on Gumroad.</p>
+  </div>
+  <a class="btn-primary" href="${STORE_URL}" rel="noopener" target="_blank">Visit the store →</a>
+</section>
+
+<section class="toc" id="curriculum">
+  <h2 class="sec-title">Full curriculum <span class="sec-sub">— all ${docs.length} lessons, in order</span></h2>
+  ${tocSections}
+</section>
+
+<section class="levels">
+  <h2 class="sec-title">Daily vocabulary</h2>
+  <div class="lv-grid">
+    <a class="lv-card" href="${day1 ? `vocab/${day1.file}` : 'vocabulary.html'}" style="--accent:#6A3FB5;">
+      <div class="lv-top"><span class="lv-tag">DAY 1</span><span class="lv-count">31 words</span></div>
+      <h3>Greetings &amp; Basic Expressions</h3>
+      <p>The first words every learner needs — with romanization and example sentences.</p>
+      <span class="lv-go">Start Day 1 →</span>
+    </a>
+    <a class="lv-card" href="vocabulary.html" style="--accent:#6A3FB5;">
+      <div class="lv-top"><span class="lv-tag">SERIES</span><span class="lv-count">growing</span></div>
+      <h3>All vocabulary days</h3>
+      <p>Themed word sets, added day by day as the series grows.</p>
+      <span class="lv-go">Browse →</span>
+    </a>
+  </div>
+</section>`;
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${SITE_NAME} — Free Korean Grammar &amp; Vocabulary Lessons</title>
+<meta name="description" content="${docs.length} free Korean grammar lessons from Hangul to TOPIK II advanced, plus daily vocabulary. Learn Korean with clear English explanations.">
+<link rel="icon" href="favicon.svg">
+<style>
+:root{--navy:#1B2A4A;--navy-deep:#141F38;--red:#DC3E4A;--muted:#8A94A6;--body:#1F2430;--line:#E2E6EC;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:#F4F5F8;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:var(--body);}
+a{text-decoration:none;}
+.container{max-width:960px;margin:0 auto;padding:0 24px;}
+
+.hero{background:linear-gradient(135deg,#10192E 0%,#1B2A4A 55%,#2E4372 100%);color:#fff;position:relative;overflow:hidden;}
+.hero-inner{max-width:960px;margin:0 auto;padding:72px 24px 64px 24px;position:relative;}
+.hero-mark{position:absolute;right:-10px;top:-40px;font-size:340px;font-weight:900;color:rgba(255,255,255,0.045);line-height:1;pointer-events:none;user-select:none;}
+.eyebrow{font-size:12px;letter-spacing:3px;color:#9FB0D0;font-weight:700;margin-bottom:16px;}
+.hero h1{font-size:44px;font-weight:800;margin:0 0 16px 0;line-height:1.2;}
+.hero h1 em{font-style:normal;color:#FF6B76;}
+.lede{font-size:16px;color:#C4CEE3;line-height:1.7;margin:0 0 28px 0;max-width:560px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px;}
+.btn-primary{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:15px;padding:13px 26px;border-radius:8px;}
+.btn-primary:hover{background:#c33440;}
+.btn-ghost{display:inline-block;border:1px solid rgba(255,255,255,0.35);color:#fff;font-weight:600;font-size:15px;padding:13px 26px;border-radius:8px;}
+.btn-ghost:hover{background:rgba(255,255,255,0.08);}
+.stats{display:flex;gap:40px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.12);padding-top:24px;}
+.stat b{display:block;font-size:26px;font-weight:800;}
+.stat span{font-size:12.5px;color:#9FB0D0;}
+
+.sec-title{font-size:22px;font-weight:800;color:var(--navy);margin:0 0 18px 0;}
+.sec-sub{font-size:14px;font-weight:600;color:var(--muted);}
+.levels,.toc{max-width:960px;margin:0 auto;padding:44px 24px 8px 24px;}
+.lv-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:680px){.lv-grid{grid-template-columns:1fr;}.hero h1{font-size:32px;}.hero-mark{font-size:220px;}}
+.lv-card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:12px;padding:22px 24px;color:var(--body);box-shadow:0 1px 4px rgba(20,31,56,0.05);transition:box-shadow .15s,transform .15s;display:block;}
+.lv-card:hover{box-shadow:0 6px 18px rgba(20,31,56,0.12);transform:translateY(-2px);}
+.lv-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.lv-tag{font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--accent);}
+.lv-count{font-size:12px;color:var(--muted);font-weight:600;}
+.lv-card h3{margin:0 0 6px 0;font-size:19px;color:var(--navy);}
+.lv-card p{margin:0 0 14px 0;font-size:13.5px;color:#5A6373;line-height:1.65;}
+.lv-go{font-size:13px;font-weight:700;color:var(--accent);}
+
+.gumroad-strip{max-width:912px;margin:44px auto 0 auto;background:var(--navy-deep);border-radius:14px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 32px;flex-wrap:wrap;}
+.gs-text h2{margin:0 0 6px 0;font-size:19px;}
+.gs-text p{margin:0;font-size:13.5px;color:#C4CEE3;line-height:1.65;max-width:560px;}
+
+.toc-level{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;margin-bottom:12px;overflow:hidden;}
+.toc-level summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 22px;flex-wrap:wrap;}
+.toc-level summary::-webkit-details-marker{display:none;}
+.toc-level summary:hover{background:#F8F9FB;}
+.toc-lv-name{font-size:16px;font-weight:800;color:var(--navy);}
+.toc-lv-name::before{content:'▸';color:var(--accent);margin-right:10px;transition:transform .15s;display:inline-block;}
+.toc-level[open] .toc-lv-name::before{transform:rotate(90deg);}
+.toc-lv-meta{font-size:12px;color:var(--muted);font-weight:600;}
+.toc-body{padding:4px 22px 18px 22px;border-top:1px solid var(--line);}
+.toc-cat{font-size:11.5px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);margin:16px 0 6px 0;}
+.toc-item{display:flex;gap:12px;align-items:baseline;padding:7px 4px;border-bottom:1px solid #F1F3F6;color:var(--body);font-size:14px;}
+.toc-item:hover .toc-pt{color:var(--red);}
+.toc-item:last-child{border-bottom:none;}
+.toc-id{font-size:11px;color:var(--muted);min-width:70px;font-weight:600;font-variant-numeric:tabular-nums;}
+.toc-pt{font-weight:700;color:var(--navy);white-space:nowrap;}
+.toc-en{font-size:12.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+@media(max-width:680px){.toc-en{display:none;}}
+${SITE_CSS}
+.sk-nav .inner{max-width:960px;}
+.sk-footer{margin-top:44px;}
+</style>
+</head>
+<body>
+${navHtml(0)}
+${body}
+${footerHtml()}
+</body>
+</html>`;
+}
+
 // ---------- main ----------
 function main() {
   fs.rmSync(OUT, { recursive: true, force: true });
@@ -292,14 +462,7 @@ ${day1 ? `<a class="card" href="vocab/${day1.file}"><span class="count">31 words
   fs.writeFileSync(path.join(OUT, 'vocabulary.html'), pageShell({ title: `Korean Vocabulary | ${SITE_NAME}`, desc: 'Free Korean vocabulary lessons by day — greetings, numbers, daily life.', body: vocabBody }));
 
   // home
-  const counts = Object.fromEntries(LEVEL_ORDER.map((lv) => [lv, docs.filter((d) => d.level === lv).length]));
-  const homeBody = `<div class="hero"><div class="eyebrow">LEARN KOREAN, PROPERLY</div><h1>Korean grammar from Hangul<br>to advanced — free.</h1>
-<p>${docs.length} structured grammar lessons following the TOPIK curriculum, written in plain English.<br>Read everything free here; get complete PDF editions with practice &amp; answer keys on <a href="${STORE_URL}" style="color:#fff;">Gumroad</a>.</p></div>
-<div class="content">
-${LEVEL_ORDER.map((lv) => { const L = LEVELS[lv]; return `<a class="card" href="${L.slug}.html"><span class="count">${counts[lv]} lessons</span><h2>${esc(L.label)}</h2><p>${esc(L.sub)}</p></a>`; }).join('\n')}
-<a class="card" href="vocabulary.html"><span class="count">Day 1+</span><h2>Daily Vocabulary</h2><p>Themed word sets with romanization and example sentences.</p></a>
-</div>`;
-  fs.writeFileSync(path.join(OUT, 'index.html'), pageShell({ title: `${SITE_NAME} — Free Korean Grammar & Vocabulary Lessons`, desc: `${docs.length} free Korean grammar lessons from Hangul to TOPIK II advanced, plus daily vocabulary. Learn Korean with clear English explanations.`, body: homeBody }));
+  fs.writeFileSync(path.join(OUT, 'index.html'), buildHome(docs, day1));
 
   // favicon / robots / sitemap / 404
   fs.writeFileSync(path.join(OUT, 'favicon.svg'), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#1B2A4A"/><text x="16" y="22" font-size="16" text-anchor="middle" fill="#fff" font-family="sans-serif" font-weight="bold">한</text></svg>`);

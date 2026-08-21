@@ -7,26 +7,64 @@
 <meta name="description" content="117 free Korean grammar lessons from Hangul to TOPIK II advanced, plus daily vocabulary. Learn Korean with clear English explanations.">
 <link rel="icon" href="favicon.svg">
 <style>
-:root{--navy:#1B2A4A;--red:#DC3E4A;--muted:#8A94A6;--body:#1F2430;}
+:root{--navy:#1B2A4A;--navy-deep:#141F38;--red:#DC3E4A;--muted:#8A94A6;--body:#1F2430;--line:#E2E6EC;}
 *{box-sizing:border-box;}
-body{margin:0;background:#EEF0F3;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:var(--body);}
-.wrap{max-width:800px;margin:24px auto;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.08);}
-.hero{background:var(--navy);color:#fff;padding:44px;}
-.hero .eyebrow{font-size:11px;letter-spacing:2px;color:#9FB0D0;font-weight:600;margin-bottom:10px;}
-.hero h1{font-size:30px;font-weight:800;margin:0 0 8px 0;line-height:1.3;}
-.hero p{font-size:14px;color:#C4CEE3;margin:0;line-height:1.7;}
-.content{padding:34px 44px 44px 44px;}
-.card{display:block;border:1px solid #D5DAE3;border-radius:10px;padding:20px 22px;margin-bottom:14px;text-decoration:none;color:var(--body);}
-.card:hover{border-color:var(--navy);}
-.card h2{margin:0 0 4px 0;font-size:17px;color:var(--navy);}
-.card p{margin:0;font-size:13px;color:var(--muted);line-height:1.6;}
-.card .count{float:right;font-size:12px;color:var(--red);font-weight:700;}
-.lesson{display:flex;gap:12px;padding:11px 4px;border-bottom:1px solid #EEF0F3;text-decoration:none;color:var(--body);font-size:14px;align-items:baseline;}
-.lesson:hover .pt{color:var(--red);}
-.lesson .id{font-size:11px;color:var(--muted);min-width:110px;font-weight:600;}
-.lesson .pt{font-weight:700;color:var(--navy);}
-.lesson .en{font-size:12.5px;color:var(--muted);}
-h2.cat{font-size:14px;color:var(--red);letter-spacing:1px;margin:30px 0 8px 0;text-transform:uppercase;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:#F4F5F8;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:var(--body);}
+a{text-decoration:none;}
+.container{max-width:960px;margin:0 auto;padding:0 24px;}
+
+.hero{background:linear-gradient(135deg,#10192E 0%,#1B2A4A 55%,#2E4372 100%);color:#fff;position:relative;overflow:hidden;}
+.hero-inner{max-width:960px;margin:0 auto;padding:72px 24px 64px 24px;position:relative;}
+.hero-mark{position:absolute;right:-10px;top:-40px;font-size:340px;font-weight:900;color:rgba(255,255,255,0.045);line-height:1;pointer-events:none;user-select:none;}
+.eyebrow{font-size:12px;letter-spacing:3px;color:#9FB0D0;font-weight:700;margin-bottom:16px;}
+.hero h1{font-size:44px;font-weight:800;margin:0 0 16px 0;line-height:1.2;}
+.hero h1 em{font-style:normal;color:#FF6B76;}
+.lede{font-size:16px;color:#C4CEE3;line-height:1.7;margin:0 0 28px 0;max-width:560px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px;}
+.btn-primary{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:15px;padding:13px 26px;border-radius:8px;}
+.btn-primary:hover{background:#c33440;}
+.btn-ghost{display:inline-block;border:1px solid rgba(255,255,255,0.35);color:#fff;font-weight:600;font-size:15px;padding:13px 26px;border-radius:8px;}
+.btn-ghost:hover{background:rgba(255,255,255,0.08);}
+.stats{display:flex;gap:40px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.12);padding-top:24px;}
+.stat b{display:block;font-size:26px;font-weight:800;}
+.stat span{font-size:12.5px;color:#9FB0D0;}
+
+.sec-title{font-size:22px;font-weight:800;color:var(--navy);margin:0 0 18px 0;}
+.sec-sub{font-size:14px;font-weight:600;color:var(--muted);}
+.levels,.toc{max-width:960px;margin:0 auto;padding:44px 24px 8px 24px;}
+.lv-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:680px){.lv-grid{grid-template-columns:1fr;}.hero h1{font-size:32px;}.hero-mark{font-size:220px;}}
+.lv-card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:12px;padding:22px 24px;color:var(--body);box-shadow:0 1px 4px rgba(20,31,56,0.05);transition:box-shadow .15s,transform .15s;display:block;}
+.lv-card:hover{box-shadow:0 6px 18px rgba(20,31,56,0.12);transform:translateY(-2px);}
+.lv-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.lv-tag{font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--accent);}
+.lv-count{font-size:12px;color:var(--muted);font-weight:600;}
+.lv-card h3{margin:0 0 6px 0;font-size:19px;color:var(--navy);}
+.lv-card p{margin:0 0 14px 0;font-size:13.5px;color:#5A6373;line-height:1.65;}
+.lv-go{font-size:13px;font-weight:700;color:var(--accent);}
+
+.gumroad-strip{max-width:912px;margin:44px auto 0 auto;background:var(--navy-deep);border-radius:14px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 32px;flex-wrap:wrap;}
+.gs-text h2{margin:0 0 6px 0;font-size:19px;}
+.gs-text p{margin:0;font-size:13.5px;color:#C4CEE3;line-height:1.65;max-width:560px;}
+
+.toc-level{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;margin-bottom:12px;overflow:hidden;}
+.toc-level summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 22px;flex-wrap:wrap;}
+.toc-level summary::-webkit-details-marker{display:none;}
+.toc-level summary:hover{background:#F8F9FB;}
+.toc-lv-name{font-size:16px;font-weight:800;color:var(--navy);}
+.toc-lv-name::before{content:'▸';color:var(--accent);margin-right:10px;transition:transform .15s;display:inline-block;}
+.toc-level[open] .toc-lv-name::before{transform:rotate(90deg);}
+.toc-lv-meta{font-size:12px;color:var(--muted);font-weight:600;}
+.toc-body{padding:4px 22px 18px 22px;border-top:1px solid var(--line);}
+.toc-cat{font-size:11.5px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);margin:16px 0 6px 0;}
+.toc-item{display:flex;gap:12px;align-items:baseline;padding:7px 4px;border-bottom:1px solid #F1F3F6;color:var(--body);font-size:14px;}
+.toc-item:hover .toc-pt{color:var(--red);}
+.toc-item:last-child{border-bottom:none;}
+.toc-id{font-size:11px;color:var(--muted);min-width:70px;font-weight:600;font-variant-numeric:tabular-nums;}
+.toc-pt{font-weight:700;color:var(--navy);white-space:nowrap;}
+.toc-en{font-size:12.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+@media(max-width:680px){.toc-en{display:none;}}
 
 .sk-nav{background:#141F38;padding:0;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
 .sk-nav .inner{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px;flex-wrap:wrap;}
@@ -45,6 +83,8 @@ h2.cat{font-size:14px;color:var(--red);letter-spacing:1px;margin:30px 0 8px 0;te
 .sk-footer{max-width:800px;margin:28px auto 40px auto;text-align:center;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:12px;color:#8A94A6;line-height:1.8;}
 .sk-footer a{color:#1B2A4A;}
 
+.sk-nav .inner{max-width:960px;}
+.sk-footer{margin-top:44px;}
 </style>
 </head>
 <body>
@@ -56,17 +96,233 @@ h2.cat{font-size:14px;color:var(--red);letter-spacing:1px;margin:30px 0 8px 0;te
   <a href="advanced.html">Advanced</a>
   <a href="vocabulary.html">Vocabulary</a>
 </div></nav>
-<div class="wrap">
-<div class="hero"><div class="eyebrow">LEARN KOREAN, PROPERLY</div><h1>Korean grammar from Hangul<br>to advanced — free.</h1>
-<p>117 structured grammar lessons following the TOPIK curriculum, written in plain English.<br>Read everything free here; get complete PDF editions with practice &amp; answer keys on <a href="https://sunshinework.gumroad.com" style="color:#fff;">Gumroad</a>.</p></div>
-<div class="content">
-<a class="card" href="hangul-basics.html"><span class="count">21 lessons</span><h2>Hangul &amp; Basics</h2><p>Pre-TOPIK · the alphabet, pronunciation and sentence skeleton</p></a>
-<a class="card" href="beginner.html"><span class="count">39 lessons</span><h2>Beginner</h2><p>TOPIK I (Levels 1–2) · core particles, tenses and everyday endings</p></a>
-<a class="card" href="intermediate.html"><span class="count">34 lessons</span><h2>Intermediate</h2><p>TOPIK II (Levels 3–4) · connective endings and spoken nuance</p></a>
-<a class="card" href="advanced.html"><span class="count">23 lessons</span><h2>Advanced</h2><p>TOPIK II (Levels 5–6) · formal and written-register Korean</p></a>
-<a class="card" href="vocabulary.html"><span class="count">Day 1+</span><h2>Daily Vocabulary</h2><p>Themed word sets with romanization and example sentences.</p></a>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-mark" aria-hidden="true">한</div>
+    <div class="eyebrow">FREE KOREAN GRAMMAR &amp; VOCABULARY</div>
+    <h1>Learn Korean properly,<br>from <em>Hangul</em> to advanced.</h1>
+    <p class="lede">117 structured grammar lessons following the TOPIK curriculum, written in plain English — every one free to read.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="grammar/gram-pre-002.html">Start with Hangul →</a>
+      <a class="btn-ghost" href="#curriculum">See the full curriculum</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>117</b><span>grammar lessons</span></div>
+      <div class="stat"><b>4</b><span>levels, Pre-TOPIK → TOPIK II</span></div>
+      <div class="stat"><b>100%</b><span>free to read</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="levels">
+  <h2 class="sec-title">Pick your level</h2>
+  <div class="lv-grid"><a class="lv-card" href="hangul-basics.html" style="--accent:#0E7C7B;">
+  <div class="lv-top"><span class="lv-tag">PRE-TOPIK</span><span class="lv-count">21 lessons</span></div>
+  <h3>Hangul &amp; Basics</h3>
+  <p>the alphabet, pronunciation and sentence skeleton</p>
+  <span class="lv-go">Browse lessons →</span>
+</a>
+<a class="lv-card" href="beginner.html" style="--accent:#2456A6;">
+  <div class="lv-top"><span class="lv-tag">TOPIK I · 1–2</span><span class="lv-count">39 lessons</span></div>
+  <h3>Beginner</h3>
+  <p>core particles, tenses and everyday endings</p>
+  <span class="lv-go">Browse lessons →</span>
+</a>
+<a class="lv-card" href="intermediate.html" style="--accent:#C77800;">
+  <div class="lv-top"><span class="lv-tag">TOPIK II · 3–4</span><span class="lv-count">34 lessons</span></div>
+  <h3>Intermediate</h3>
+  <p>connective endings and spoken nuance</p>
+  <span class="lv-go">Browse lessons →</span>
+</a>
+<a class="lv-card" href="advanced.html" style="--accent:#B3261E;">
+  <div class="lv-top"><span class="lv-tag">TOPIK II · 5–6</span><span class="lv-count">23 lessons</span></div>
+  <h3>Advanced</h3>
+  <p>formal and written-register Korean</p>
+  <span class="lv-go">Browse lessons →</span>
+</a></div>
+</section>
+
+<section class="gumroad-strip">
+  <div class="gs-text">
+    <h2>Want the complete editions?</h2>
+    <p>Every lesson here is a free preview. The full versions — complete explanations, all example sets, practice questions with answer keys, print-ready PDFs — are on Gumroad.</p>
+  </div>
+  <a class="btn-primary" href="https://sunshinework.gumroad.com" rel="noopener" target="_blank">Visit the store →</a>
+</section>
+
+<section class="toc" id="curriculum">
+  <h2 class="sec-title">Full curriculum <span class="sec-sub">— all 117 lessons, in order</span></h2>
+  <details class="toc-level" style="--accent:#0E7C7B;" open>
+<summary><span class="toc-lv-name">Hangul &amp; Basics</span><span class="toc-lv-meta">PRE-TOPIK · 21 lessons</span></summary>
+<div class="toc-body"><div class="toc-cat">Hangul: Letters &amp; Pronunciation</div>
+<a class="toc-item" href="grammar/gram-pre-002.html"><span class="toc-id">PRE-002</span><span class="toc-pt">Vowels</span><span class="toc-en"></span></a>
+<a class="toc-item" href="grammar/gram-pre-003.html"><span class="toc-id">PRE-003</span><span class="toc-pt">Consonants</span><span class="toc-en"></span></a>
+<a class="toc-item" href="grammar/gram-pre-004.html"><span class="toc-id">PRE-004</span><span class="toc-pt">Syllable Structure &amp; Final Consonants</span><span class="toc-en"></span></a>
+<a class="toc-item" href="grammar/gram-pre-005.html"><span class="toc-id">PRE-005</span><span class="toc-pt">The 7 Representative Batchim Sounds</span><span class="toc-en"></span></a>
+<a class="toc-item" href="grammar/gram-pre-006.html"><span class="toc-id">PRE-006</span><span class="toc-pt">Stroke Order</span><span class="toc-en"></span></a>
+<a class="toc-item" href="grammar/gram-pre-007.html"><span class="toc-id">PRE-007</span><span class="toc-pt">Linking (Liaison)</span><span class="toc-en"></span></a>
+<a class="toc-item" href="grammar/gram-pre-008.html"><span class="toc-id">PRE-008</span><span class="toc-pt">Nasalization</span><span class="toc-en"></span></a>
+<a class="toc-item" href="grammar/gram-pre-009.html"><span class="toc-id">PRE-009</span><span class="toc-pt">Aspiration</span><span class="toc-en"></span></a>
+<a class="toc-item" href="grammar/gram-pre-010.html"><span class="toc-id">PRE-010</span><span class="toc-pt">Palatalization</span><span class="toc-en"></span></a>
+<a class="toc-item" href="grammar/gram-pre-011.html"><span class="toc-id">PRE-011</span><span class="toc-pt">Tensification</span><span class="toc-en"></span></a>
+<a class="toc-item" href="grammar/gram-pre-012.html"><span class="toc-id">PRE-012</span><span class="toc-pt">Initial Sound Rule</span><span class="toc-en"></span></a>
+<div class="toc-cat">Basic Sentence Structure</div>
+<a class="toc-item" href="grammar/gram-pre-013.html"><span class="toc-id">PRE-013</span><span class="toc-pt">Korean Word Order (SOV) vs. English Word Order (SVO)</span><span class="toc-en"></span></a>
+<a class="toc-item" href="grammar/gram-pre-014.html"><span class="toc-id">PRE-014</span><span class="toc-pt">What Are Particles?</span><span class="toc-en"></span></a>
+<a class="toc-item" href="grammar/gram-pre-015.html"><span class="toc-id">PRE-015</span><span class="toc-pt">The 4 Sentence-Ending Types</span><span class="toc-en"></span></a>
+<a class="toc-item" href="grammar/gram-pre-016.html"><span class="toc-id">PRE-016</span><span class="toc-pt">Forming Questions</span><span class="toc-en"></span></a>
+<a class="toc-item" href="grammar/gram-pre-017.html"><span class="toc-id">PRE-017</span><span class="toc-pt">Copula &amp; Negative Copula</span><span class="toc-en"></span></a>
+<a class="toc-item" href="grammar/gram-pre-018.html"><span class="toc-id">PRE-018</span><span class="toc-pt">있다/없다</span><span class="toc-en">Existence, Possession &amp; Location</span></a>
+<a class="toc-item" href="grammar/gram-pre-019.html"><span class="toc-id">PRE-019</span><span class="toc-pt">Personal &amp; Demonstrative Pronouns</span><span class="toc-en"></span></a>
+<a class="toc-item" href="grammar/gram-pre-020.html"><span class="toc-id">PRE-020</span><span class="toc-pt">Greetings &amp; Self-Introduction Expressions</span><span class="toc-en"></span></a>
+<a class="toc-item" href="grammar/gram-pre-021.html"><span class="toc-id">PRE-021</span><span class="toc-pt">Two Number Systems</span><span class="toc-en"></span></a>
+<a class="toc-item" href="grammar/gram-pre-022.html"><span class="toc-id">PRE-022</span><span class="toc-pt">Basic Negation with 안/못</span><span class="toc-en"></span></a>
 </div>
+</details>
+<details class="toc-level" style="--accent:#2456A6;">
+<summary><span class="toc-lv-name">Beginner</span><span class="toc-lv-meta">TOPIK I · 1–2 · 39 lessons</span></summary>
+<div class="toc-body"><div class="toc-cat">Particles</div>
+<a class="toc-item" href="grammar/gram-beg-001.html"><span class="toc-id">BEG-001</span><span class="toc-pt">은/는</span><span class="toc-en">Topic Particle</span></a>
+<a class="toc-item" href="grammar/gram-beg-002.html"><span class="toc-id">BEG-002</span><span class="toc-pt">이/가</span><span class="toc-en">Subject Particle</span></a>
+<a class="toc-item" href="grammar/gram-beg-003.html"><span class="toc-id">BEG-003</span><span class="toc-pt">을/를</span><span class="toc-en">Object Particle</span></a>
+<a class="toc-item" href="grammar/gram-beg-004.html"><span class="toc-id">BEG-004</span><span class="toc-pt">의</span><span class="toc-en">Possessive Particle</span></a>
+<a class="toc-item" href="grammar/gram-beg-005.html"><span class="toc-id">BEG-005</span><span class="toc-pt">에</span><span class="toc-en">Time &amp; Location Particle</span></a>
+<a class="toc-item" href="grammar/gram-beg-006.html"><span class="toc-id">BEG-006</span><span class="toc-pt">에서</span><span class="toc-en">Location of Action &amp; Starting Point</span></a>
+<a class="toc-item" href="grammar/gram-beg-007.html"><span class="toc-id">BEG-007</span><span class="toc-pt">도</span><span class="toc-en">Also/Too</span></a>
+<a class="toc-item" href="grammar/gram-beg-008.html"><span class="toc-id">BEG-008</span><span class="toc-pt">만 (한정)</span><span class="toc-en">Only</span></a>
+<a class="toc-item" href="grammar/gram-beg-009.html"><span class="toc-id">BEG-009</span><span class="toc-pt">와/과, 하고, (이)랑</span><span class="toc-en">And/With</span></a>
+<a class="toc-item" href="grammar/gram-beg-010.html"><span class="toc-id">BEG-010</span><span class="toc-pt">(으)로</span><span class="toc-en">Means &amp; Direction</span></a>
+<a class="toc-item" href="grammar/gram-beg-011.html"><span class="toc-id">BEG-011</span><span class="toc-pt">부터~까지</span><span class="toc-en">Range: From~To</span></a>
+<a class="toc-item" href="grammar/gram-beg-012.html"><span class="toc-id">BEG-012</span><span class="toc-pt">보다</span><span class="toc-en">Comparison</span></a>
+<div class="toc-cat">Sentence Endings</div>
+<a class="toc-item" href="grammar/gram-beg-013.html"><span class="toc-id">BEG-013</span><span class="toc-pt">-아/어요</span><span class="toc-en">Polite Casual Style (해요체)</span></a>
+<a class="toc-item" href="grammar/gram-beg-014.html"><span class="toc-id">BEG-014</span><span class="toc-pt">-ㅂ니다/습니다</span><span class="toc-en">Formal Style (합쇼체)</span></a>
+<a class="toc-item" href="grammar/gram-beg-015.html"><span class="toc-id">BEG-015</span><span class="toc-pt">-았/었-</span><span class="toc-en">Past Tense</span></a>
+<a class="toc-item" href="grammar/gram-beg-016.html"><span class="toc-id">BEG-016</span><span class="toc-pt">-(으)ㄹ 거예요</span><span class="toc-en">Future/Presumption</span></a>
+<a class="toc-item" href="grammar/gram-beg-017.html"><span class="toc-id">BEG-017</span><span class="toc-pt">-지 마세요</span><span class="toc-en">Prohibition</span></a>
+<a class="toc-item" href="grammar/gram-beg-018.html"><span class="toc-id">BEG-018</span><span class="toc-pt">-(으)세요</span><span class="toc-en">Polite Command/Suggestion</span></a>
+<a class="toc-item" href="grammar/gram-beg-019.html"><span class="toc-id">BEG-019</span><span class="toc-pt">-(으)ㄹ게요</span><span class="toc-en">Intention/Promise</span></a>
+<a class="toc-item" href="grammar/gram-beg-020.html"><span class="toc-id">BEG-020</span><span class="toc-pt">-네요</span><span class="toc-en">Exclamation/Realization</span></a>
+<a class="toc-item" href="grammar/gram-beg-021.html"><span class="toc-id">BEG-021</span><span class="toc-pt">-죠/지요</span><span class="toc-en">Confirming/Seeking Agreement</span></a>
+<a class="toc-item" href="grammar/gram-beg-022.html"><span class="toc-id">BEG-022</span><span class="toc-pt">-고 싶다</span><span class="toc-en">Desire ("Want To")</span></a>
+<div class="toc-cat">Connective Endings</div>
+<a class="toc-item" href="grammar/gram-beg-023.html"><span class="toc-id">BEG-023</span><span class="toc-pt">-고</span><span class="toc-en">Connective: Listing ("And")</span></a>
+<a class="toc-item" href="grammar/gram-beg-024.html"><span class="toc-id">BEG-024</span><span class="toc-pt">-지만</span><span class="toc-en">Connective: Contrast ("But")</span></a>
+<a class="toc-item" href="grammar/gram-beg-025.html"><span class="toc-id">BEG-025</span><span class="toc-pt">-아/어서</span><span class="toc-en">Connective: Reason / Sequence</span></a>
+<a class="toc-item" href="grammar/gram-beg-026.html"><span class="toc-id">BEG-026</span><span class="toc-pt">-(으)니까</span><span class="toc-en">Because (Reason → Suggestion/Command)</span></a>
+<a class="toc-item" href="grammar/gram-beg-027.html"><span class="toc-id">BEG-027</span><span class="toc-pt">-(으)면</span><span class="toc-en">If / When (Condition)</span></a>
+<a class="toc-item" href="grammar/gram-beg-028.html"><span class="toc-id">BEG-028</span><span class="toc-pt">-(으)러</span><span class="toc-en">In Order To (Purpose + Motion Verb)</span></a>
+<a class="toc-item" href="grammar/gram-beg-029.html"><span class="toc-id">BEG-029</span><span class="toc-pt">-(으)려고</span><span class="toc-en">Intention ("Intend To / In Order To")</span></a>
+<div class="toc-cat">Negation &amp; Ability</div>
+<a class="toc-item" href="grammar/gram-beg-030.html"><span class="toc-id">BEG-030</span><span class="toc-pt">안/-지 않다</span><span class="toc-en">Negation</span></a>
+<a class="toc-item" href="grammar/gram-beg-031.html"><span class="toc-id">BEG-031</span><span class="toc-pt">못/-지 못하다</span><span class="toc-en">Inability</span></a>
+<a class="toc-item" href="grammar/gram-beg-032.html"><span class="toc-id">BEG-032</span><span class="toc-pt">-(으)ㄹ 수 있다/없다</span><span class="toc-en">Ability &amp; Possibility ("Can / Cannot")</span></a>
+<div class="toc-cat">Other Essential Patterns</div>
+<a class="toc-item" href="grammar/gram-beg-033.html"><span class="toc-id">BEG-033</span><span class="toc-pt">-고 있다</span><span class="toc-en">Present Progressive ("-ing")</span></a>
+<a class="toc-item" href="grammar/gram-beg-034.html"><span class="toc-id">BEG-034</span><span class="toc-pt">-아/어 있다</span><span class="toc-en">Resultant State ("Is/Has Been Left ~ed")</span></a>
+<a class="toc-item" href="grammar/gram-beg-035.html"><span class="toc-id">BEG-035</span><span class="toc-pt">-아/어 주세요</span><span class="toc-en">Polite Request ("Please Do [For Me]")</span></a>
+<a class="toc-item" href="grammar/gram-beg-036.html"><span class="toc-id">BEG-036</span><span class="toc-pt">-아/어야 하다/되다</span><span class="toc-en">Obligation ("Must / Have To")</span></a>
+<a class="toc-item" href="grammar/gram-beg-037.html"><span class="toc-id">BEG-037</span><span class="toc-pt">-기 전에 / -(으)ㄴ 후에</span><span class="toc-en">Before / After</span></a>
+<a class="toc-item" href="grammar/gram-beg-038.html"><span class="toc-id">BEG-038</span><span class="toc-pt">-는 것</span><span class="toc-en">Nominalizer ("The Act/Fact of ~ing")</span></a>
+<a class="toc-item" href="grammar/gram-beg-039.html"><span class="toc-id">BEG-039</span><span class="toc-pt">숫자(한자어·고유어) + 단위명사</span><span class="toc-en">Numbers + Counters</span></a>
 </div>
+</details>
+<details class="toc-level" style="--accent:#C77800;">
+<summary><span class="toc-lv-name">Intermediate</span><span class="toc-lv-meta">TOPIK II · 3–4 · 34 lessons</span></summary>
+<div class="toc-body"><div class="toc-cat">More Connective Endings</div>
+<a class="toc-item" href="grammar/gram-int-001.html"><span class="toc-id">INT-001</span><span class="toc-pt">-(으)ㄴ데/는데</span><span class="toc-en">Background &amp; Mild Contrast</span></a>
+<a class="toc-item" href="grammar/gram-int-002.html"><span class="toc-id">INT-002</span><span class="toc-pt">-거나</span><span class="toc-en">Choice / Alternatives ("Or")</span></a>
+<a class="toc-item" href="grammar/gram-int-003.html"><span class="toc-id">INT-003</span><span class="toc-pt">-든지</span><span class="toc-en">Free Choice &amp; Indifference ("No Matter Which")</span></a>
+<a class="toc-item" href="grammar/gram-int-004.html"><span class="toc-id">INT-004</span><span class="toc-pt">-자마자</span><span class="toc-en">Immediate Sequential Action</span></a>
+<a class="toc-item" href="grammar/gram-int-005.html"><span class="toc-id">INT-005</span><span class="toc-pt">-는 동안</span><span class="toc-en">While / During (Ongoing Duration)</span></a>
+<a class="toc-item" href="grammar/gram-int-006.html"><span class="toc-id">INT-006</span><span class="toc-pt">-(으)면서</span><span class="toc-en">Simultaneous Actions</span></a>
+<a class="toc-item" href="grammar/gram-int-007.html"><span class="toc-id">INT-007</span><span class="toc-pt">-느라고</span><span class="toc-en">Cause &amp; Negative Result</span></a>
+<a class="toc-item" href="grammar/gram-int-008.html"><span class="toc-id">INT-008</span><span class="toc-pt">-(으)ㄹ수록</span><span class="toc-en">Proportional "The More... The More"</span></a>
+<a class="toc-item" href="grammar/gram-int-009.html"><span class="toc-id">INT-009</span><span class="toc-pt">-다가</span><span class="toc-en">Action Switching &amp; Interruption</span></a>
+<a class="toc-item" href="grammar/gram-int-010.html"><span class="toc-id">INT-010</span><span class="toc-pt">-는 김에</span><span class="toc-en">Taking the Opportunity ("While I'm At It")</span></a>
+<a class="toc-item" href="grammar/gram-int-011.html"><span class="toc-id">INT-011</span><span class="toc-pt">-(으)ㄴ/는데도</span><span class="toc-en">Even Though... Still (Concessive)</span></a>
+<div class="toc-cat">Conjecture &amp; Intention</div>
+<a class="toc-item" href="grammar/gram-int-012.html"><span class="toc-id">INT-012</span><span class="toc-pt">-(으)ㄹ 것 같다</span><span class="toc-en">Vague Conjecture</span></a>
+<a class="toc-item" href="grammar/gram-int-013.html"><span class="toc-id">INT-013</span><span class="toc-pt">-나 보다/-(으)ㄴ가 보다</span><span class="toc-en">Evidence-Based Conjecture</span></a>
+<a class="toc-item" href="grammar/gram-int-014.html"><span class="toc-id">INT-014</span><span class="toc-pt">-겠-</span><span class="toc-en">Conjecture &amp; Volition</span></a>
+<a class="toc-item" href="grammar/gram-int-015.html"><span class="toc-id">INT-015</span><span class="toc-pt">-(으)려고 하다</span><span class="toc-en">Plans &amp; Intentions</span></a>
+<a class="toc-item" href="grammar/gram-int-016.html"><span class="toc-id">INT-016</span><span class="toc-pt">-기로 하다</span><span class="toc-en">Firm Decisions &amp; Promises</span></a>
+<a class="toc-item" href="grammar/gram-int-017.html"><span class="toc-id">INT-017</span><span class="toc-pt">-(으)ㄹ 뻔하다</span><span class="toc-en">The Near-Miss Pattern</span></a>
+<div class="toc-cat">Passive &amp; Causative</div>
+<a class="toc-item" href="grammar/gram-int-018.html"><span class="toc-id">INT-018</span><span class="toc-pt">피동 표현</span><span class="toc-en">Passive Expressions</span></a>
+<a class="toc-item" href="grammar/gram-int-019.html"><span class="toc-id">INT-019</span><span class="toc-pt">사동 표현</span><span class="toc-en">Causative Expressions</span></a>
+<div class="toc-cat">Quotation &amp; Reported Speech</div>
+<a class="toc-item" href="grammar/gram-int-020.html"><span class="toc-id">INT-020</span><span class="toc-pt">-다고 하다</span><span class="toc-en">Reported Speech for Statements</span></a>
+<a class="toc-item" href="grammar/gram-int-021.html"><span class="toc-id">INT-021</span><span class="toc-pt">-냐고 하다</span><span class="toc-en">Reported Speech: Questions</span></a>
+<a class="toc-item" href="grammar/gram-int-022.html"><span class="toc-id">INT-022</span><span class="toc-pt">-자고 하다</span><span class="toc-en">Reported Suggestions</span></a>
+<a class="toc-item" href="grammar/gram-int-023.html"><span class="toc-id">INT-023</span><span class="toc-pt">-(으)라고 하다</span><span class="toc-en">Reported Commands</span></a>
+<div class="toc-cat">Particles &amp; Bound Nouns</div>
+<a class="toc-item" href="grammar/gram-int-024.html"><span class="toc-id">INT-024</span><span class="toc-pt">-밖에</span><span class="toc-en">Only, and Nothing But</span></a>
+<a class="toc-item" href="grammar/gram-int-025.html"><span class="toc-id">INT-025</span><span class="toc-pt">-조차/마저</span><span class="toc-en">Extreme Inclusion ("Even")</span></a>
+<a class="toc-item" href="grammar/gram-int-026.html"><span class="toc-id">INT-026</span><span class="toc-pt">-(이)나</span><span class="toc-en">Alternative Choice &amp; Surprising Degree</span></a>
+<a class="toc-item" href="grammar/gram-int-027.html"><span class="toc-id">INT-027</span><span class="toc-pt">-(이)라도</span><span class="toc-en">Settling for the Next-Best Option</span></a>
+<a class="toc-item" href="grammar/gram-int-028.html"><span class="toc-id">INT-028</span><span class="toc-pt">-치고</span><span class="toc-en">No Exception, or Surprisingly For a Typical X</span></a>
+<a class="toc-item" href="grammar/gram-int-029.html"><span class="toc-id">INT-029</span><span class="toc-pt">-는 대로</span><span class="toc-en">Immediate Sequence &amp; Exactly As</span></a>
+<div class="toc-cat">Other Intermediate Patterns</div>
+<a class="toc-item" href="grammar/gram-int-030.html"><span class="toc-id">INT-030</span><span class="toc-pt">-아/어 보이다</span><span class="toc-en">Looks/Seems (Appearance-Based Impression)</span></a>
+<a class="toc-item" href="grammar/gram-int-031.html"><span class="toc-id">INT-031</span><span class="toc-pt">-기 때문에</span><span class="toc-en">Formal Reason &amp; Cause</span></a>
+<a class="toc-item" href="grammar/gram-int-032.html"><span class="toc-id">INT-032</span><span class="toc-pt">-는 바람에</span><span class="toc-en">Unexpected, Negative Cause</span></a>
+<a class="toc-item" href="grammar/gram-int-033.html"><span class="toc-id">INT-033</span><span class="toc-pt">-(으)ㄴ 지</span><span class="toc-en">Elapsed Time Since an Action</span></a>
+<a class="toc-item" href="grammar/gram-int-034.html"><span class="toc-id">INT-034</span><span class="toc-pt">-(으)ㄹ까 하다</span><span class="toc-en">Vague, Tentative Plans</span></a>
+</div>
+</details>
+<details class="toc-level" style="--accent:#B3261E;">
+<summary><span class="toc-lv-name">Advanced</span><span class="toc-lv-meta">TOPIK II · 5–6 · 23 lessons</span></summary>
+<div class="toc-body"><div class="toc-cat">Formal &amp; Written Style</div>
+<a class="toc-item" href="grammar/gram-adv-001.html"><span class="toc-id">ADV-001</span><span class="toc-pt">-(으)ㅁ</span><span class="toc-en">Nominalizer &amp; Formal Written Sentence Ending</span></a>
+<a class="toc-item" href="grammar/gram-adv-002.html"><span class="toc-id">ADV-002</span><span class="toc-pt">-(으)로 인해(서)</span><span class="toc-en">Formal Written Cause</span></a>
+<a class="toc-item" href="grammar/gram-adv-003.html"><span class="toc-id">ADV-003</span><span class="toc-pt">-는 한</span><span class="toc-en">The Boundary of a Condition</span></a>
+<a class="toc-item" href="grammar/gram-adv-004.html"><span class="toc-id">ADV-004</span><span class="toc-pt">-(으)ㅁ으로써</span><span class="toc-en">Formal Means &amp; Method</span></a>
+<a class="toc-item" href="grammar/gram-adv-005.html"><span class="toc-id">ADV-005</span><span class="toc-pt">-는바</span><span class="toc-en">Formal Connective, Presenting a Situation</span></a>
+<a class="toc-item" href="grammar/gram-adv-006.html"><span class="toc-id">ADV-006</span><span class="toc-pt">-다시피 하다</span><span class="toc-en">Nearly / Practically the Same as Doing</span></a>
+<div class="toc-cat">Concession &amp; Contrast</div>
+<a class="toc-item" href="grammar/gram-adv-007.html"><span class="toc-id">ADV-007</span><span class="toc-pt">-(으)ㄹ지라도</span><span class="toc-en">Strong Concessive "Even If"</span></a>
+<a class="toc-item" href="grammar/gram-adv-008.html"><span class="toc-id">ADV-008</span><span class="toc-pt">-더라도</span><span class="toc-en">Concession, "Even If"</span></a>
+<a class="toc-item" href="grammar/gram-adv-009.html"><span class="toc-id">ADV-009</span><span class="toc-pt">-(으)ㄴ들</span><span class="toc-en">Concession, "Even If... It Wouldn't Matter"</span></a>
+<a class="toc-item" href="grammar/gram-adv-010.html"><span class="toc-id">ADV-010</span><span class="toc-pt">-(으)나마</span><span class="toc-en">Such as It Is, a Resigned Concession</span></a>
+<a class="toc-item" href="grammar/gram-adv-011.html"><span class="toc-id">ADV-011</span><span class="toc-pt">-(으)ㅁ에도 불구하고</span><span class="toc-en">Strong Contrast "Despite / In Spite Of"</span></a>
+<div class="toc-cat">Cause &amp; Condition</div>
+<a class="toc-item" href="grammar/gram-adv-012.html"><span class="toc-id">ADV-012</span><span class="toc-pt">-는 이상</span><span class="toc-en">An Established Fact That Makes the Conclusion Inevitable</span></a>
+<a class="toc-item" href="grammar/gram-adv-013.html"><span class="toc-id">ADV-013</span><span class="toc-pt">-(으)ㄹ망정</span><span class="toc-en">A Proud, Defiant Concession</span></a>
+<a class="toc-item" href="grammar/gram-adv-014.html"><span class="toc-id">ADV-014</span><span class="toc-pt">-(으)ㄴ/는 나머지</span><span class="toc-en">Excessive Degree Leading to a Result</span></a>
+<a class="toc-item" href="grammar/gram-adv-015.html"><span class="toc-id">ADV-015</span><span class="toc-pt">-(으)ㄹ 뿐(만) 아니라</span><span class="toc-en">Not Only... But Also (Addition)</span></a>
+<div class="toc-cat">Conjecture &amp; Hearsay</div>
+<a class="toc-item" href="grammar/gram-adv-016.html"><span class="toc-id">ADV-016</span><span class="toc-pt">-(으)ㄹ 리가 없다</span><span class="toc-en">Strong Negative Conjecture</span></a>
+<a class="toc-item" href="grammar/gram-adv-017.html"><span class="toc-id">ADV-017</span><span class="toc-pt">-(으)ㄴ/는 듯하다</span><span class="toc-en">Formal Literary Conjecture</span></a>
+<a class="toc-item" href="grammar/gram-adv-018.html"><span class="toc-id">ADV-018</span><span class="toc-pt">-(으)ㄹ 법하다</span><span class="toc-en">Conjecture of Plausibility</span></a>
+<a class="toc-item" href="grammar/gram-adv-019.html"><span class="toc-id">ADV-019</span><span class="toc-pt">-(으)ㄴ/는 셈이다</span><span class="toc-en">Evaluative Equivalence</span></a>
+<div class="toc-cat">Discourse &amp; Argumentation</div>
+<a class="toc-item" href="grammar/gram-adv-020.html"><span class="toc-id">ADV-020</span><span class="toc-pt">-되</span><span class="toc-en">Conditional Concession (Granted, But...)</span></a>
+<a class="toc-item" href="grammar/gram-adv-021.html"><span class="toc-id">ADV-021</span><span class="toc-pt">-(으)려니와</span><span class="toc-en">Acknowledging Plus Addition</span></a>
+<a class="toc-item" href="grammar/gram-adv-022.html"><span class="toc-id">ADV-022</span><span class="toc-pt">-기는커녕</span><span class="toc-en">Far From X, Not Even Y</span></a>
+<a class="toc-item" href="grammar/gram-adv-023.html"><span class="toc-id">ADV-023</span><span class="toc-pt">-(으)ㄹ지언정</span><span class="toc-en">The Strongest, Most Literary Defiant Concession</span></a>
+</div>
+</details>
+</section>
+
+<section class="levels">
+  <h2 class="sec-title">Daily vocabulary</h2>
+  <div class="lv-grid">
+    <a class="lv-card" href="vocab/day-1.html" style="--accent:#6A3FB5;">
+      <div class="lv-top"><span class="lv-tag">DAY 1</span><span class="lv-count">31 words</span></div>
+      <h3>Greetings &amp; Basic Expressions</h3>
+      <p>The first words every learner needs — with romanization and example sentences.</p>
+      <span class="lv-go">Start Day 1 →</span>
+    </a>
+    <a class="lv-card" href="vocabulary.html" style="--accent:#6A3FB5;">
+      <div class="lv-top"><span class="lv-tag">SERIES</span><span class="lv-count">growing</span></div>
+      <h3>All vocabulary days</h3>
+      <p>Themed word sets, added day by day as the series grows.</p>
+      <span class="lv-go">Browse →</span>
+    </a>
+  </div>
+</section>
 <div class="sk-footer">© Sunshine Korean · Free Korean lessons, from Hangul to advanced grammar.<br>
 Complete lessons with practice &amp; answer keys: <a href="https://sunshinework.gumroad.com" rel="noopener">sunshinework.gumroad.com</a></div>
 </body>
