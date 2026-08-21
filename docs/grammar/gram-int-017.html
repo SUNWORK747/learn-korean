@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GRAM-INT-017 -(으)ㄹ 뻔하다 — The Near-Miss Pattern | Sunshine Korean</title>
+<style>
+  :root{
+    --color-navy:#1B2A4A;
+    --color-navy-light:#2E4372;
+    --color-red:#DC3E4A;
+    --color-green-bg:#E8F5E9;
+    --color-green-border:#2E7D32;
+    --color-blue-bg:#E9EEF8;
+    --color-blue-border:#1B2A4A;
+    --color-table-stripe:#F4F5F7;
+    --color-muted:#8A94A6;
+    --color-body:#1F2430;
+    --color-white:#FFFFFF;
+    --font-heading:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;
+    --font-body:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{
+    margin:0; padding:0;
+    background:#EEF0F3;
+    font-family:var(--font-body);
+    color:var(--color-body);
+  }
+
+  .page{
+    max-width:800px;
+    margin:24px auto;
+    background:var(--color-white);
+    box-shadow:0 2px 12px rgba(0,0,0,0.08);
+    padding:0 0 40px 0;
+  }
+
+  /* ---------- Banner (Part-divider 축소형) ---------- */
+  .doc-banner{
+    background:var(--color-navy);
+    color:var(--color-white);
+    padding:36px 44px 30px 44px;
+  }
+  .doc-banner .eyebrow{
+    font-size:11px;
+    letter-spacing:2px;
+    color:#9FB0D0;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .doc-banner h1{
+    font-family:var(--font-heading);
+    font-size:30px;
+    font-weight:800;
+    margin:0 0 6px 0;
+    line-height:1.3;
+  }
+  .doc-banner .subtitle{
+    font-size:14px;
+    color:#C4CEE3;
+    margin:0 0 16px 0;
+  }
+  .badge-row{ display:flex; align-items:center; gap:10px; }
+  .badge{
+    display:inline-block;
+    background:var(--color-red);
+    color:var(--color-white);
+    font-weight:700;
+    font-size:12px;
+    padding:4px 10px;
+    border-radius:3px;
+    letter-spacing:0.5px;
+  }
+  .badge.outline{
+    background:transparent;
+    border:1px solid #4C5D82;
+    color:#C4CEE3;
+    font-weight:600;
+  }
+
+  main{ padding:0 44px; }
+
+  /* ---------- Info Card ---------- */
+  .info-card{
+    margin-top:-18px;
+    background:var(--color-white);
+    border:1px solid #E3E6EC;
+    border-radius:6px;
+    box-shadow:0 4px 14px rgba(27,42,74,0.10);
+    padding:18px 22px;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .info-card table{ width:100%; border-collapse:collapse; }
+  .info-card td{ padding:5px 6px; font-size:13px; vertical-align:top; }
+  .info-card td.label{ color:var(--color-muted); width:110px; font-weight:600; }
+
+  /* ---------- Headings ---------- */
+  h2{
+    font-family:var(--font-heading);
+    font-size:21px;
+    font-weight:800;
+    color:var(--color-navy);
+    margin:40px 0 6px 0;
+    break-after:avoid; page-break-after:avoid;
+  }
+  h2 .num{
+    display:inline-block;
+    background:var(--color-navy);
+    color:#fff;
+    font-size:13px;
+    width:24px; height:24px;
+    line-height:24px;
+    text-align:center;
+    border-radius:50%;
+    margin-right:8px;
+    vertical-align:middle;
+  }
+  h2::after{
+    content:"";
+    display:block;
+    width:56px;
+    height:4px;
+    background:var(--color-red);
+    margin-top:8px;
+    border-radius:2px;
+  }
+  h3{
+    font-family:var(--font-heading);
+    font-size:16px;
+    font-weight:700;
+    color:var(--color-navy-light);
+    margin:26px 0 8px 0;
+  }
+  p{ font-size:14.5px; line-height:1.7; margin:0 0 12px 0; }
+
+  /* ---------- Tables ---------- */
+  table.data{
+    width:100%;
+    border-collapse:collapse;
+    margin:14px 0 18px 0;
+    font-size:13.5px;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  table.data thead th{
+    background:var(--color-navy);
+    color:#fff;
+    text-align:left;
+    padding:9px 12px;
+    font-weight:700;
+    font-size:12.5px;
+  }
+  table.data tbody td{
+    padding:9px 12px;
+    border-bottom:1px solid #ECEEF2;
+  }
+  table.data tbody tr:nth-child(even){ background:var(--color-table-stripe); }
+  table.data td.kw{ font-weight:700; color:var(--color-navy); }
+  table.data caption{
+    caption-side:top;
+    text-align:left;
+    font-size:12px;
+    color:var(--color-muted);
+    margin-bottom:4px;
+    font-weight:600;
+  }
+
+  /* ---------- Callout boxes ---------- */
+  .box{
+    border-left:4px solid;
+    border-radius:2px;
+    padding:14px 18px;
+    margin:16px 0;
+    font-size:13.5px;
+    line-height:1.7;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .box.example{ background:var(--color-blue-bg); border-color:var(--color-blue-border); }
+  .box.tip{ background:var(--color-green-bg); border-color:var(--color-green-border); }
+  .box .box-title{
+    display:block;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    font-size:12px;
+    margin-bottom:6px;
+  }
+  .box.example .box-title{ color:var(--color-navy); }
+  .box.tip .box-title{ color:var(--color-green-border); }
+  .box .kr{ font-weight:700; }
+  .box .en{ color:var(--color-muted); }
+  .box .line{ margin:4px 0; }
+
+  /* ---------- Syllable block diagrams ---------- */
+  .syllable-diagram{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:14px 0;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .syl-block{
+    background:var(--color-navy);
+    color:#fff;
+    font-size:26px;
+    font-weight:800;
+    width:56px; height:56px;
+    display:flex; align-items:center; justify-content:center;
+    border-radius:6px;
+  }
+  .jamo{
+    display:flex; flex-direction:column; align-items:center;
+    background:var(--color-white);
+    border:2px solid var(--color-navy);
+    border-radius:6px;
+    width:56px; padding:6px 0;
+  }
+  .jamo span.ch{ font-size:22px; font-weight:800; color:var(--color-navy); }
+  .jamo small{ font-size:10px; color:var(--color-muted); margin-top:2px; }
+  .op{ font-size:18px; color:var(--color-muted); font-weight:700; }
+
+  .sentence-row{
+    display:flex; gap:8px; flex-wrap:wrap;
+    margin:14px 0;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .sent-syl{
+    display:flex; flex-direction:column; align-items:center;
+    background:var(--color-table-stripe);
+    border-radius:6px;
+    padding:8px 10px;
+    min-width:40px;
+  }
+  .sent-syl .ch{ font-size:20px; font-weight:800; color:var(--color-navy); }
+  .sent-syl .rom{ font-size:10.5px; color:var(--color-muted); margin-top:3px; }
+
+  /* ---------- Practice ---------- */
+  .practice-item{
+    background:var(--color-white);
+    border:1px solid #E3E6EC;
+    border-radius:6px;
+    padding:14px 18px;
+    margin:12px 0;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .practice-item .q-head{
+    display:flex; gap:10px; align-items:baseline;
+    font-weight:700; color:var(--color-navy); font-size:13.5px; margin-bottom:8px;
+  }
+  .q-head .q-text{ flex:1 1 auto; min-width:0; }
+  .qnum{
+    background:var(--color-navy);
+    color:#fff;
+    width:22px; height:22px;
+    border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center;
+    font-size:12px; flex:none;
+  }
+  .practice-item .instruction{ font-size:12px; color:var(--color-muted); font-weight:400; }
+  .options{ list-style:none; padding:0; margin:8px 0 0 32px; font-size:13.5px; }
+  .options li{ margin:4px 0; }
+  .match-row{ display:flex; gap:14px; margin:8px 0 0 32px; font-size:13.5px; }
+  .match-col{ flex:1; }
+  .match-col div{ padding:4px 0; }
+  .blank{
+    display:inline-block; border-bottom:1.5px solid var(--color-muted);
+    min-width:120px; height:18px;
+  }
+
+  /* ---------- Answer key ---------- */
+  .answer-key{
+    background:var(--color-green-bg);
+    border:1px dashed var(--color-green-border);
+    border-radius:6px;
+    padding:16px 20px;
+    margin:16px 0;
+    font-size:13px;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .answer-key h3{ margin-top:0; color:var(--color-green-border); }
+  .answer-key ol{ margin:0; padding-left:20px; line-height:1.9; }
+
+  /* ---------- Self check ---------- */
+  .self-check{
+    background:var(--color-green-bg);
+    border-left:4px solid var(--color-green-border);
+    border-radius:2px;
+    padding:16px 20px;
+    margin:24px 0 8px 0;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .self-check .box-title{
+    font-weight:800; text-transform:uppercase; letter-spacing:0.5px;
+    font-size:12px; color:var(--color-green-border); margin-bottom:8px; display:block;
+  }
+  .self-check ul{ margin:0; padding-left:0; list-style:none; }
+  .self-check li{ font-size:13.5px; margin:6px 0; padding-left:24px; position:relative; }
+  .self-check li::before{
+    content:"☐";
+    position:absolute; left:0; color:var(--color-green-border); font-size:15px;
+  }
+
+  .doc-footer{
+    text-align:center;
+    color:var(--color-muted);
+    font-size:11px;
+    margin-top:36px;
+    padding-top:14px;
+    border-top:1px solid #ECEEF2;
+  }
+
+  .compare-arrow{ color:var(--color-red); font-weight:800; }
+
+  /* ================= PRINT ================= */
+  @media print{
+    @page{ size:A4; margin:16mm 14mm; }
+    html,body{ background:#fff; }
+    .page{ box-shadow:none; margin:0; max-width:none; }
+    .doc-banner{ padding:22px 6mm 20px 6mm; }
+    main{ padding:0 6mm; }
+    a{ color:inherit; text-decoration:none; }
+    .box, table.data, .practice-item, .syllable-diagram, .sentence-row,
+    .info-card, .answer-key, .self-check{
+      break-inside:avoid; page-break-inside:avoid;
+    }
+    h2, h3{ break-after:avoid; page-break-after:avoid; }
+    tr{ break-inside:avoid; page-break-inside:avoid; }
+
+    /* One numbered section (1 Concept Intro / 2 Concept Explanation /
+       3 Examples / 4 Practice) starts fresh on its own page. Section 1
+       is the exception — it stays on page 1 right under the info card. */
+    h2{ margin-top:16px; }
+    h2:not(:first-of-type){
+      break-before:page;
+      page-break-before:always;
+      margin-top:0;
+    }
+    /* Keep a subsection heading from stranding alone at the bottom of a page */
+    h3{ break-inside:avoid; page-break-inside:avoid; }
+  }
+</style>
+<style>
+.sk-nav{background:#141F38;padding:0;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
+.sk-nav .inner{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px;flex-wrap:wrap;}
+.sk-nav a{color:#C4CEE3;text-decoration:none;font-size:13px;font-weight:600;}
+.sk-nav a:hover{color:#fff;}
+.sk-nav .brand{color:#fff;font-size:16px;font-weight:800;letter-spacing:0.5px;margin-right:auto;}
+.sk-cta{margin:36px 44px 8px 44px;border:2px solid #DC3E4A;border-radius:10px;padding:24px 26px;background:#FFF6F6;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
+.sk-cta h3{margin:0 0 8px 0;font-size:17px;color:#1B2A4A;}
+.sk-cta p{margin:0 0 14px 0;font-size:13.5px;line-height:1.7;color:#1F2430;}
+.sk-cta ul{margin:0 0 16px 18px;padding:0;font-size:13px;line-height:1.8;color:#1F2430;}
+.sk-cta .btn{display:inline-block;background:#DC3E4A;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:11px 22px;border-radius:6px;}
+.sk-cta .btn:hover{background:#c33440;}
+.sk-prevnext{max-width:800px;margin:14px auto 0 auto;display:flex;justify-content:space-between;gap:12px;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:13px;}
+.sk-prevnext a{color:#1B2A4A;text-decoration:none;background:#fff;border:1px solid #D5DAE3;border-radius:6px;padding:10px 14px;max-width:48%;}
+.sk-prevnext a:hover{border-color:#1B2A4A;}
+.sk-footer{max-width:800px;margin:28px auto 40px auto;text-align:center;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:12px;color:#8A94A6;line-height:1.8;}
+.sk-footer a{color:#1B2A4A;}
+</style>
+<meta name="description" content="-(으)ㄹ 뻔하다 — free Korean grammar lesson (Intermediate). The Near-Miss Pattern">
+<link rel="icon" href="../favicon.svg">
+</head>
+<body>
+<nav class="sk-nav"><div class="inner">
+  <a class="brand" href="../index.html">🌞 Sunshine Korean</a>
+  <a href="../hangul-basics.html">Hangul & Basics</a>
+  <a href="../beginner.html">Beginner</a>
+  <a href="../intermediate.html">Intermediate</a>
+  <a href="../advanced.html">Advanced</a>
+  <a href="../vocabulary.html">Vocabulary</a>
+</div></nav>
+<div class="page">
+
+  <div class="doc-banner">
+    <div class="eyebrow">INTERMEDIATE (TOPIK II) &nbsp;&middot;&nbsp; Assumption &amp; Intention Expressions</div>
+    <h1>-(으)ㄹ 뻔하다 <span style="font-weight:400; font-size:20px; color:#C4CEE3;">Almost Happened, But Didn't</span></h1>
+    <p class="subtitle">The Near-Miss Pattern, and 하마터면</p>
+    <div class="badge-row">
+      <span class="badge">GRAM-INT-017</span>
+      <span class="badge outline">Intermediate (TOPIK II)</span>
+      <span class="badge outline">25 min</span>
+    </div>
+  </div>
+
+  <main>
+
+    <div class="info-card">
+      <table>
+        <tr><td class="label">Level</td><td>Intermediate (TOPIK II, 3&ndash;4급) &mdash; the 6th and final item of the &quot;추측&middot;의지 표현&quot; (Assumption &amp; Intention Expressions) section, following GRAM-INT-016 -기로 하다</td></tr>
+        <tr><td class="label">Category</td><td>Assumption &amp; Intention Expressions &gt; 2. 추측&middot;의지 표현</td></tr>
+        <tr><td class="label">Learning Goals</td><td>
+          &#9312; Understand that -(으)ㄹ 뻔하다 describes an event that almost happened but ultimately did
+          <strong>NOT</strong> happen, and that it is essentially always used in the past tense, -(으)ㄹ 뻔했다<br>
+          &#9313; Correctly attach -(으)ㄹ 뻔하다 to verb stems: -ㄹ 뻔하다 after a vowel or ㄹ-final stem,
+          -을 뻔하다 after a consonant-final stem<br>
+          &#9314; Use the common collocation 하마터면 &hellip; -(으)ㄹ 뻔했다 to emphasize how close a near-miss
+          was, and distinguish -(으)ㄹ 뻔하다 from -(으)ㄹ 것 같다 (GRAM-INT-012)
+        </td></tr>
+      </table>
+    </div>
+
+    <!-- ============ 1. Concept Introduction ============ -->
+    <h2><span class="num">1</span>Concept Introduction &mdash; A Close Call That Never Actually Happened</h2>
+    <p>
+      Imagine you're running for the bus, it starts to pull away, and you just barely catch it &mdash; or you
+      trip on the stairs but grab the railing just in time. In English, you'd say "I almost missed the bus" or
+      "I almost fell." <strong>-(으)ㄹ 뻔하다</strong> is exactly that pattern in Korean: it attaches to a verb
+      to describe an event that came very close to happening, but in the end <strong>did not happen</strong>.
+      The danger, the accident, the mistake &mdash; it was avoided, narrowly.
+    </p>
+    <p>
+      Because -(으)ㄹ 뻔하다 always describes something that is already over and safely didn't happen, it is
+      almost always used in the past tense: <strong>-(으)ㄹ 뻔했다</strong>. You'll rarely if ever see it in
+      present or future tense on its own. This chapter also introduces its favorite partner-in-crime, the
+      adverb <strong>하마터면</strong> ("almost," "by a hair"), which shows up at the start of the sentence to
+      underline just how close the call really was.
+    </p>
+
+    <div class="box example">
+      <span class="box-title">Preview</span>
+      <div class="line"><span class="kr">하마터면 늦을 뻔했어요.</span> <span class="en">("I almost was late." &mdash; but I wasn't.)</span></div>
+      <div class="line"><span class="kr">넘어질 뻔했어요.</span> <span class="en">("I almost fell down." &mdash; but I caught myself.)</span></div>
+      <div class="line">Both sentences describe a bad outcome that was avoided at the last moment &mdash; the
+      speaker was NOT late, and did NOT fall. That "it didn't actually happen" meaning is the whole point of
+      -(으)ㄹ 뻔하다.</div>
+    </div>
+
+    <!-- ============ 2. Concept Explanation ============ -->
+    <h2><span class="num">2</span>Concept Explanation</h2>
+
+    <h3>2.1 Form: attaching -(으)ㄹ 뻔하다 to the verb stem</h3>
+    <p>
+      -(으)ㄹ 뻔하다 follows the same "ㄹ vs. 을" pattern you've already seen in -(으)ㄹ 거예요, -(으)ㄹ 수
+      있다/없다, and -(으)ㄹ 것 같다: a stem ending in a vowel (or in the consonant ㄹ) takes
+      <strong>-ㄹ 뻔하다</strong>, while a stem ending in any other consonant (a batchim) takes
+      <strong>-을 뻔하다</strong>. Since the event is already finished and safely avoided, 뻔하다 itself is
+      almost always conjugated to the past tense &#45;&#45;&gt; <strong>뻔했다/뻔했어요</strong>.
+    </p>
+    <table class="data">
+      <caption>-(으)ㄹ 뻔하다: stem type &rarr; form &rarr; example</caption>
+      <thead><tr><th>Stem type</th><th>Attached form</th><th>Dictionary form</th><th>Past tense (the form you'll actually use)</th></tr></thead>
+      <tbody>
+        <tr><td class="kw">Vowel-final stem</td><td>-ㄹ 뻔하다</td><td>넘어지다 &rarr; 넘어질 뻔하다</td><td>넘어질 뻔했어요</td></tr>
+        <tr><td class="kw">ㄹ-final stem</td><td>-ㄹ 뻔하다 (no extra ㄹ added)</td><td>살다 &rarr; 살 뻔하다</td><td>살 뻔했어요*</td></tr>
+        <tr><td class="kw">Consonant-final stem</td><td>-을 뻔하다</td><td>늦다 &rarr; 늦을 뻔하다</td><td>늦을 뻔했어요</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:12px; color:var(--color-muted); margin-top:-10px;">
+      * ㄹ-final stems are rare with this pattern in everyday speech; the vowel-stem and consonant-stem rows
+      above cover almost every example you'll actually use.
+    </p>
+
+    <div class="box tip">
+      <span class="box-title">Study Tip</span>
+      -(으)ㄹ 뻔하다 attaches to <strong>action verbs (동사)</strong> that describe an event &mdash; falling,
+      missing something, having an accident, forgetting &mdash; not to descriptive adjectives (형용사). That
+      makes sense once you remember the meaning: only an <em>event</em> can "almost happen."
+    </div>
+
+    <!-- ============ 3. Examples ============ -->
+    <h2><span class="num">3</span>Examples</h2>
+
+    <h3>3.1 -(으)ㄹ 뻔하다 in real sentences</h3>
+    <table class="data">
+      <thead><tr><th>Korean</th><th>Meaning</th><th>What actually happened</th></tr></thead>
+      <tbody>
+        <tr><td class="kw">하마터면 늦을 뻔했어요.</td><td>"I almost was late."</td><td>The speaker was on time.</td></tr>
+        <tr><td class="kw">계단에서 넘어질 뻔했어요.</td><td>"I almost fell on the stairs."</td><td>The speaker did not fall.</td></tr>
+        <tr><td class="kw">하마터면 사고가 날 뻔했어요.</td><td>"There was almost an accident."</td><td>No accident occurred.</td></tr>
+        <tr><td class="kw">지갑을 잃어버릴 뻔했어요.</td><td>"I almost lost my wallet."</td><td>The wallet was not lost.</td></tr>
+        <tr><td class="kw">약속을 잊을 뻔했어요.</td><td>"I almost forgot the appointment."</td><td>The speaker remembered in time.</td></tr>
+      </tbody>
+    </table>
+
+    
+<div class="sk-cta"><h3>📘 Want the complete lesson?</h3><p>This free preview covers the core concept and form. The complete edition also includes:</p>
+       <ul><li>2.2 Meaning: it came close, but it did NOT happen</li><li>2.3 하마터면 &amp;hellip; -(으)ㄹ 뻔했다: naming the danger up front</li><li>2.4 -(으)ㄹ 뻔하다 vs. -(으)ㄹ 것 같다 (GRAM-INT-012)</li><li>3.2 One sentence, broken into pieces</li><li>Practice questions with a full answer key</li><li>Print-ready PDF version</li></ul>
+  <a class="btn" href="https://sunshinework.gumroad.com" rel="noopener" target="_blank">Get the full lesson on Gumroad →</a></div>
+<div class="doc-footer">
+      한국어 문법 목차 &middot; 중급 (TOPIK II, 3&sim;4급) &middot; GRAM-INT-017 -(으)ㄹ 뻔하다 (하마터면) &middot; Next: GRAM-INT-018 피동 표현 (이/히/리/기, -아/어지다)
+    </div>
+
+  </main>
+</div>
+<div class="sk-prevnext">
+  <a href="gram-int-016.html">← -기로 하다</a>
+  <a href="gram-int-018.html" style="text-align:right;">피동 표현 →</a>
+</div>
+<div class="sk-footer">© Sunshine Korean · Free Korean lessons, from Hangul to advanced grammar.<br>
+Complete lessons with practice &amp; answer keys: <a href="https://sunshinework.gumroad.com" rel="noopener">sunshinework.gumroad.com</a></div>
+</body>
+</html>

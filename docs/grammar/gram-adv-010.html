@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GRAM-ADV-010 -(으)나마 — Such as It Is, a Resigned Concession | Sunshine Korean</title>
+<style>
+  :root{
+    --color-navy:#1B2A4A;
+    --color-navy-light:#2E4372;
+    --color-red:#DC3E4A;
+    --color-green-bg:#E8F5E9;
+    --color-green-border:#2E7D32;
+    --color-blue-bg:#E9EEF8;
+    --color-blue-border:#1B2A4A;
+    --color-table-stripe:#F4F5F7;
+    --color-muted:#8A94A6;
+    --color-body:#1F2430;
+    --color-white:#FFFFFF;
+    --font-heading:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;
+    --font-body:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{
+    margin:0; padding:0;
+    background:#EEF0F3;
+    font-family:var(--font-body);
+    color:var(--color-body);
+  }
+
+  .page{
+    max-width:800px;
+    margin:24px auto;
+    background:var(--color-white);
+    box-shadow:0 2px 12px rgba(0,0,0,0.08);
+    padding:0 0 40px 0;
+  }
+
+  /* ---------- Banner (Part-divider 축소형) ---------- */
+  .doc-banner{
+    background:var(--color-navy);
+    color:var(--color-white);
+    padding:36px 44px 30px 44px;
+  }
+  .doc-banner .eyebrow{
+    font-size:11px;
+    letter-spacing:2px;
+    color:#9FB0D0;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .doc-banner h1{
+    font-family:var(--font-heading);
+    font-size:30px;
+    font-weight:800;
+    margin:0 0 6px 0;
+    line-height:1.3;
+  }
+  .doc-banner .subtitle{
+    font-size:14px;
+    color:#C4CEE3;
+    margin:0 0 16px 0;
+  }
+  .badge-row{ display:flex; align-items:center; gap:10px; }
+  .badge{
+    display:inline-block;
+    background:var(--color-red);
+    color:var(--color-white);
+    font-weight:700;
+    font-size:12px;
+    padding:4px 10px;
+    border-radius:3px;
+    letter-spacing:0.5px;
+  }
+  .badge.outline{
+    background:transparent;
+    border:1px solid #4C5D82;
+    color:#C4CEE3;
+    font-weight:600;
+  }
+
+  main{ padding:0 44px; }
+
+  /* ---------- Info Card ---------- */
+  .info-card{
+    margin-top:-18px;
+    background:var(--color-white);
+    border:1px solid #E3E6EC;
+    border-radius:6px;
+    box-shadow:0 4px 14px rgba(27,42,74,0.10);
+    padding:18px 22px;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .info-card table{ width:100%; border-collapse:collapse; }
+  .info-card td{ padding:5px 6px; font-size:13px; vertical-align:top; }
+  .info-card td.label{ color:var(--color-muted); width:110px; font-weight:600; }
+
+  /* ---------- Headings ---------- */
+  h2{
+    font-family:var(--font-heading);
+    font-size:21px;
+    font-weight:800;
+    color:var(--color-navy);
+    margin:40px 0 6px 0;
+    break-after:avoid; page-break-after:avoid;
+  }
+  h2 .num{
+    display:inline-block;
+    background:var(--color-navy);
+    color:#fff;
+    font-size:13px;
+    width:24px; height:24px;
+    line-height:24px;
+    text-align:center;
+    border-radius:50%;
+    margin-right:8px;
+    vertical-align:middle;
+  }
+  h2::after{
+    content:"";
+    display:block;
+    width:56px;
+    height:4px;
+    background:var(--color-red);
+    margin-top:8px;
+    border-radius:2px;
+  }
+  h3{
+    font-family:var(--font-heading);
+    font-size:16px;
+    font-weight:700;
+    color:var(--color-navy-light);
+    margin:26px 0 8px 0;
+  }
+  p{ font-size:14.5px; line-height:1.7; margin:0 0 12px 0; }
+
+  /* ---------- Tables ---------- */
+  table.data{
+    width:100%;
+    border-collapse:collapse;
+    margin:14px 0 18px 0;
+    font-size:13.5px;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  table.data thead th{
+    background:var(--color-navy);
+    color:#fff;
+    text-align:left;
+    padding:9px 12px;
+    font-weight:700;
+    font-size:12.5px;
+  }
+  table.data tbody td{
+    padding:9px 12px;
+    border-bottom:1px solid #ECEEF2;
+  }
+  table.data tbody tr:nth-child(even){ background:var(--color-table-stripe); }
+  table.data td.kw{ font-weight:700; color:var(--color-navy); }
+  table.data caption{
+    caption-side:top;
+    text-align:left;
+    font-size:12px;
+    color:var(--color-muted);
+    margin-bottom:4px;
+    font-weight:600;
+  }
+
+  /* ---------- Callout boxes ---------- */
+  .box{
+    border-left:4px solid;
+    border-radius:2px;
+    padding:14px 18px;
+    margin:16px 0;
+    font-size:13.5px;
+    line-height:1.7;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .box.example{ background:var(--color-blue-bg); border-color:var(--color-blue-border); }
+  .box.tip{ background:var(--color-green-bg); border-color:var(--color-green-border); }
+  .box .box-title{
+    display:block;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    font-size:12px;
+    margin-bottom:6px;
+  }
+  .box.example .box-title{ color:var(--color-navy); }
+  .box.tip .box-title{ color:var(--color-green-border); }
+  .box .kr{ font-weight:700; }
+  .box .en{ color:var(--color-muted); }
+  .box .line{ margin:4px 0; }
+
+  /* ---------- Syllable block diagrams ---------- */
+  .syllable-diagram{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:14px 0;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .syl-block{
+    background:var(--color-navy);
+    color:#fff;
+    font-size:26px;
+    font-weight:800;
+    width:56px; height:56px;
+    display:flex; align-items:center; justify-content:center;
+    border-radius:6px;
+  }
+  .jamo{
+    display:flex; flex-direction:column; align-items:center;
+    background:var(--color-white);
+    border:2px solid var(--color-navy);
+    border-radius:6px;
+    width:56px; padding:6px 0;
+  }
+  .jamo span.ch{ font-size:22px; font-weight:800; color:var(--color-navy); }
+  .jamo small{ font-size:10px; color:var(--color-muted); margin-top:2px; }
+  .op{ font-size:18px; color:var(--color-muted); font-weight:700; }
+
+  .sentence-row{
+    display:flex; gap:8px; flex-wrap:wrap;
+    margin:14px 0;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .sent-syl{
+    display:flex; flex-direction:column; align-items:center;
+    background:var(--color-table-stripe);
+    border-radius:6px;
+    padding:8px 10px;
+    min-width:40px;
+  }
+  .sent-syl .ch{ font-size:20px; font-weight:800; color:var(--color-navy); }
+  .sent-syl .rom{ font-size:10.5px; color:var(--color-muted); margin-top:3px; }
+
+  /* ---------- Practice ---------- */
+  .practice-item{
+    background:var(--color-white);
+    border:1px solid #E3E6EC;
+    border-radius:6px;
+    padding:14px 18px;
+    margin:12px 0;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .practice-item .q-head{
+    display:flex; gap:10px; align-items:baseline;
+    font-weight:700; color:var(--color-navy); font-size:13.5px; margin-bottom:8px;
+  }
+  .q-head .q-text{ flex:1 1 auto; min-width:0; }
+  .qnum{
+    background:var(--color-navy);
+    color:#fff;
+    width:22px; height:22px;
+    border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center;
+    font-size:12px; flex:none;
+  }
+  .practice-item .instruction{ font-size:12px; color:var(--color-muted); font-weight:400; }
+  .options{ list-style:none; padding:0; margin:8px 0 0 32px; font-size:13.5px; }
+  .options li{ margin:4px 0; }
+  .match-row{ display:flex; gap:14px; margin:8px 0 0 32px; font-size:13.5px; }
+  .match-col{ flex:1; }
+  .match-col div{ padding:4px 0; }
+  .blank{
+    display:inline-block; border-bottom:1.5px solid var(--color-muted);
+    min-width:120px; height:18px;
+  }
+
+  /* ---------- Answer key ---------- */
+  .answer-key{
+    background:var(--color-green-bg);
+    border:1px dashed var(--color-green-border);
+    border-radius:6px;
+    padding:16px 20px;
+    margin:16px 0;
+    font-size:13px;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .answer-key h3{ margin-top:0; color:var(--color-green-border); }
+  .answer-key ol{ margin:0; padding-left:20px; line-height:1.9; }
+
+  /* ---------- Self check ---------- */
+  .self-check{
+    background:var(--color-green-bg);
+    border-left:4px solid var(--color-green-border);
+    border-radius:2px;
+    padding:16px 20px;
+    margin:24px 0 8px 0;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .self-check .box-title{
+    font-weight:800; text-transform:uppercase; letter-spacing:0.5px;
+    font-size:12px; color:var(--color-green-border); margin-bottom:8px; display:block;
+  }
+  .self-check ul{ margin:0; padding-left:0; list-style:none; }
+  .self-check li{ font-size:13.5px; margin:6px 0; padding-left:24px; position:relative; }
+  .self-check li::before{
+    content:"☐";
+    position:absolute; left:0; color:var(--color-green-border); font-size:15px;
+  }
+
+  .doc-footer{
+    text-align:center;
+    color:var(--color-muted);
+    font-size:11px;
+    margin-top:36px;
+    padding-top:14px;
+    border-top:1px solid #ECEEF2;
+  }
+
+  .compare-arrow{ color:var(--color-red); font-weight:800; }
+
+  /* ================= PRINT ================= */
+  @media print{
+    @page{ size:A4; margin:16mm 14mm; }
+    html,body{ background:#fff; }
+    .page{ box-shadow:none; margin:0; max-width:none; }
+    .doc-banner{ padding:22px 6mm 20px 6mm; }
+    main{ padding:0 6mm; }
+    a{ color:inherit; text-decoration:none; }
+    .box, table.data, .practice-item, .syllable-diagram, .sentence-row,
+    .info-card, .answer-key, .self-check{
+      break-inside:avoid; page-break-inside:avoid;
+    }
+    h2, h3{ break-after:avoid; page-break-after:avoid; }
+    tr{ break-inside:avoid; page-break-inside:avoid; }
+
+    /* One numbered section (1 Concept Intro / 2 Concept Explanation /
+       3 Examples / 4 Practice) starts fresh on its own page. Section 1
+       is the exception — it stays on page 1 right under the info card. */
+    h2{ margin-top:16px; }
+    h2:not(:first-of-type){
+      break-before:page;
+      page-break-before:always;
+      margin-top:0;
+    }
+    /* Keep a subsection heading from stranding alone at the bottom of a page */
+    h3{ break-inside:avoid; page-break-inside:avoid; }
+  }
+</style>
+<style>
+.sk-nav{background:#141F38;padding:0;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
+.sk-nav .inner{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px;flex-wrap:wrap;}
+.sk-nav a{color:#C4CEE3;text-decoration:none;font-size:13px;font-weight:600;}
+.sk-nav a:hover{color:#fff;}
+.sk-nav .brand{color:#fff;font-size:16px;font-weight:800;letter-spacing:0.5px;margin-right:auto;}
+.sk-cta{margin:36px 44px 8px 44px;border:2px solid #DC3E4A;border-radius:10px;padding:24px 26px;background:#FFF6F6;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
+.sk-cta h3{margin:0 0 8px 0;font-size:17px;color:#1B2A4A;}
+.sk-cta p{margin:0 0 14px 0;font-size:13.5px;line-height:1.7;color:#1F2430;}
+.sk-cta ul{margin:0 0 16px 18px;padding:0;font-size:13px;line-height:1.8;color:#1F2430;}
+.sk-cta .btn{display:inline-block;background:#DC3E4A;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:11px 22px;border-radius:6px;}
+.sk-cta .btn:hover{background:#c33440;}
+.sk-prevnext{max-width:800px;margin:14px auto 0 auto;display:flex;justify-content:space-between;gap:12px;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:13px;}
+.sk-prevnext a{color:#1B2A4A;text-decoration:none;background:#fff;border:1px solid #D5DAE3;border-radius:6px;padding:10px 14px;max-width:48%;}
+.sk-prevnext a:hover{border-color:#1B2A4A;}
+.sk-footer{max-width:800px;margin:28px auto 40px auto;text-align:center;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:12px;color:#8A94A6;line-height:1.8;}
+.sk-footer a{color:#1B2A4A;}
+</style>
+<meta name="description" content="-(으)나마 — free Korean grammar lesson (Advanced). Such as It Is, a Resigned Concession">
+<link rel="icon" href="../favicon.svg">
+</head>
+<body>
+<nav class="sk-nav"><div class="inner">
+  <a class="brand" href="../index.html">🌞 Sunshine Korean</a>
+  <a href="../hangul-basics.html">Hangul & Basics</a>
+  <a href="../beginner.html">Beginner</a>
+  <a href="../intermediate.html">Intermediate</a>
+  <a href="../advanced.html">Advanced</a>
+  <a href="../vocabulary.html">Vocabulary</a>
+</div></nav>
+<div class="page">
+
+  <div class="doc-banner">
+    <div class="eyebrow">ADVANCED (TOPIK II, 5&sim;6급) &nbsp;&middot;&nbsp; Advanced Concessive/Contrast Expressions</div>
+    <h1>-(으)나마 <span style="font-weight:400; font-size:20px; color:#C4CEE3;">Such as It Is &mdash; A Resigned, Wistful Concession</span></h1>
+    <p class="subtitle">Though It's Not What I Hoped For, At Least&hellip;</p>
+    <div class="badge-row">
+      <span class="badge">GRAM-ADV-010</span>
+      <span class="badge outline">Advanced (TOPIK II)</span>
+      <span class="badge outline">30 min</span>
+    </div>
+  </div>
+
+  <main>
+
+    <div class="info-card">
+      <table>
+        <tr><td class="label">Level</td><td>Advanced (고급, TOPIK II 5&ndash;6급) &mdash; 4th item of the "양보&middot;대조 고급 표현" (Advanced Concessive/Contrast Expressions) section, right after GRAM-ADV-009 -(으)ㄴ들</td></tr>
+        <tr><td class="label">Category</td><td>양보&middot;대조 고급 표현 (Advanced Concessive/Contrast Expressions) &gt; 2. 양보&middot;대조 고급 표현</td></tr>
+        <tr><td class="label">Learning Goals</td><td>
+          &#9312; Understand -(으)나마 as a resigned, wistful concessive meaning "though it's not what one hoped
+          for / such as it is, at least&hellip;" &mdash; used with both the very common noun + 이나마/나마 pattern
+          (e.g. 잠깐이나마) and the verb/adjective stem + -(으)나마 pattern (e.g. 부족하나마)<br>
+          &#9313; Correctly attach 이나마/나마 to a noun and -으나마/나마 to a verb or adjective stem based on
+          whether the final syllable has 받침, and recognize common set expressions like 늦으나마, 부족하나마,
+          잠시나마<br>
+          &#9314; Distinguish -(으)나마 from GRAM-INT-027 -(이)라도 &mdash; both mark "settling for less than
+          ideal," but -(으)나마 is a formal, written-register ending carrying explicit regret/wistfulness, while
+          -(이)라도 is a noun particle used more broadly and neutrally across registers
+        </td></tr>
+      </table>
+    </div>
+
+    <!-- ============ 1. Concept Introduction ============ -->
+    <h2><span class="num">1</span>Concept Introduction &mdash; When "Not Enough" Is Still Enough</h2>
+    <p>
+      The concessives you've met so far in this section &mdash; -(으)ㄹ지라도, -더라도, -(으)ㄴ들 &mdash; all
+      share the same logical shape: "no matter what happens in the first clause, the second clause holds
+      anyway." <strong>-(으)나마</strong> works differently. Instead of arguing against an obstacle, it
+      <strong>concedes that something is brief, small, lacking, or imperfect</strong>, and then says the
+      speaker accepts it, offers it, or is grateful for it anyway &mdash; with a distinct undertone of regret
+      or wistfulness. The closest English equivalents are "though it's only&hellip;," "such as it is,"
+      "for what little it's worth," or "belated as it is."
+    </p>
+    <p>
+      You'll meet -(으)나마 in two shapes. By far the most common is the <strong>noun + 이나마/나마</strong>
+      pattern &mdash; 잠깐이나마 ("if only for a moment") and 잠시나마 ("if only for a while") are so frequent
+      they function almost as fixed phrases. The second shape attaches <strong>directly to a verb or adjective
+      stem</strong> &mdash; 부족하나마 ("lacking as it is"), 늦으나마 ("belated as it is") &mdash; and shows up
+      constantly in formal speeches, thank-you notes, toasts, and reflective writing, wherever a speaker wants
+      to humbly acknowledge that something falls short while still standing behind it.
+    </p>
+
+    <div class="box example">
+      <span class="box-title">Preview</span>
+      <div class="line"><span class="kr">잠깐이나마 만나서 반가웠어요.</span> <span class="en">("Though it was only a moment, I was glad to meet you.")</span></div>
+      <div class="line"><span class="kr">부족하나마 최선을 다했습니다.</span> <span class="en">("Though it was lacking, I did my best.")</span></div>
+      <div class="line">Neither sentence argues that an outcome "holds no matter what." Instead, each one admits
+      the thing in question wasn't quite enough &mdash; a brief meeting, an imperfect effort &mdash; and offers
+      it anyway, gently and a little wistfully.</div>
+    </div>
+
+    <!-- ============ 2. Concept Explanation ============ -->
+    <h2><span class="num">2</span>Concept Explanation</h2>
+
+    <h3>2.1 Form: Noun + 이나마/나마 &mdash; the pattern you'll see constantly</h3>
+    <p>
+      Just like 이에요/예요 and -(이)라도, the noun-attaching form of -(으)나마 splits according to whether the
+      noun ends in a consonant (받침 있음) or a vowel (받침 없음). This is the shape you'll encounter most
+      often in real Korean, usually with time-related nouns.
+    </p>
+    <table class="data">
+      <caption>Noun + 이나마/나마</caption>
+      <thead><tr><th>Noun ending</th><th>Form</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td class="kw">Consonant-final (받침 있음)</td><td>이나마</td><td>잠깐이나마, 몸이나마, 마음이나마</td></tr>
+        <tr><td class="kw">Vowel-final (받침 없음)</td><td>나마</td><td>잠시나마, 형식적으로나마</td></tr>
+      </tbody>
+    </table>
+    <div class="box tip">
+      <span class="box-title">Study Tip</span>
+      <strong>잠깐이나마</strong> and <strong>잠시나마</strong> (both roughly "if only for a moment/a while")
+      are so common in spoken and written Korean that it's worth memorizing them as ready-made chunks rather
+      than building them from scratch each time.
+    </div>
+
+    <!-- ============ 3. Examples ============ -->
+    <h2><span class="num">3</span>Examples</h2>
+
+    <h3>3.1 -(으)나마 in real sentences</h3>
+    <table class="data">
+      <thead><tr><th>Korean</th><th>Meaning</th><th>Form</th></tr></thead>
+      <tbody>
+        <tr><td class="kw">잠깐이나마 만나서 반가웠어요.</td><td>"Though it was only a moment, I was glad to meet you."</td><td>Noun 잠깐 + 이나마</td></tr>
+        <tr><td class="kw">부족하나마 최선을 다했습니다.</td><td>"Though it was lacking, I did my best."</td><td>Adjective stem 부족하 + 나마</td></tr>
+        <tr><td class="kw">늦으나마 축하 인사를 드립니다.</td><td>"Belated as it is, I offer my congratulations."</td><td>Adjective stem 늦 + 으나마</td></tr>
+        <tr><td class="kw">짧은 시간이나마 정말 즐거웠습니다.</td><td>"Brief as the time was, it was truly enjoyable."</td><td>Noun 시간 + 이나마</td></tr>
+        <tr><td class="kw">형식적으로나마 감사 인사를 전했다.</td><td>"[I] conveyed thanks, if only as a formality."</td><td>Noun 형식적으로 + 나마</td></tr>
+      </tbody>
+    </table>
+
+    
+<div class="sk-cta"><h3>📘 Want the complete lesson?</h3><p>This free preview covers the core concept and form. The complete edition also includes:</p>
+       <ul><li>2.2 Form: Verb/Adjective stem + -(으)나마</li><li>2.3 Core meaning: resigned acceptance, not argument</li><li>2.4 -(으)나마 vs. GRAM-INT-027 -(이)라도: two ways to "settle"</li><li>3.2 One sentence, broken into pieces</li><li>Practice questions with a full answer key</li><li>Print-ready PDF version</li></ul>
+  <a class="btn" href="https://sunshinework.gumroad.com" rel="noopener" target="_blank">Get the full lesson on Gumroad →</a></div>
+<div class="doc-footer">
+      한국어 문법 목차 &middot; 고급 (TOPIK II, 5&sim;6급) &middot; GRAM-ADV-010 -(으)나마 (아쉬운 대로) &middot; Next: GRAM-ADV-011 -(으)ㅁ에도 불구하고 (강한 대조)
+    </div>
+
+  </main>
+</div>
+<div class="sk-prevnext">
+  <a href="gram-adv-009.html">← -(으)ㄴ들</a>
+  <a href="gram-adv-011.html" style="text-align:right;">-(으)ㅁ에도 불구하고 →</a>
+</div>
+<div class="sk-footer">© Sunshine Korean · Free Korean lessons, from Hangul to advanced grammar.<br>
+Complete lessons with practice &amp; answer keys: <a href="https://sunshinework.gumroad.com" rel="noopener">sunshinework.gumroad.com</a></div>
+</body>
+</html>

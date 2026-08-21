@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GRAM-BEG-004 의 — Possessive Particle | Sunshine Korean</title>
+<style>
+  :root{
+    --color-navy:#1B2A4A;
+    --color-navy-light:#2E4372;
+    --color-red:#DC3E4A;
+    --color-green-bg:#E8F5E9;
+    --color-green-border:#2E7D32;
+    --color-blue-bg:#E9EEF8;
+    --color-blue-border:#1B2A4A;
+    --color-table-stripe:#F4F5F7;
+    --color-muted:#8A94A6;
+    --color-body:#1F2430;
+    --color-white:#FFFFFF;
+    --font-heading:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;
+    --font-body:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{
+    margin:0; padding:0;
+    background:#EEF0F3;
+    font-family:var(--font-body);
+    color:var(--color-body);
+  }
+
+  .page{
+    max-width:800px;
+    margin:24px auto;
+    background:var(--color-white);
+    box-shadow:0 2px 12px rgba(0,0,0,0.08);
+    padding:0 0 40px 0;
+  }
+
+  /* ---------- Banner (Part-divider 축소형) ---------- */
+  .doc-banner{
+    background:var(--color-navy);
+    color:var(--color-white);
+    padding:36px 44px 30px 44px;
+  }
+  .doc-banner .eyebrow{
+    font-size:11px;
+    letter-spacing:2px;
+    color:#9FB0D0;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .doc-banner h1{
+    font-family:var(--font-heading);
+    font-size:30px;
+    font-weight:800;
+    margin:0 0 6px 0;
+    line-height:1.3;
+  }
+  .doc-banner .subtitle{
+    font-size:14px;
+    color:#C4CEE3;
+    margin:0 0 16px 0;
+  }
+  .badge-row{ display:flex; align-items:center; gap:10px; }
+  .badge{
+    display:inline-block;
+    background:var(--color-red);
+    color:var(--color-white);
+    font-weight:700;
+    font-size:12px;
+    padding:4px 10px;
+    border-radius:3px;
+    letter-spacing:0.5px;
+  }
+  .badge.outline{
+    background:transparent;
+    border:1px solid #4C5D82;
+    color:#C4CEE3;
+    font-weight:600;
+  }
+
+  main{ padding:0 44px; }
+
+  /* ---------- Info Card ---------- */
+  .info-card{
+    margin-top:-18px;
+    background:var(--color-white);
+    border:1px solid #E3E6EC;
+    border-radius:6px;
+    box-shadow:0 4px 14px rgba(27,42,74,0.10);
+    padding:18px 22px;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .info-card table{ width:100%; border-collapse:collapse; }
+  .info-card td{ padding:5px 6px; font-size:13px; vertical-align:top; }
+  .info-card td.label{ color:var(--color-muted); width:110px; font-weight:600; }
+
+  /* ---------- Headings ---------- */
+  h2{
+    font-family:var(--font-heading);
+    font-size:21px;
+    font-weight:800;
+    color:var(--color-navy);
+    margin:40px 0 6px 0;
+    break-after:avoid; page-break-after:avoid;
+  }
+  h2 .num{
+    display:inline-block;
+    background:var(--color-navy);
+    color:#fff;
+    font-size:13px;
+    width:24px; height:24px;
+    line-height:24px;
+    text-align:center;
+    border-radius:50%;
+    margin-right:8px;
+    vertical-align:middle;
+  }
+  h2::after{
+    content:"";
+    display:block;
+    width:56px;
+    height:4px;
+    background:var(--color-red);
+    margin-top:8px;
+    border-radius:2px;
+  }
+  h3{
+    font-family:var(--font-heading);
+    font-size:16px;
+    font-weight:700;
+    color:var(--color-navy-light);
+    margin:26px 0 8px 0;
+  }
+  p{ font-size:14.5px; line-height:1.7; margin:0 0 12px 0; }
+
+  /* ---------- Tables ---------- */
+  table.data{
+    width:100%;
+    border-collapse:collapse;
+    margin:14px 0 18px 0;
+    font-size:13.5px;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  table.data thead th{
+    background:var(--color-navy);
+    color:#fff;
+    text-align:left;
+    padding:9px 12px;
+    font-weight:700;
+    font-size:12.5px;
+  }
+  table.data tbody td{
+    padding:9px 12px;
+    border-bottom:1px solid #ECEEF2;
+  }
+  table.data tbody tr:nth-child(even){ background:var(--color-table-stripe); }
+  table.data td.kw{ font-weight:700; color:var(--color-navy); }
+  table.data caption{
+    caption-side:top;
+    text-align:left;
+    font-size:12px;
+    color:var(--color-muted);
+    margin-bottom:4px;
+    font-weight:600;
+  }
+
+  /* ---------- Callout boxes ---------- */
+  .box{
+    border-left:4px solid;
+    border-radius:2px;
+    padding:14px 18px;
+    margin:16px 0;
+    font-size:13.5px;
+    line-height:1.7;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .box.example{ background:var(--color-blue-bg); border-color:var(--color-blue-border); }
+  .box.tip{ background:var(--color-green-bg); border-color:var(--color-green-border); }
+  .box .box-title{
+    display:block;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    font-size:12px;
+    margin-bottom:6px;
+  }
+  .box.example .box-title{ color:var(--color-navy); }
+  .box.tip .box-title{ color:var(--color-green-border); }
+  .box .kr{ font-weight:700; }
+  .box .en{ color:var(--color-muted); }
+  .box .line{ margin:4px 0; }
+
+  /* ---------- Syllable block diagrams ---------- */
+  .syllable-diagram{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:14px 0;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .syl-block{
+    background:var(--color-navy);
+    color:#fff;
+    font-size:26px;
+    font-weight:800;
+    width:56px; height:56px;
+    display:flex; align-items:center; justify-content:center;
+    border-radius:6px;
+  }
+  .jamo{
+    display:flex; flex-direction:column; align-items:center;
+    background:var(--color-white);
+    border:2px solid var(--color-navy);
+    border-radius:6px;
+    width:56px; padding:6px 0;
+  }
+  .jamo span.ch{ font-size:22px; font-weight:800; color:var(--color-navy); }
+  .jamo small{ font-size:10px; color:var(--color-muted); margin-top:2px; }
+  .op{ font-size:18px; color:var(--color-muted); font-weight:700; }
+
+  .sentence-row{
+    display:flex; gap:8px; flex-wrap:wrap;
+    margin:14px 0;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .sent-syl{
+    display:flex; flex-direction:column; align-items:center;
+    background:var(--color-table-stripe);
+    border-radius:6px;
+    padding:8px 10px;
+    min-width:40px;
+  }
+  .sent-syl .ch{ font-size:20px; font-weight:800; color:var(--color-navy); }
+  .sent-syl .rom{ font-size:10.5px; color:var(--color-muted); margin-top:3px; }
+
+  /* ---------- Practice ---------- */
+  .practice-item{
+    background:var(--color-white);
+    border:1px solid #E3E6EC;
+    border-radius:6px;
+    padding:14px 18px;
+    margin:12px 0;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .practice-item .q-head{
+    display:flex; gap:10px; align-items:baseline;
+    font-weight:700; color:var(--color-navy); font-size:13.5px; margin-bottom:8px;
+  }
+  .q-head .q-text{ flex:1 1 auto; min-width:0; }
+  .qnum{
+    background:var(--color-navy);
+    color:#fff;
+    width:22px; height:22px;
+    border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center;
+    font-size:12px; flex:none;
+  }
+  .practice-item .instruction{ font-size:12px; color:var(--color-muted); font-weight:400; }
+  .options{ list-style:none; padding:0; margin:8px 0 0 32px; font-size:13.5px; }
+  .options li{ margin:4px 0; }
+  .match-row{ display:flex; gap:14px; margin:8px 0 0 32px; font-size:13.5px; }
+  .match-col{ flex:1; }
+  .match-col div{ padding:4px 0; }
+  .blank{
+    display:inline-block; border-bottom:1.5px solid var(--color-muted);
+    min-width:120px; height:18px;
+  }
+
+  /* ---------- Answer key ---------- */
+  .answer-key{
+    background:var(--color-green-bg);
+    border:1px dashed var(--color-green-border);
+    border-radius:6px;
+    padding:16px 20px;
+    margin:16px 0;
+    font-size:13px;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .answer-key h3{ margin-top:0; color:var(--color-green-border); }
+  .answer-key ol{ margin:0; padding-left:20px; line-height:1.9; }
+
+  /* ---------- Self check ---------- */
+  .self-check{
+    background:var(--color-green-bg);
+    border-left:4px solid var(--color-green-border);
+    border-radius:2px;
+    padding:16px 20px;
+    margin:24px 0 8px 0;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .self-check .box-title{
+    font-weight:800; text-transform:uppercase; letter-spacing:0.5px;
+    font-size:12px; color:var(--color-green-border); margin-bottom:8px; display:block;
+  }
+  .self-check ul{ margin:0; padding-left:0; list-style:none; }
+  .self-check li{ font-size:13.5px; margin:6px 0; padding-left:24px; position:relative; }
+  .self-check li::before{
+    content:"☐";
+    position:absolute; left:0; color:var(--color-green-border); font-size:15px;
+  }
+
+  .doc-footer{
+    text-align:center;
+    color:var(--color-muted);
+    font-size:11px;
+    margin-top:36px;
+    padding-top:14px;
+    border-top:1px solid #ECEEF2;
+  }
+
+  .compare-arrow{ color:var(--color-red); font-weight:800; }
+
+  /* ================= PRINT ================= */
+  @media print{
+    @page{ size:A4; margin:16mm 14mm; }
+    html,body{ background:#fff; }
+    .page{ box-shadow:none; margin:0; max-width:none; }
+    .doc-banner{ padding:22px 6mm 20px 6mm; }
+    main{ padding:0 6mm; }
+    a{ color:inherit; text-decoration:none; }
+    .box, table.data, .practice-item, .syllable-diagram, .sentence-row,
+    .info-card, .answer-key, .self-check{
+      break-inside:avoid; page-break-inside:avoid;
+    }
+    h2, h3{ break-after:avoid; page-break-after:avoid; }
+    tr{ break-inside:avoid; page-break-inside:avoid; }
+
+    /* One numbered section (1 Concept Intro / 2 Concept Explanation /
+       3 Examples / 4 Practice) starts fresh on its own page. Section 1
+       is the exception — it stays on page 1 right under the info card. */
+    h2{ margin-top:16px; }
+    h2:not(:first-of-type){
+      break-before:page;
+      page-break-before:always;
+      margin-top:0;
+    }
+    /* Keep a subsection heading from stranding alone at the bottom of a page */
+    h3{ break-inside:avoid; page-break-inside:avoid; }
+  }
+</style>
+<style>
+.sk-nav{background:#141F38;padding:0;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
+.sk-nav .inner{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px;flex-wrap:wrap;}
+.sk-nav a{color:#C4CEE3;text-decoration:none;font-size:13px;font-weight:600;}
+.sk-nav a:hover{color:#fff;}
+.sk-nav .brand{color:#fff;font-size:16px;font-weight:800;letter-spacing:0.5px;margin-right:auto;}
+.sk-cta{margin:36px 44px 8px 44px;border:2px solid #DC3E4A;border-radius:10px;padding:24px 26px;background:#FFF6F6;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
+.sk-cta h3{margin:0 0 8px 0;font-size:17px;color:#1B2A4A;}
+.sk-cta p{margin:0 0 14px 0;font-size:13.5px;line-height:1.7;color:#1F2430;}
+.sk-cta ul{margin:0 0 16px 18px;padding:0;font-size:13px;line-height:1.8;color:#1F2430;}
+.sk-cta .btn{display:inline-block;background:#DC3E4A;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:11px 22px;border-radius:6px;}
+.sk-cta .btn:hover{background:#c33440;}
+.sk-prevnext{max-width:800px;margin:14px auto 0 auto;display:flex;justify-content:space-between;gap:12px;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:13px;}
+.sk-prevnext a{color:#1B2A4A;text-decoration:none;background:#fff;border:1px solid #D5DAE3;border-radius:6px;padding:10px 14px;max-width:48%;}
+.sk-prevnext a:hover{border-color:#1B2A4A;}
+.sk-footer{max-width:800px;margin:28px auto 40px auto;text-align:center;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:12px;color:#8A94A6;line-height:1.8;}
+.sk-footer a{color:#1B2A4A;}
+</style>
+<meta name="description" content="의 — free Korean grammar lesson (Beginner). Possessive Particle">
+<link rel="icon" href="../favicon.svg">
+</head>
+<body>
+<nav class="sk-nav"><div class="inner">
+  <a class="brand" href="../index.html">🌞 Sunshine Korean</a>
+  <a href="../hangul-basics.html">Hangul & Basics</a>
+  <a href="../beginner.html">Beginner</a>
+  <a href="../intermediate.html">Intermediate</a>
+  <a href="../advanced.html">Advanced</a>
+  <a href="../vocabulary.html">Vocabulary</a>
+</div></nav>
+<div class="page">
+
+  <div class="doc-banner">
+    <div class="eyebrow">ELEMENTARY (TOPIK I) &nbsp;·&nbsp; Particles</div>
+    <h1>의 <span style="font-weight:400; font-size:20px; color:#C4CEE3;">Possessive Particle</span></h1>
+    <p class="subtitle">"'s" / "of" — and Its Common Contracted Forms</p>
+    <div class="badge-row">
+      <span class="badge">GRAM-BEG-004</span>
+      <span class="badge outline">Elementary (TOPIK I)</span>
+      <span class="badge outline">15 min</span>
+    </div>
+  </div>
+
+  <main>
+
+    <div class="info-card">
+      <table>
+        <tr><td class="label">Level</td><td>Elementary (TOPIK I, 1&ndash;2급)</td></tr>
+        <tr><td class="label">Category</td><td>Particles &gt; 1. Particles</td></tr>
+        <tr><td class="label">Learning Goals</td><td>
+          &#9312; Use <span class="kr">의</span> in the pattern Noun1 + <span class="kr">의</span> + Noun2 to mean "Noun1's Noun2"<br>
+          &#9313; Recognize the extremely common contracted forms <span class="kr">저의&rarr;제</span> ("my," polite) and <span class="kr">나의&rarr;내</span> ("my," casual), and know these contractions are used far more often than the full <span class="kr">의</span> form in speech<br>
+          &#9314; Recognize that <span class="kr">의</span> is frequently OMITTED entirely in casual speech when the possessive relationship is already clear from context
+        </td></tr>
+      </table>
+    </div>
+
+    <!-- ============ 1. Concept Introduction ============ -->
+    <h2><span class="num">1</span>Concept Introduction &mdash; Showing Possession</h2>
+    <p>
+      English shows possession with "'s" ("my friend<strong>'s</strong> bag") or "of" ("the name <strong>of</strong>
+      the teacher"). Korean has one small particle that does this job: <span class="kr">의</span> (ui). Attach it
+      between two nouns &mdash; Noun1 + <span class="kr">의</span> + Noun2 &mdash; and you get "Noun1's Noun2," in
+      exactly that order, just like in English.
+    </p>
+    <p>
+      There's a twist, though: in actual spoken Korean, the full <span class="kr">의</span> form is often
+      <strong>contracted</strong> (especially with "I/me") or even <strong>dropped entirely</strong> when the
+      possessive meaning is already obvious. This chapter covers all three faces of 의 &mdash; the full pattern, its
+      near-mandatory contractions, and when it simply disappears.
+    </p>
+
+    <div class="box example">
+      <span class="box-title">Preview</span>
+      <div class="line"><span class="kr">친구의 가방</span> <span class="en">(chinguui gabang, "[my] friend's bag")</span>
+      and <span class="kr">선생님의 책</span> <span class="en">(seonsaengnimui chaek, "the teacher's book")</span> show
+      the plain Noun1 + 의 + Noun2 pattern &mdash; but when the "owner" is "I," Koreans almost never say 저의/나의 out
+      loud. They say <span class="kr">제</span> or <span class="kr">내</span> instead, as you'll see below.</div>
+    </div>
+
+    <!-- ============ 2. Concept Explanation ============ -->
+    <h2><span class="num">2</span>Concept Explanation</h2>
+
+    <h3>2.1 The basic pattern: Noun1 + 의 + Noun2</h3>
+    <p>
+      <span class="kr">의</span> attaches right after the "owner" noun, with a space before the noun that follows it.
+      The order matches English "'s": the possessor comes first, the thing possessed comes second.
+    </p>
+    <table class="data">
+      <caption>Noun1의 Noun2 — "Noun1's Noun2"</caption>
+      <thead><tr><th>Noun1 (owner)</th><th>+ 의</th><th>Noun2 (possessed)</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="kw">친구 (friend)</td><td class="kw">친구의</td><td>가방 (bag)</td><td>"[my] friend's bag"</td></tr>
+        <tr><td class="kw">선생님 (teacher)</td><td class="kw">선생님의</td><td>책 (book)</td><td>"the teacher's book"</td></tr>
+        <tr><td class="kw">한국 (Korea)</td><td class="kw">한국의</td><td>수도 (capital)</td><td>"Korea's capital"</td></tr>
+        <tr><td class="kw">동생 (younger sibling)</td><td class="kw">동생의</td><td>방 (room)</td><td>"[my] younger sibling's room"</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box tip">
+      <span class="box-title">Study Tip</span>
+      Unlike most particles you've seen so far, <span class="kr">의</span> never changes form based on batchim
+      &mdash; it's always just <span class="kr">의</span>, attached with no space, and then a space before Noun2.
+      The hard part of this chapter isn't the spelling rule &mdash; it's knowing when native speakers shrink or drop
+      it, which is what sections 2.2 and 2.3 cover.
+    </div>
+
+    <!-- ============ 3. Examples ============ -->
+    <h2><span class="num">3</span>Examples</h2>
+
+    <h3>3.1 Full form vs. contracted "my"</h3>
+    <table class="data">
+      <thead><tr><th>Full form (written)</th><th>Spoken default</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="kw">저의 이름</td><td class="kw">제 이름</td><td>"my name" (polite)</td></tr>
+        <tr><td class="kw">저의 친구</td><td class="kw">제 친구</td><td>"my friend" (polite)</td></tr>
+        <tr><td class="kw">나의 가방</td><td class="kw">내 가방</td><td>"my bag" (casual)</td></tr>
+        <tr><td class="kw">나의 학교</td><td class="kw">내 학교</td><td>"my school" (casual)</td></tr>
+      </tbody>
+    </table>
+
+    
+<div class="sk-cta"><h3>📘 Want the complete lesson?</h3><p>This free preview covers the core concept and form. The complete edition also includes:</p>
+       <ul><li>2.2 Contracted forms: 저의&amp;rarr;제 and 나의&amp;rarr;내</li><li>2.3 Omitting 의 in casual speech</li><li>3.2 제 이름은 지민이에요 — broken down by syllable</li><li>3.3 Keeping vs. dropping 의</li><li>Practice questions with a full answer key</li><li>Print-ready PDF version</li></ul>
+  <a class="btn" href="https://sunshinework.gumroad.com" rel="noopener" target="_blank">Get the full lesson on Gumroad →</a></div>
+<div class="doc-footer">
+      Korean Grammar Table of Contents &middot; Elementary (TOPIK I) &middot; GRAM-BEG-004 의 (Possessive Particle) &middot; Next: GRAM-BEG-005 에 (Time &amp; Location Particle)
+    </div>
+
+  </main>
+</div>
+<div class="sk-prevnext">
+  <a href="gram-beg-003.html">← 을/를</a>
+  <a href="gram-beg-005.html" style="text-align:right;">에 →</a>
+</div>
+<div class="sk-footer">© Sunshine Korean · Free Korean lessons, from Hangul to advanced grammar.<br>
+Complete lessons with practice &amp; answer keys: <a href="https://sunshinework.gumroad.com" rel="noopener">sunshinework.gumroad.com</a></div>
+</body>
+</html>

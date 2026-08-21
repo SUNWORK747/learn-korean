@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GRAM-ADV-021 -(으)려니와 — Acknowledging Plus Addition | Sunshine Korean</title>
+<style>
+  :root{
+    --color-navy:#1B2A4A;
+    --color-navy-light:#2E4372;
+    --color-red:#DC3E4A;
+    --color-green-bg:#E8F5E9;
+    --color-green-border:#2E7D32;
+    --color-blue-bg:#E9EEF8;
+    --color-blue-border:#1B2A4A;
+    --color-table-stripe:#F4F5F7;
+    --color-muted:#8A94A6;
+    --color-body:#1F2430;
+    --color-white:#FFFFFF;
+    --font-heading:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;
+    --font-body:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{
+    margin:0; padding:0;
+    background:#EEF0F3;
+    font-family:var(--font-body);
+    color:var(--color-body);
+  }
+
+  .page{
+    max-width:800px;
+    margin:24px auto;
+    background:var(--color-white);
+    box-shadow:0 2px 12px rgba(0,0,0,0.08);
+    padding:0 0 40px 0;
+  }
+
+  /* ---------- Banner (Part-divider 축소형) ---------- */
+  .doc-banner{
+    background:var(--color-navy);
+    color:var(--color-white);
+    padding:36px 44px 30px 44px;
+  }
+  .doc-banner .eyebrow{
+    font-size:11px;
+    letter-spacing:2px;
+    color:#9FB0D0;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .doc-banner h1{
+    font-family:var(--font-heading);
+    font-size:30px;
+    font-weight:800;
+    margin:0 0 6px 0;
+    line-height:1.3;
+  }
+  .doc-banner .subtitle{
+    font-size:14px;
+    color:#C4CEE3;
+    margin:0 0 16px 0;
+  }
+  .badge-row{ display:flex; align-items:center; gap:10px; }
+  .badge{
+    display:inline-block;
+    background:var(--color-red);
+    color:var(--color-white);
+    font-weight:700;
+    font-size:12px;
+    padding:4px 10px;
+    border-radius:3px;
+    letter-spacing:0.5px;
+  }
+  .badge.outline{
+    background:transparent;
+    border:1px solid #4C5D82;
+    color:#C4CEE3;
+    font-weight:600;
+  }
+
+  main{ padding:0 44px; }
+
+  /* ---------- Info Card ---------- */
+  .info-card{
+    margin-top:-18px;
+    background:var(--color-white);
+    border:1px solid #E3E6EC;
+    border-radius:6px;
+    box-shadow:0 4px 14px rgba(27,42,74,0.10);
+    padding:18px 22px;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .info-card table{ width:100%; border-collapse:collapse; }
+  .info-card td{ padding:5px 6px; font-size:13px; vertical-align:top; }
+  .info-card td.label{ color:var(--color-muted); width:110px; font-weight:600; }
+
+  /* ---------- Headings ---------- */
+  h2{
+    font-family:var(--font-heading);
+    font-size:21px;
+    font-weight:800;
+    color:var(--color-navy);
+    margin:40px 0 6px 0;
+    break-after:avoid; page-break-after:avoid;
+  }
+  h2 .num{
+    display:inline-block;
+    background:var(--color-navy);
+    color:#fff;
+    font-size:13px;
+    width:24px; height:24px;
+    line-height:24px;
+    text-align:center;
+    border-radius:50%;
+    margin-right:8px;
+    vertical-align:middle;
+  }
+  h2::after{
+    content:"";
+    display:block;
+    width:56px;
+    height:4px;
+    background:var(--color-red);
+    margin-top:8px;
+    border-radius:2px;
+  }
+  h3{
+    font-family:var(--font-heading);
+    font-size:16px;
+    font-weight:700;
+    color:var(--color-navy-light);
+    margin:26px 0 8px 0;
+  }
+  p{ font-size:14.5px; line-height:1.7; margin:0 0 12px 0; }
+
+  /* ---------- Tables ---------- */
+  table.data{
+    width:100%;
+    border-collapse:collapse;
+    margin:14px 0 18px 0;
+    font-size:13.5px;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  table.data thead th{
+    background:var(--color-navy);
+    color:#fff;
+    text-align:left;
+    padding:9px 12px;
+    font-weight:700;
+    font-size:12.5px;
+  }
+  table.data tbody td{
+    padding:9px 12px;
+    border-bottom:1px solid #ECEEF2;
+  }
+  table.data tbody tr:nth-child(even){ background:var(--color-table-stripe); }
+  table.data td.kw{ font-weight:700; color:var(--color-navy); }
+  table.data caption{
+    caption-side:top;
+    text-align:left;
+    font-size:12px;
+    color:var(--color-muted);
+    margin-bottom:4px;
+    font-weight:600;
+  }
+
+  /* ---------- Callout boxes ---------- */
+  .box{
+    border-left:4px solid;
+    border-radius:2px;
+    padding:14px 18px;
+    margin:16px 0;
+    font-size:13.5px;
+    line-height:1.7;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .box.example{ background:var(--color-blue-bg); border-color:var(--color-blue-border); }
+  .box.tip{ background:var(--color-green-bg); border-color:var(--color-green-border); }
+  .box .box-title{
+    display:block;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    font-size:12px;
+    margin-bottom:6px;
+  }
+  .box.example .box-title{ color:var(--color-navy); }
+  .box.tip .box-title{ color:var(--color-green-border); }
+  .box .kr{ font-weight:700; }
+  .box .en{ color:var(--color-muted); }
+  .box .line{ margin:4px 0; }
+
+  /* ---------- Sentence breakdown ---------- */
+  .sentence-row{
+    display:flex; gap:8px; flex-wrap:wrap;
+    margin:14px 0;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .sent-syl{
+    display:flex; flex-direction:column; align-items:center;
+    background:var(--color-table-stripe);
+    border-radius:6px;
+    padding:8px 10px;
+    min-width:40px;
+  }
+  .sent-syl .ch{ font-size:20px; font-weight:800; color:var(--color-navy); }
+  .sent-syl .rom{ font-size:10.5px; color:var(--color-muted); margin-top:3px; }
+
+  /* ---------- Practice ---------- */
+  .practice-item{
+    background:var(--color-white);
+    border:1px solid #E3E6EC;
+    border-radius:6px;
+    padding:14px 18px;
+    margin:12px 0;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .practice-item .q-head{
+    display:flex; gap:10px; align-items:baseline;
+    font-weight:700; color:var(--color-navy); font-size:13.5px; margin-bottom:8px;
+  }
+  .q-head .q-text{ flex:1 1 auto; min-width:0; }
+  .qnum{
+    background:var(--color-navy);
+    color:#fff;
+    width:22px; height:22px;
+    border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center;
+    font-size:12px; flex:none;
+  }
+  .practice-item .instruction{ font-size:12px; color:var(--color-muted); font-weight:400; }
+  .options{ list-style:none; padding:0; margin:8px 0 0 32px; font-size:13.5px; }
+  .options li{ margin:4px 0; }
+  .match-row{ display:flex; gap:14px; margin:8px 0 0 32px; font-size:13.5px; }
+  .match-col{ flex:1; }
+  .match-col div{ padding:4px 0; }
+  .blank{
+    display:inline-block; border-bottom:1.5px solid var(--color-muted);
+    min-width:120px; height:18px;
+  }
+
+  /* ---------- Answer key ---------- */
+  .answer-key{
+    background:var(--color-green-bg);
+    border:1px dashed var(--color-green-border);
+    border-radius:6px;
+    padding:16px 20px;
+    margin:16px 0;
+    font-size:13px;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .answer-key h3{ margin-top:0; color:var(--color-green-border); }
+  .answer-key ol{ margin:0; padding-left:20px; line-height:1.9; }
+
+  /* ---------- Self check ---------- */
+  .self-check{
+    background:var(--color-green-bg);
+    border-left:4px solid var(--color-green-border);
+    border-radius:2px;
+    padding:16px 20px;
+    margin:24px 0 8px 0;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .self-check .box-title{
+    font-weight:800; text-transform:uppercase; letter-spacing:0.5px;
+    font-size:12px; color:var(--color-green-border); margin-bottom:8px; display:block;
+  }
+  .self-check ul{ margin:0; padding-left:0; list-style:none; }
+  .self-check li{ font-size:13.5px; margin:6px 0; padding-left:24px; position:relative; }
+  .self-check li::before{
+    content:"☐";
+    position:absolute; left:0; color:var(--color-green-border); font-size:15px;
+  }
+
+  .doc-footer{
+    text-align:center;
+    color:var(--color-muted);
+    font-size:11px;
+    margin-top:36px;
+    padding-top:14px;
+    border-top:1px solid #ECEEF2;
+  }
+
+  .compare-arrow{ color:var(--color-red); font-weight:800; }
+
+  /* ================= PRINT ================= */
+  @media print{
+    @page{ size:A4; margin:16mm 14mm; }
+    html,body{ background:#fff; }
+    .page{ box-shadow:none; margin:0; max-width:none; }
+    .doc-banner{ padding:22px 6mm 20px 6mm; }
+    main{ padding:0 6mm; }
+    a{ color:inherit; text-decoration:none; }
+    .box, table.data, .practice-item, .sentence-row,
+    .info-card, .answer-key, .self-check{
+      break-inside:avoid; page-break-inside:avoid;
+    }
+    h2, h3{ break-after:avoid; page-break-after:avoid; }
+    tr{ break-inside:avoid; page-break-inside:avoid; }
+
+    /* One numbered section (1 Concept Intro / 2 Concept Explanation /
+       3 Examples / 4 Practice) starts fresh on its own page. Section 1
+       is the exception — it stays on page 1 right under the info card. */
+    h2{ margin-top:16px; }
+    h2:not(:first-of-type){
+      break-before:page;
+      page-break-before:always;
+      margin-top:0;
+    }
+    /* Keep a subsection heading from stranding alone at the bottom of a page */
+    h3{ break-inside:avoid; page-break-inside:avoid; }
+  }
+</style>
+<style>
+.sk-nav{background:#141F38;padding:0;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
+.sk-nav .inner{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px;flex-wrap:wrap;}
+.sk-nav a{color:#C4CEE3;text-decoration:none;font-size:13px;font-weight:600;}
+.sk-nav a:hover{color:#fff;}
+.sk-nav .brand{color:#fff;font-size:16px;font-weight:800;letter-spacing:0.5px;margin-right:auto;}
+.sk-cta{margin:36px 44px 8px 44px;border:2px solid #DC3E4A;border-radius:10px;padding:24px 26px;background:#FFF6F6;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
+.sk-cta h3{margin:0 0 8px 0;font-size:17px;color:#1B2A4A;}
+.sk-cta p{margin:0 0 14px 0;font-size:13.5px;line-height:1.7;color:#1F2430;}
+.sk-cta ul{margin:0 0 16px 18px;padding:0;font-size:13px;line-height:1.8;color:#1F2430;}
+.sk-cta .btn{display:inline-block;background:#DC3E4A;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:11px 22px;border-radius:6px;}
+.sk-cta .btn:hover{background:#c33440;}
+.sk-prevnext{max-width:800px;margin:14px auto 0 auto;display:flex;justify-content:space-between;gap:12px;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:13px;}
+.sk-prevnext a{color:#1B2A4A;text-decoration:none;background:#fff;border:1px solid #D5DAE3;border-radius:6px;padding:10px 14px;max-width:48%;}
+.sk-prevnext a:hover{border-color:#1B2A4A;}
+.sk-footer{max-width:800px;margin:28px auto 40px auto;text-align:center;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:12px;color:#8A94A6;line-height:1.8;}
+.sk-footer a{color:#1B2A4A;}
+</style>
+<meta name="description" content="-(으)려니와 — free Korean grammar lesson (Advanced). Acknowledging Plus Addition">
+<link rel="icon" href="../favicon.svg">
+</head>
+<body>
+<nav class="sk-nav"><div class="inner">
+  <a class="brand" href="../index.html">🌞 Sunshine Korean</a>
+  <a href="../hangul-basics.html">Hangul & Basics</a>
+  <a href="../beginner.html">Beginner</a>
+  <a href="../intermediate.html">Intermediate</a>
+  <a href="../advanced.html">Advanced</a>
+  <a href="../vocabulary.html">Vocabulary</a>
+</div></nav>
+<div class="page">
+
+  <div class="doc-banner">
+    <div class="eyebrow">ADVANCED (TOPIK II, 5&sim;6급) &nbsp;&middot;&nbsp; Discourse/Argumentation Expressions</div>
+    <h1>-(으)려니와 <span style="font-weight:400; font-size:20px; color:#C4CEE3;">Acknowledging Plus Addition</span></h1>
+    <p class="subtitle">The Rare, Literary Way to Say "Granted X Is True — and Y as Well"</p>
+    <div class="badge-row">
+      <span class="badge">GRAM-ADV-021</span>
+      <span class="badge outline">Advanced (TOPIK II)</span>
+      <span class="badge outline">30 min</span>
+    </div>
+  </div>
+
+  <main>
+
+    <div class="info-card">
+      <table>
+        <tr><td class="label">Level</td><td>Advanced (고급, TOPIK II 5&ndash;6급) &mdash; 2nd item of the "담화&middot;논증 표현" (Discourse/Argumentation Expressions) section, right after GRAM-ADV-020 -되 (조건부 허용)</td></tr>
+        <tr><td class="label">Category</td><td>담화&middot;논증 표현 (Discourse/Argumentation Expressions) &gt; 5. 담화&middot;논증 표현</td></tr>
+        <tr><td class="label">Learning Goals</td><td>
+          &#9312; Understand -(으)려니와 as a formal, literary connective meaning "granted/acknowledging that
+          clause 1 is true, clause 2 adds a further point" &mdash; a 첨가&middot;인정 (addition + acknowledgment)
+          pattern often translated "not only ... but also ..."<br>
+          &#9313; Correctly attach -(으)려니와 to verb/adjective stems (with the 으 rule, including ㅂ 불규칙
+          stems) and to 이다 as -(이)려니와<br>
+          &#9314; Recognize -(으)려니와 as a rarer, more literary/classical-flavored alternative to
+          -(으)ㄹ 뿐(만) 아니라 (GRAM-ADV-015) &mdash; a pattern to recognize confidently in formal writing and
+          speeches, more than one to actively produce
+        </td></tr>
+      </table>
+    </div>
+
+    <!-- ============ 1. Concept Introduction ============ -->
+    <h2><span class="num">1</span>Concept Introduction &mdash; Granting a Fact, Then Adding to It</h2>
+    <p>
+      In GRAM-ADV-015 you learned <strong>-(으)ㄹ 뿐(만) 아니라</strong>, the everyday formal way to say "not
+      only X, but also Y." <strong>-(으)려니와</strong> does similar work, but with a distinct flavor: it first
+      <em>acknowledges</em> or <em>grants</em> that the first clause is true &mdash; almost like saying "it goes
+      without saying that ..." &mdash; and then adds a second, often stronger or complementary point on top of
+      it. This combination of 인정 (acknowledgment) and 첨가 (addition) is why the pattern is glossed as
+      "첨가&middot;인정": you concede clause 1 as an accepted fact, and clause 2 builds on it.
+    </p>
+    <p>
+      -(으)려니와 belongs to a small, elevated corner of 문어체 (written/literary register) &mdash; it shows up in
+      formal essays, speeches, editorials, and classical-leaning prose, but almost never in everyday conversation.
+      Because of that, this chapter's goal is a little different from most: you should learn to <em>recognize</em>
+      -(으)려니와 confidently when you meet it in formal writing, understand its "granted X, and also Y" logic, and
+      be able to form it correctly &mdash; but you won't reach for it nearly as often as -(으)ㄹ 뿐(만) 아니라 in
+      your own writing. This is the 2nd item of the "담화&middot;논증 표현" (Discourse/Argumentation Expressions)
+      cluster, right after GRAM-ADV-020 -되 (조건부 허용).
+    </p>
+
+    <div class="box example">
+      <span class="box-title">Preview</span>
+      <div class="line"><span class="kr">그는 실력도 뛰어나려니와 성품도 훌륭하다.</span> <span class="en">("Not only is he highly skilled, but his character is also excellent.")</span></div>
+      <div class="line"><span class="kr">이 지역은 경치도 아름다우려니와 역사도 깊다.</span> <span class="en">("This region is not only scenically beautiful, but its history also runs deep.")</span></div>
+      <div class="line">Both sentences first grant a notable fact (his skill, the region's scenery) and then
+      add a second, equally notable fact (his character, the region's history) &mdash; the core "acknowledge,
+      then add" logic of -(으)려니와.</div>
+    </div>
+
+    <!-- ============ 2. Concept Explanation ============ -->
+    <h2><span class="num">2</span>Concept Explanation</h2>
+
+    <h3>2.1 Form: the 으 rule, same pattern as -(으)면/-(으)려고</h3>
+    <p>
+      -(으)려니와 attaches to the verb or adjective stem following the same 받침 (final consonant) rule as other
+      -(으) endings: no final consonant &rarr; <strong>-려니와</strong>; final consonant &rarr;
+      <strong>-으려니와</strong>. Stems ending in ㄹ (like 살다) take -려니와 directly, with no extra 으, since
+      ㄹ 받침 behaves like a vowel-final stem for this rule. 이다/아니다 take
+      <strong>이려니와 / 아니려니와</strong>. ㅂ 불규칙 stems (아름답다, 춥다, 덥다, etc.) change ㅂ &rarr; 우 before
+      the 으, the same way they do before -(으)면 or -(으)니 &mdash; so 아름답다 &rarr; 아름다우려니와, not
+      *아름답으려니와.
+    </p>
+    <table class="data">
+      <caption>-(으)려니와 by stem type</caption>
+      <thead><tr><th>Stem type</th><th>Rule</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td class="kw">No 받침</td><td>-려니와</td><td>크다 &rarr; 크려니와</td></tr>
+        <tr><td class="kw">받침 O</td><td>-으려니와</td><td>많다 &rarr; 많으려니와</td></tr>
+        <tr><td class="kw">ㄹ 받침</td><td>-려니와 (no 으)</td><td>살다 &rarr; 살려니와</td></tr>
+        <tr><td class="kw">이다/아니다</td><td>이려니와 / 아니려니와</td><td>학자이다 &rarr; 학자이려니와</td></tr>
+        <tr><td class="kw">ㅂ 불규칙</td><td>ㅂ &rarr; 우 + 려니와</td><td>아름답다 &rarr; 아름다우려니와</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box tip">
+      <span class="box-title">Study Tip</span>
+      Because -(으)려니와 is a rare, literary pattern, you'll meet it almost exclusively attached to
+      <strong>adjective</strong> stems describing a quality worth praising or noting (뛰어나다, 훌륭하다, 아름답다,
+      깊다, 넓다, etc.) or to 이다. Verb use exists but is much less common &mdash; when you do see it, the logic
+      is identical: grant that the action/state in clause 1 holds, then add clause 2.
+    </div>
+
+    <!-- ============ 3. Examples ============ -->
+    <h2><span class="num">3</span>Examples</h2>
+
+    <h3>3.1 -(으)려니와 in real sentences</h3>
+    <table class="data">
+      <thead><tr><th>Korean</th><th>Meaning</th><th>Form</th></tr></thead>
+      <tbody>
+        <tr><td class="kw">그는 실력도 뛰어나려니와 성품도 훌륭하다.</td><td>"Not only is he highly skilled, but his character is also excellent."</td><td>Adjective (뛰어나다, no 받침) + -려니와</td></tr>
+        <tr><td class="kw">이 지역은 경치도 아름다우려니와 역사도 깊다.</td><td>"This region is not only scenically beautiful, but its history also runs deep."</td><td>ㅂ 불규칙 (아름답다) + -려니와</td></tr>
+        <tr><td class="kw">그 책은 내용도 훌륭하려니와 문장도 유려하다.</td><td>"That book's content is not only excellent, but its prose is also elegant."</td><td>Adjective (훌륭하다, no 받침) + -려니와</td></tr>
+        <tr><td class="kw">겨울 날씨는 추우려니와 바람도 매섭다.</td><td>"Winter weather is not only cold, but the wind is also fierce."</td><td>ㅂ 불규칙 (춥다 &rarr; 추우려니와)</td></tr>
+        <tr><td class="kw">그는 학자이려니와 시인이기도 하다.</td><td>"He is not only a scholar, but also something of a poet."</td><td>Noun + 이려니와 (이다 form)</td></tr>
+      </tbody>
+    </table>
+
+    
+<div class="sk-cta"><h3>📘 Want the complete lesson?</h3><p>This free preview covers the core concept and form. The complete edition also includes:</p>
+       <ul><li>2.2 Meaning: 인정 (acknowledgment) first, 첨가 (addition) second</li><li>2.3 -(으)려니와 vs. -(으)ㄹ 뿐(만) 아니라 (GRAM-ADV-015): rare/literary vs. common/neutral</li><li>3.2 One sentence, broken into pieces</li><li>Practice questions with a full answer key</li><li>Print-ready PDF version</li></ul>
+  <a class="btn" href="https://sunshinework.gumroad.com" rel="noopener" target="_blank">Get the full lesson on Gumroad →</a></div>
+<div class="doc-footer">
+      한국어 문법 목차 &middot; 고급 (TOPIK II, 5&sim;6급) &middot; GRAM-ADV-021 -(으)려니와 (첨가&middot;인정) &middot; Next: GRAM-ADV-022 -기는커녕 (강한 부정)
+    </div>
+
+  </main>
+</div>
+<div class="sk-prevnext">
+  <a href="gram-adv-020.html">← -되</a>
+  <a href="gram-adv-022.html" style="text-align:right;">-기는커녕 →</a>
+</div>
+<div class="sk-footer">© Sunshine Korean · Free Korean lessons, from Hangul to advanced grammar.<br>
+Complete lessons with practice &amp; answer keys: <a href="https://sunshinework.gumroad.com" rel="noopener">sunshinework.gumroad.com</a></div>
+</body>
+</html>

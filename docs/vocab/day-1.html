@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>DAY 01 인사와 기본 표현 | Korean Language Series — Daily Vocabulary | Sunshine Korean</title>
+<style>
+  :root{
+    --navy-cover:#111B33;
+    --navy:#1B2A4A;
+    --red:#DC3E4A;
+    --muted:#8A94A6;
+    --example-bg:#EDF1F8;
+    --example-border:#3B5A8A;
+
+    --header-review:#2E8B6F;
+    --header-writing:#6B4C9A;
+    --header-answer-bg:#FBE9EC;
+    --header-fullword:#2E5FA3;
+
+    --pos-expression:#C97A2B;
+    --pos-pronoun:#4C8B5A;
+    --pos-noun:#2E6B9E;
+    --pos-verb:#2E8B6F;
+    --pos-adjective:#C0394A;
+    --pos-adverb:#6B4C9A;
+    --pos-interjection:#B4707E;
+    --pos-title:#5B4B8A;
+
+    --font-heading:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;
+    --font-body:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; background:#DEE2E8; font-family:var(--font-body); color:#1F2430; }
+  .sheet{ max-width:800px; margin:20px auto; background:#fff; box-shadow:0 2px 12px rgba(0,0,0,.1); overflow:hidden; }
+  .pg{ position:relative; padding:0 0 34px 0; }
+
+  /* ---------- running header / footer ---------- */
+  .runhead{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:14px 26px 10px 26px; font-size:10.5px; color:var(--muted);
+    border-bottom:2px solid var(--navy);
+  }
+  .runhead .left{ display:flex; align-items:center; gap:6px; }
+  .runhead .dot{ width:7px; height:7px; border-radius:50%; background:var(--red); display:inline-block; }
+  .runfoot{
+    display:flex; justify-content:space-between; font-size:10px; color:var(--muted);
+    padding:10px 26px 0 26px; margin-top:26px; border-top:1px solid #E7E9EE;
+  }
+  .content{ padding:0 26px; }
+
+  h2.sec-h{ font-family:var(--font-heading); font-size:16px; font-weight:800; color:var(--navy); margin:20px 0 8px 0; }
+
+  /* ---------- Cover ---------- */
+  .cover{
+    background:var(--navy-cover);
+    color:#fff;
+    padding:0;
+    position:relative;
+    min-height:1000px;
+    overflow:hidden;
+  }
+  .cover::before{ content:""; position:absolute; top:0; left:0; right:0; height:6px; background:var(--red); }
+  .glow{ position:absolute; border-radius:50%; opacity:.55; filter:blur(2px); }
+  .glow.g1{ width:260px; height:260px; background:radial-gradient(circle,#5A2A3D 0%,rgba(90,42,61,0) 70%); top:40px; right:-40px; }
+  .glow.g2{ width:220px; height:220px; background:radial-gradient(circle,#2A3D5A 0%,rgba(42,61,90,0) 70%); bottom:120px; left:-60px; }
+  .cover-body{ position:relative; padding:60px 44px 0 44px; }
+  .cover-eyebrow{ font-size:11px; letter-spacing:2px; color:#B9C2D6; font-weight:700; border-left:3px solid var(--red); padding-left:10px; margin-bottom:26px; }
+  .cover-badge{ display:inline-block; background:var(--red); color:#fff; font-weight:800; font-size:13px; padding:7px 16px; border-radius:3px; letter-spacing:1px; margin-bottom:22px; }
+  .cover-title-kr{ font-family:var(--font-heading); font-size:44px; font-weight:800; margin:0; line-height:1.15; }
+  .cover-title-en{ font-size:22px; font-weight:400; color:#6FE3C9; margin:4px 0 22px 0; }
+  .cover-rule{ width:70px; height:4px; background:var(--red); border-radius:2px; margin-bottom:30px; }
+  .cover-stats{ display:flex; gap:44px; margin-bottom:34px; }
+  .cover-stats .num{ font-size:32px; font-weight:800; color:#fff; }
+  .cover-stats .cap{ font-size:10.5px; color:#9FAAC2; letter-spacing:.5px; margin-top:2px; }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:10px; }
+  .chip{ border:1.5px solid #4FBF97; color:#7BE0BE; border-radius:20px; padding:7px 16px; font-size:13px; }
+  .cover-footer{ position:relative; margin-top:70px; background:#0B1526; padding:18px 44px; display:flex; justify-content:space-between; font-size:10.5px; letter-spacing:1px; color:#8592AC; }
+
+  /* ---------- section header banners ---------- */
+  .banner{ border-radius:8px; padding:15px 22px; margin:10px 0 12px 0; color:#fff; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; }
+  .banner .eyebrow{ font-size:10.5px; letter-spacing:1.5px; opacity:.8; margin-bottom:6px; }
+  .banner h1{ font-family:var(--font-heading); font-size:23px; font-weight:800; margin:0; }
+  .banner .side{ text-align:right; white-space:nowrap; }
+  .banner .side .big{ font-size:22px; font-weight:800; }
+  .banner .side .small{ font-size:11px; opacity:.85; }
+  .banner.navy{ background:var(--navy); }
+  .banner.review{ background:var(--header-review); }
+  .banner.writing{ background:var(--header-writing); }
+  .banner.fullword{ background:var(--header-fullword); }
+  .banner.answer{ background:var(--header-answer-bg); color:var(--navy); }
+  .banner.answer .eyebrow{ color:#9A5560; opacity:1; }
+
+  /* ---------- Sample entry (How to use) ---------- */
+  .sample-wrap{ border:1px solid #E3E6EC; border-radius:8px; overflow:hidden; margin:10px 0 20px 0; }
+  .sample-tag{ background:var(--navy); color:#fff; font-size:10.5px; letter-spacing:1px; padding:8px 16px; }
+  .sample-body{ padding:16px; }
+  .legend-row{ display:flex; flex-wrap:wrap; gap:8px; padding:12px 16px; border-top:1px solid #E7E9EE; background:#FAFBFC; }
+  .legend-pill{ font-size:10.5px; background:#EEF0F4; color:#444; border-radius:4px; padding:4px 8px; }
+  .legend-pill b{ background:var(--navy); color:#fff; border-radius:3px; padding:1px 6px; margin-right:4px; }
+
+  .pos-grid{ display:flex; flex-wrap:wrap; gap:10px; margin:10px 0 22px 0; }
+  .pos-item{ display:flex; align-items:center; gap:6px; font-size:12.5px; }
+  .pos-badge{ color:#fff; font-size:10.5px; font-weight:700; border-radius:4px; padding:3px 9px; white-space:nowrap; }
+
+  .tips{ margin:0 0 8px 0; }
+  .tip{ display:flex; gap:12px; margin:14px 0; break-inside:avoid; page-break-inside:avoid; }
+  .tip .n{ flex:none; width:26px; height:26px; border-radius:50%; background:var(--red); color:#fff; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; }
+  .tip .t{ font-weight:700; font-size:13.5px; color:var(--navy); }
+  .tip .d{ font-size:12.5px; color:#555; margin-top:2px; }
+
+  /* ---------- vocab table head bar ---------- */
+  .tablehead{ display:grid; grid-template-columns:40px 1fr 90px 1fr; background:var(--navy); color:#fff; font-size:11px; padding:7px 14px; border-radius:4px 4px 0 0; margin-top:6px; }
+
+  /* ---------- entry card ---------- */
+  .entry{ display:grid; grid-template-columns:40px 1fr 90px 1fr; align-items:start; gap:8px; padding:11px 14px; break-inside:avoid; page-break-inside:avoid; }
+  .entry:nth-child(even){ background:#F6F7F9; }
+  .entry .num{ width:28px; height:28px; border-radius:50%; background:#E7E9EE; color:#555; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; }
+  .entry .word{ font-size:21px; font-weight:800; color:#1F2430; line-height:1.2; }
+  .entry .rom{ font-size:11px; color:var(--muted); margin-top:2px; }
+  .entry .pos-badge{ justify-self:start; }
+  .entry .eng{ font-size:14.5px; color:#333; align-self:center; }
+  .entry .example{ grid-column:2 / span 3; background:var(--example-bg); border-left:4px solid var(--example-border); border-radius:2px; padding:6px 12px; margin-top:6px; }
+  .entry .example .lbl{ font-size:10px; color:var(--muted); letter-spacing:.5px; margin-bottom:3px; }
+  .entry .example .kr{ font-size:13px; color:#1F2430; }
+  .entry .example .en{ font-size:12px; color:#666; margin-top:2px; }
+
+  .vocab-block{ border:1px solid #E3E6EC; border-radius:8px; overflow:hidden; margin-bottom:18px; }
+  .vocab-block .tablehead{ border-radius:0; margin-top:0; }
+
+  /* ---------- review grid ---------- */
+  .review-sub{ font-weight:800; font-size:13px; color:var(--navy); margin:18px 0 8px 0; }
+  .review-grid{ display:grid; grid-template-columns:1fr 1fr; gap:0 24px; }
+  .review-item{ display:flex; align-items:center; gap:8px; padding:9px 0; border-bottom:1px solid #EEF0F4; font-size:13.5px; }
+  .review-item .rn{ color:var(--muted); font-size:11px; width:18px; }
+  .review-item .word{ font-weight:700; min-width:90px; }
+  .review-item .blankline{ flex:1; border-bottom:1.4px solid var(--muted); height:16px; }
+
+  /* ---------- writing practice ---------- */
+  .prompt-box{ background:#F4F5F7; border-left:4px solid var(--red); border-radius:2px; padding:14px 18px; margin:14px 0 18px 0; }
+  .prompt-box li{ font-size:13.5px; margin:6px 0; }
+  .lines{ margin-top:6px; }
+  .lines .ln{ border-bottom:1px solid #D9DCE3; height:34px; }
+
+  /* ---------- answer key ---------- */
+  .answer-grid{ display:grid; grid-template-columns:1fr 1fr; gap:0 24px; }
+  .answer-item{ display:flex; gap:8px; padding:8px 0; border-bottom:1px solid #EEF0F4; font-size:12.5px; }
+  .answer-item .rn{ color:var(--muted); width:18px; flex:none; }
+  .answer-item .word{ font-weight:700; min-width:96px; }
+  .answer-item .arrow{ color:var(--header-review); font-weight:700; }
+
+  /* ---------- full word list ---------- */
+  .fw-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px 14px; margin-top:6px; }
+  .fw-item{ display:flex; gap:8px; align-items:flex-start; }
+  .fw-item .n{ flex:none; width:22px; height:22px; border-radius:50%; background:#E7E9EE; color:#555; font-size:10.5px; display:flex; align-items:center; justify-content:center; }
+  .fw-item .w{ font-weight:800; font-size:14px; }
+  .fw-item .m{ font-size:11px; color:var(--muted); }
+
+  /* ================= PRINT ================= */
+  @media print{
+    @page{ size:A4; margin:14mm 12mm; }
+    html,body{ background:#fff; }
+    .sheet{ box-shadow:none; margin:0; max-width:none; }
+    .pb{ break-before:page; page-break-before:always; }
+    .entry, .banner, .sample-wrap, .tip, .vocab-block, .review-item, .answer-item{
+      break-inside:avoid; page-break-inside:avoid;
+    }
+    .cover{ break-after:page; page-break-after:always; }
+  }
+</style>
+<style>
+.sk-nav{background:#141F38;padding:0;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
+.sk-nav .inner{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px;flex-wrap:wrap;}
+.sk-nav a{color:#C4CEE3;text-decoration:none;font-size:13px;font-weight:600;}
+.sk-nav a:hover{color:#fff;}
+.sk-nav .brand{color:#fff;font-size:16px;font-weight:800;letter-spacing:0.5px;margin-right:auto;}
+.sk-cta{margin:36px 44px 8px 44px;border:2px solid #DC3E4A;border-radius:10px;padding:24px 26px;background:#FFF6F6;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;}
+.sk-cta h3{margin:0 0 8px 0;font-size:17px;color:#1B2A4A;}
+.sk-cta p{margin:0 0 14px 0;font-size:13.5px;line-height:1.7;color:#1F2430;}
+.sk-cta ul{margin:0 0 16px 18px;padding:0;font-size:13px;line-height:1.8;color:#1F2430;}
+.sk-cta .btn{display:inline-block;background:#DC3E4A;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:11px 22px;border-radius:6px;}
+.sk-cta .btn:hover{background:#c33440;}
+.sk-prevnext{max-width:800px;margin:14px auto 0 auto;display:flex;justify-content:space-between;gap:12px;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:13px;}
+.sk-prevnext a{color:#1B2A4A;text-decoration:none;background:#fff;border:1px solid #D5DAE3;border-radius:6px;padding:10px 14px;max-width:48%;}
+.sk-prevnext a:hover{border-color:#1B2A4A;}
+.sk-footer{max-width:800px;margin:28px auto 40px auto;text-align:center;font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:12px;color:#8A94A6;line-height:1.8;}
+.sk-footer a{color:#1B2A4A;}
+</style>
+<meta name="description" content="Day 1 Korean vocabulary — greetings and basic expressions. Free preview.">
+<link rel="icon" href="../favicon.svg">
+</head>
+<body>
+<nav class="sk-nav"><div class="inner">
+  <a class="brand" href="../index.html">🌞 Sunshine Korean</a>
+  <a href="../hangul-basics.html">Hangul & Basics</a>
+  <a href="../beginner.html">Beginner</a>
+  <a href="../intermediate.html">Intermediate</a>
+  <a href="../advanced.html">Advanced</a>
+  <a href="../vocabulary.html">Vocabulary</a>
+</div></nav>
+<div class="sheet">
+
+  <!-- ============ COVER ============ -->
+  <div class="cover">
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
+    <div class="cover-body">
+      <div class="cover-eyebrow">KOREAN LANGUAGE SERIES &middot; DAILY VOCABULARY</div>
+      <div class="cover-badge">DAY 01</div>
+      <div class="cover-title-kr">인사와 기본 표현</div>
+      <div class="cover-title-en">Greetings &amp; Basic Expressions</div>
+      <div class="cover-rule"></div>
+      <div class="cover-stats">
+        <div><div class="num">30</div><div class="cap">VOCABULARY ITEMS</div></div>
+        <div><div class="num">30</div><div class="cap">EXAMPLE SENTENCES</div></div>
+        <div><div class="num">A1</div><div class="cap">LEVEL</div></div>
+      </div>
+      <div class="chip-row">
+        <div class="chip">안녕하세요</div>
+        <div class="chip">감사합니다</div>
+        <div class="chip">죄송합니다</div>
+        <div class="chip">괜찮아요</div>
+        <div class="chip">네</div>
+        <div class="chip">아니요</div>
+        <div class="chip">반갑습니다</div>
+        <div class="chip">저</div>
+        <div class="chip">+22 more&hellip;</div>
+      </div>
+    </div>
+    <div class="cover-footer">
+      <span>NATIVE ENGLISH SPEAKERS EDITION</span>
+      <span>REVISED ROMANIZATION</span>
+    </div>
+  </div>
+
+  <!-- ============ HOW TO USE ============ -->
+  <div class="pg pb">
+    <div class="runhead">
+      <span class="left"><span class="dot"></span>한국어 단어장 &middot; DAY 01 &middot; 인사와 기본 표현</span>
+      <span>이 책의 사용법</span>
+    </div>
+    <div class="content">
+      <div class="banner navy">
+        <div>
+          <div class="eyebrow">DAILY VOCABULARY &middot; HOW TO USE</div>
+          <h1>이 단어장 사용법</h1>
+        </div>
+        <div class="side"><span class="cover-badge" style="margin:0;">DAY 01</span></div>
+      </div>
+
+      <h2 class="sec-h">항목 구성 (Entry Structure)</h2>
+      <div class="sample-wrap">
+        <div class="sample-tag">SAMPLE ENTRY</div>
+        <div class="sample-body">
+          <div class="entry" style="padding:0; grid-template-columns:36px 1fr 90px 1fr;">
+            <div class="num">04</div>
+            <div>
+              <div class="word">감사합니다</div>
+              <div class="rom">gam-sa-ham-ni-da</div>
+            </div>
+            <div class="pos-badge" style="background:var(--pos-expression); justify-self:start;">표현</div>
+            <div class="eng">Thank you (formal)</div>
+            <div class="example">
+              <div class="lbl">예문 &middot; EXAMPLE SENTENCE</div>
+              <div class="kr">도와주셔서 감사합니다.</div>
+              <div class="en">Thank you for helping me.</div>
+            </div>
+          </div>
+        </div>
+        <div class="legend-row">
+          <span class="legend-pill"><b>04</b>Entry number</span>
+          <span class="legend-pill"><b>감사합니다</b>Korean word</span>
+          <span class="legend-pill"><b>gam-sa-ham-ni-da</b>Romanization</span>
+          <span class="legend-pill"><b>표현</b>Part of Speech</span>
+          <span class="legend-pill"><b>Thank you</b>English meaning</span>
+          <span class="legend-pill"><b>예문</b>Example sentence (Korean + English)</span>
+        </div>
+      </div>
+
+      <h2 class="sec-h">품사 범례 (Parts of Speech)</h2>
+      <div class="pos-grid">
+        <div class="pos-item"><span class="pos-badge" style="background:var(--pos-expression);">표현</span>Expression</div>
+        <div class="pos-item"><span class="pos-badge" style="background:var(--pos-pronoun);">대명사</span>Pronoun</div>
+        <div class="pos-item"><span class="pos-badge" style="background:var(--pos-verb);">동사</span>Verb</div>
+        <div class="pos-item"><span class="pos-badge" style="background:var(--pos-adjective);">형용사</span>Adjective</div>
+        <div class="pos-item"><span class="pos-badge" style="background:var(--pos-adverb);">부사</span>Adverb</div>
+        <div class="pos-item"><span class="pos-badge" style="background:var(--pos-interjection);">감탄사</span>Interjection</div>
+        <div class="pos-item"><span class="pos-badge" style="background:var(--pos-title);">호칭</span>Title / Honorific</div>
+      </div>
+
+      <h2 class="sec-h">학습 팁 (Study Tips)</h2>
+      <div class="tips">
+        <div class="tip"><div class="n">1</div><div><div class="t">소리 내어 읽기</div><div class="d">Say each word aloud before looking at the English translation.</div></div></div>
+        <div class="tip"><div class="n">2</div><div><div class="t">영어 가리기 연습</div><div class="d">Cover the English meaning and practice recalling it from Korean.</div></div></div>
+        <div class="tip"><div class="n">3</div><div><div class="t">예문 따라 쓰기</div><div class="d">Copy the example sentence by hand — writing reinforces memory.</div></div></div>
+        <div class="tip"><div class="n">4</div><div><div class="t">역할극 해보기</div><div class="d">Practice a short greeting exchange with a partner using today's expressions.</div></div></div>
+        <div class="tip"><div class="n">5</div><div><div class="t">반복 복습</div><div class="d">Review this list again after 1 day, 3 days, and 1 week (spaced repetition).</div></div></div>
+      </div>
+    </div>
+    <div class="runfoot"><span>Korean Language Series — Daily Vocabulary</span><span>i</span></div>
+  </div>
+
+  <!-- ============ VOCABULARY LIST (6 pages x 5 entries) ============ -->
+
+  <!-- page 1 of list: 01-05 -->
+  <div class="pg pb">
+    <div class="runhead">
+      <span class="left"><span class="dot"></span>한국어 단어장 &middot; DAY 01 &middot; 인사와 기본 표현</span>
+      <span>Greetings &amp; Basic Expressions &middot; 인사와 기본 표현</span>
+    </div>
+    <div class="content">
+      <div class="banner navy">
+        <div>
+          <div class="eyebrow">DAY 01 &middot; VOCABULARY LIST</div>
+          <h1>인사와 기본 표현 (Greetings &amp; Basic Expressions)</h1>
+        </div>
+        <div class="side"><div class="big" style="color:var(--red);">30 단어</div><div class="small">A1 Level</div></div>
+      </div>
+
+      <div class="vocab-block">
+        <div class="tablehead"><div>#</div><div>한국어 / Romanization</div><div>품사</div><div>영어 뜻 &middot; English</div></div>
+
+        <div class="entry">
+          <div class="num">01</div>
+          <div><div class="word">안녕하세요</div><div class="rom">an-nyeong-ha-se-yo</div></div>
+          <div class="pos-badge" style="background:var(--pos-expression);">표현</div>
+          <div class="eng">Hello (formal)</div>
+          <div class="example"><div class="lbl">예문</div><div class="kr">안녕하세요, 만나서 반가워요.</div><div class="en">Hello, nice to meet you.</div></div>
+        </div>
+        <div class="entry">
+          <div class="num">02</div>
+          <div><div class="word">안녕히 가세요</div><div class="rom">an-nyeong-hi ga-se-yo</div></div>
+          <div class="pos-badge" style="background:var(--pos-expression);">표현</div>
+          <div class="eng">Goodbye (to the person leaving)</div>
+          <div class="example"><div class="lbl">예문</div><div class="kr">안녕히 가세요, 내일 봐요.</div><div class="en">Goodbye, see you tomorrow.</div></div>
+        </div>
+        <div class="entry">
+          <div class="num">03</div>
+          <div><div class="word">안녕히 계세요</div><div class="rom">an-nyeong-hi gye-se-yo</div></div>
+          <div class="pos-badge" style="background:var(--pos-expression);">표현</div>
+          <div class="eng">Goodbye (to the person staying)</div>
+          <div class="example"><div class="lbl">예문</div><div class="kr">저는 먼저 갈게요, 안녕히 계세요.</div><div class="en">I'll go first, goodbye.</div></div>
+        </div>
+        <div class="entry">
+          <div class="num">04</div>
+          <div><div class="word">감사합니다</div><div class="rom">gam-sa-ham-ni-da</div></div>
+          <div class="pos-badge" style="background:var(--pos-expression);">표현</div>
+          <div class="eng">Thank you (formal)</div>
+          <div class="example"><div class="lbl">예문</div><div class="kr">도와주셔서 감사합니다.</div><div class="en">Thank you for helping me.</div></div>
+        </div>
+        <div class="entry">
+          <div class="num">05</div>
+          <div><div class="word">고맙습니다</div><div class="rom">go-map-sseum-ni-da</div></div>
+          <div class="pos-badge" style="background:var(--pos-expression);">표현</div>
+          <div class="eng">Thank you (formal; warmer)</div>
+          <div class="example"><div class="lbl">예문</div><div class="kr">정말 고맙습니다.</div><div class="en">Thank you so much.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="runfoot"><span>Korean Language Series — Daily Vocabulary</span><span>1</span></div>
+  </div>
+
+  <!-- page 2 of list: 06-10 -->
+  <div class="pg pb">
+    <div class="runhead">
+      <span class="left"><span class="dot"></span>한국어 단어장 &middot; DAY 01 &middot; 인사와 기본 표현</span>
+      <span>Greetings &amp; Basic Expressions &middot; 인사와 기본 표현</span>
+    </div>
+    <div class="content">
+      <div class="vocab-block" style="margin-top:8px;">
+        <div class="tablehead"><div>#</div><div>한국어 / Romanization</div><div>품사</div><div>영어 뜻 &middot; English</div></div>
+
+        <div class="entry">
+          <div class="num">06</div>
+          <div><div class="word">고마워요</div><div class="rom">go-ma-wo-yo</div></div>
+          <div class="pos-badge" style="background:var(--pos-expression);">표현</div>
+          <div class="eng">Thanks (polite informal)</div>
+          <div class="example"><div class="lbl">예문</div><div class="kr">연락해 줘서 고마워요.</div><div class="en">Thanks for contacting me.</div></div>
+        </div>
+        <div class="entry">
+          <div class="num">07</div>
+          <div><div class="word">죄송합니다</div><div class="rom">joe-song-ham-ni-da</div></div>
+          <div class="pos-badge" style="background:var(--pos-expression);">표현</div>
+          <div class="eng">I am sorry (formal)</div>
+          <div class="example"><div class="lbl">예문</div><div class="kr">늦어서 죄송합니다.</div><div class="en">I am sorry for being late.</div></div>
+        </div>
+        <div class="entry">
+          <div class="num">08</div>
+          <div><div class="word">미안해요</div><div class="rom">mi-an-hae-yo</div></div>
+          <div class="pos-badge" style="background:var(--pos-expression);">표현</div>
+          <div class="eng">Sorry (polite informal)</div>
+          <div class="example"><div class="lbl">예문</div><div class="kr">미안해요, 제 실수예요.</div><div class="en">Sorry, it's my mistake.</div></div>
+        </div>
+        <div class="entry">
+          <div class="num">09</div>
+          <div><div class="word">괜찮아요</div><div class="rom">gwaen-cha-na-yo</div></div>
+          <div class="pos-badge" style="background:var(--pos-adjective);">형용사</div>
+          <div class="eng">It's okay / No problem</div>
+          <div class="example"><div class="lbl">예문</div><div class="kr">괜찮아요, 걱정하지 마세요.</div><div class="en">It's okay, don't worry.</div></div>
+        </div>
+        </div>
+<div class="sk-cta"><h3>📘 Want the complete lesson?</h3><p>This free preview covers the core concept and form. The complete edition also includes:</p>
+       <ul><li>All 31 words of Day 1 with examples and romanization</li><li>Practice questions with a full answer key</li><li>Print-ready PDF version</li></ul>
+  <a class="btn" href="https://sunshinework.gumroad.com" rel="noopener" target="_blank">Get the full lesson on Gumroad →</a></div>
+</div><div class="sk-footer">© Sunshine Korean · Free Korean lessons, from Hangul to advanced grammar.<br>
+Complete lessons with practice &amp; answer keys: <a href="https://sunshinework.gumroad.com" rel="noopener">sunshinework.gumroad.com</a></div>
+</body></html>
