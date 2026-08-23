@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy | Sunshine Korean</title>
+<meta name="description" content="How Sunshine Korean handles data on this website and in its Instagram publishing tool.">
+<link rel="icon" href="favicon.svg">
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+:root{
+  --sk-bg:#F2ECE1;--sk-surface:#FFFFFF;--sk-ink:#1B2A4A;--sk-ink-soft:#445068;
+  --sk-accent:#DC3E4A;--sk-accent-text:#FFFFFF;--sk-accent-soft:#F6D9DB;
+  --sk-tip-bg:#E8F5E9;--sk-tip-line:#2E7D32;--sk-muted:#8A94A6;--sk-border:rgba(27,42,74,0.14);
+  --sk-head:'Poppins','Pretendard Variable','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --sk-body:'Inter','Pretendard Variable','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+}
+html,body{background:var(--sk-bg) !important;}
+.sk-nav{background:var(--sk-bg);border-bottom:1px solid var(--sk-border);font-family:var(--sk-body);}
+.sk-nav .inner{max-width:64rem;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 24px;flex-wrap:wrap;}
+.sk-nav a{color:var(--sk-ink-soft);text-decoration:none;font-size:13px;font-weight:600;}
+.sk-nav a:hover{color:var(--sk-accent);}
+.sk-nav .brand{color:var(--sk-ink);font-family:var(--sk-head);font-size:16px;font-weight:700;margin-right:auto;}
+.sk-cta{margin:36px 44px 8px 44px;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:24px 26px;font-family:var(--sk-body);}
+.sk-cta h3{margin:0 0 8px 0;font-family:var(--sk-head);font-size:16px;color:var(--sk-ink);}
+.sk-cta p{margin:0 0 14px 0;font-size:13.5px;line-height:1.7;color:var(--sk-ink-soft);}
+.sk-cta ul{margin:0 0 16px 18px;padding:0;font-size:13px;line-height:1.8;color:var(--sk-ink-soft);}
+.sk-cta .btn{display:inline-block;background:var(--sk-accent);color:var(--sk-accent-text);text-decoration:none;font-weight:600;font-size:14px;padding:11px 22px;border-radius:8px;transition:box-shadow .15s ease,transform .15s ease;}
+.sk-cta .btn:hover{box-shadow:4px 4px 0 var(--sk-ink);transform:translate(-2px,-2px);}
+.sk-prevnext{max-width:800px;margin:14px auto 0 auto;padding:0 12px;display:flex;justify-content:space-between;gap:12px;font-family:var(--sk-body);font-size:13px;}
+.sk-prevnext a{color:var(--sk-ink);text-decoration:none;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:10px 14px;max-width:48%;transition:box-shadow .15s ease,transform .15s ease;}
+.sk-prevnext a:hover{box-shadow:3px 3px 0 var(--sk-accent);transform:translate(-1px,-1px);}
+.sk-footer{max-width:64rem;margin:28px auto 40px auto;padding:0 24px;text-align:center;font-family:var(--sk-body);font-size:12px;color:var(--sk-muted);line-height:1.8;}
+.sk-footer a{color:var(--sk-ink);}
+
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --sk-bg:#10172A;--sk-surface:#161F38;--sk-ink:#F2ECE1;--sk-ink-soft:#C9CEDB;
+    --sk-accent:#FF7A82;--sk-accent-text:#2A1013;--sk-accent-soft:#3A2226;
+    --sk-tip-bg:#16321B;--sk-tip-line:#7FCB8B;--sk-muted:#93A0BE;--sk-border:rgba(242,236,225,0.16);
+  }
+}
+
+*{box-sizing:border-box;}
+body{margin:0;font-family:var(--sk-body);color:var(--sk-ink);}
+.wrap{max-width:64rem;margin:0 auto;padding:3rem 1.5rem 2rem;}
+.hero{margin-bottom:2.25rem;}
+.hero .eyebrow{display:block;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--sk-accent);margin-bottom:8px;}
+.hero h1{font-family:var(--sk-head);font-size:1.75rem;font-weight:700;margin:0 0 10px 0;line-height:1.25;text-wrap:balance;}
+.hero p{font-size:15px;color:var(--sk-ink-soft);margin:0;line-height:1.7;max-width:40rem;}
+.card{display:block;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:20px 22px;margin-bottom:14px;text-decoration:none;color:var(--sk-ink);transition:box-shadow .15s ease,transform .15s ease;}
+.card:hover{box-shadow:4px 4px 0 var(--sk-accent);transform:translate(-2px,-2px);}
+.card h2{margin:0 0 4px 0;font-family:var(--sk-head);font-size:16px;color:var(--sk-ink);}
+.card p{margin:0;font-size:13px;color:var(--sk-muted);line-height:1.6;}
+.card .count{float:right;font-size:12px;color:var(--sk-accent);font-weight:600;}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:2.25rem 0 0.9rem 0;border-bottom:1px solid var(--sk-border);padding-bottom:9px;}
+.section-head h2{font-family:var(--sk-head);font-size:1.05rem;font-weight:700;margin:0;color:var(--sk-ink);}
+.section-head .kr{font-family:var(--sk-body);font-weight:500;font-size:12.5px;color:var(--sk-muted);margin-left:8px;}
+.lesson{display:flex;gap:14px;align-items:center;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:11px 16px;margin-bottom:8px;text-decoration:none;color:var(--sk-ink);font-size:14px;transition:box-shadow .15s ease,transform .15s ease;}
+.lesson:hover{box-shadow:3px 3px 0 var(--sk-accent);transform:translate(-1px,-1px);}
+.lesson .id{font-size:10.5px;color:var(--sk-muted);min-width:64px;font-weight:600;letter-spacing:0.04em;}
+.lesson .pt{font-weight:600;color:var(--sk-ink);white-space:nowrap;}
+.lesson .en{font-size:12.5px;color:var(--sk-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+@media(max-width:640px){.lesson .en{display:none;}}
+</style>
+</head>
+<body>
+<nav class="sk-nav"><div class="inner">
+  <a class="brand" href="index.html">🌞 Sunshine Korean</a>
+  <a href="hangul-basics.html">Hangul & Basics</a>
+  <a href="beginner.html">Beginner</a>
+  <a href="intermediate.html">Intermediate</a>
+  <a href="advanced.html">Advanced</a>
+  <a href="vocabulary.html">Vocabulary</a>
+</div></nav>
+<div class="wrap">
+<style>
+.legal{max-width:44rem;}
+.legal h2{font-family:var(--sk-head);font-size:1.05rem;font-weight:700;margin:2.1rem 0 .6rem;padding-bottom:7px;border-bottom:1px solid var(--sk-border);}
+.legal p,.legal li{font-size:14px;line-height:1.75;color:var(--sk-ink-soft);}
+.legal ul{margin:.5rem 0 .5rem 1.1rem;padding:0;}
+.legal a{color:var(--sk-accent);font-weight:600;}
+.legal .updated{font-size:12.5px;color:var(--sk-muted);}
+</style>
+<div class="hero"><div class="eyebrow">LEGAL</div><h1>Privacy Policy</h1>
+<p class="updated">Last updated: 24 August 2026</p></div>
+<div class="legal">
+
+<h2>1. Who we are</h2>
+<p>Sunshine Korean is a small, independent Korean-language learning project run by one person. It publishes free lessons on this website, sells printable study materials on <a href="https://sunshinework.gumroad.com" rel="noopener">Gumroad</a>, and posts lesson graphics to the Instagram account <a href="https://www.instagram.com/dailykorean_with_tutor/" rel="noopener">@dailykorean_with_tutor</a>.</p>
+<p>Contact: <a href="mailto:niceworkforsun@gmail.com">niceworkforsun@gmail.com</a></p>
+
+<h2>2. What this policy covers</h2>
+<p>This policy covers two things:</p>
+<ul>
+<li>This website, <a href="https://sunwork747.github.io/learn-korean">sunwork747.github.io/learn-korean</a>.</li>
+<li>Our private publishing tool, which uses the Instagram API to post our own lesson graphics to our own Instagram account. The tool is not a product, is not offered to anyone else, and has no users other than the operator.</li>
+</ul>
+
+<h2>3. Information we collect</h2>
+<p><strong>On this website:</strong> nothing. There are no accounts, no sign-in, no comment forms, no advertising, and no analytics or tracking cookies. The site is static and hosted on GitHub Pages, which — like any web host — records standard server request information such as IP address and browser type. That data is handled by GitHub under its own privacy policy and is not accessible to us in an identifiable form.</p>
+<p><strong>In the publishing tool:</strong> we hold only data about our own Instagram account, obtained through Instagram Login:</p>
+<ul>
+<li>The account's Instagram user ID and username.</li>
+<li>An access token issued by Meta, used to publish posts.</li>
+<li>The images and captions we ourselves publish, and the media IDs Instagram returns.</li>
+</ul>
+<p>We do not collect, request, store, or process data belonging to other Instagram users. We do not read followers, direct messages, comments, or profile information of anyone else.</p>
+
+<h2>4. How we use it</h2>
+<p>Solely to publish our own posts to our own account, and to confirm afterwards that a post was created. We do not sell, rent, or trade any data. We do not use it for advertising, profiling, or automated decision-making, and we do not combine it with data from other sources.</p>
+
+<h2>5. Third parties</h2>
+<ul>
+<li><strong>Meta / Instagram.</strong> Posts are created through the Instagram API. Meta's handling of that data is governed by Meta's own privacy policy.</li>
+<li><strong>catbox.moe.</strong> The Instagram API only accepts images that are already reachable at a public URL, so each lesson graphic is uploaded to the file host catbox.moe immediately before posting, and the resulting link is handed to Instagram. These are our own lesson graphics, created for public posting; they contain no personal data.</li>
+<li><strong>Gumroad.</strong> If you buy a study pack, Gumroad is the seller of record and handles your payment and contact details under its own privacy policy. We only see the order information Gumroad shows sellers.</li>
+</ul>
+<p>Apart from these, we share nothing with anyone. We disclose information only where the law requires it.</p>
+
+<h2>6. How long we keep it</h2>
+<p>The access token is stored in a local environment file on the operator's own computer. It is never committed to a public repository and is regenerated or revoked when needed. Published posts stay on Instagram until we delete them.</p>
+
+<h2 id="data-deletion">7. Deleting your data</h2>
+<p>Because we do not collect other people's personal data, there is normally nothing of yours for us to delete. If you believe we hold something relating to you, email <a href="mailto:niceworkforsun@gmail.com">niceworkforsun@gmail.com</a> with the details and we will delete it and confirm within 30 days.</p>
+<p>To remove our app's access to an Instagram account you control, open the Instagram app and go to <em>Settings and privacy → Website permissions → Apps and websites</em>, then remove the app. Revoking access immediately invalidates the token, and any copy we hold stops working and is deleted.</p>
+
+<h2>8. Children</h2>
+<p>This site and its materials are not directed at children under 13, and we do not knowingly collect information from them.</p>
+
+<h2>9. Changes to this policy</h2>
+<p>If this policy changes, the revised version will be posted on this page with a new "last updated" date.</p>
+
+<h2>10. Contact</h2>
+<p>Questions about this policy: <a href="mailto:niceworkforsun@gmail.com">niceworkforsun@gmail.com</a></p>
+
+</div>
+</div>
+<div class="sk-footer">© Sunshine Korean · Free Korean lessons, from Hangul to advanced grammar.<br>
+Complete lessons with practice &amp; answer keys: <a href="https://sunshinework.gumroad.com" rel="noopener">sunshinework.gumroad.com</a></div>
+</body>
+</html>

@@ -505,11 +505,86 @@ ${day1 ? `<a class="card" href="vocab/${day1.file}"><span class="count">31 words
   // favicon / robots / sitemap / 404
   fs.writeFileSync(path.join(OUT, 'favicon.svg'), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#1B2A4A"/><text x="16" y="22" font-size="16" text-anchor="middle" fill="#fff" font-family="sans-serif" font-weight="bold">한</text></svg>`);
   fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${BASE_URL}/sitemap.xml\n`);
-  const urls = ['index.html', 'vocabulary.html', ...LEVEL_ORDER.map((lv) => `${LEVELS[lv].slug}.html`), ...docs.map((d) => `grammar/${slugOf(d)}.html`), ...(day1 ? [`vocab/${day1.file}`] : [])];
+  const urls = ['index.html', 'vocabulary.html', 'privacy.html', ...LEVEL_ORDER.map((lv) => `${LEVELS[lv].slug}.html`), ...docs.map((d) => `grammar/${slugOf(d)}.html`), ...(day1 ? [`vocab/${day1.file}`] : [])];
   fs.writeFileSync(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `<url><loc>${BASE_URL}/${u}</loc></url>`).join('\n')}\n</urlset>\n`);
   fs.writeFileSync(path.join(OUT, '404.html'), pageShell({ title: `Page not found | ${SITE_NAME}`, desc: 'Page not found', body: `<div class="hero"><h1>Page not found</h1><p><a href="index.html" style="color:#fff;">← Back to home</a></p></div>` }));
+  fs.writeFileSync(path.join(OUT, 'privacy.html'), buildPrivacy());
 
   console.log(`Built ${docs.length} grammar pages, ${day1 ? 1 : 0} vocab page(s), ${LEVEL_ORDER.length} level pages.`);
+}
+
+
+// ---------- privacy policy ----------
+// Required by Meta for the Instagram publishing app (App Dashboard -> Privacy Policy URL).
+// Must stay publicly reachable without login, so it is generated here rather than
+// hand-placed in docs/ (main() wipes docs/ on every build).
+function buildPrivacy() {
+  const body = `<style>
+.legal{max-width:44rem;}
+.legal h2{font-family:var(--sk-head);font-size:1.05rem;font-weight:700;margin:2.1rem 0 .6rem;padding-bottom:7px;border-bottom:1px solid var(--sk-border);}
+.legal p,.legal li{font-size:14px;line-height:1.75;color:var(--sk-ink-soft);}
+.legal ul{margin:.5rem 0 .5rem 1.1rem;padding:0;}
+.legal a{color:var(--sk-accent);font-weight:600;}
+.legal .updated{font-size:12.5px;color:var(--sk-muted);}
+</style>
+<div class="hero"><div class="eyebrow">LEGAL</div><h1>Privacy Policy</h1>
+<p class="updated">Last updated: 24 August 2026</p></div>
+<div class="legal">
+
+<h2>1. Who we are</h2>
+<p>${SITE_NAME} is a small, independent Korean-language learning project run by one person. It publishes free lessons on this website, sells printable study materials on <a href="${STORE_URL}" rel="noopener">Gumroad</a>, and posts lesson graphics to the Instagram account <a href="https://www.instagram.com/dailykorean_with_tutor/" rel="noopener">@dailykorean_with_tutor</a>.</p>
+<p>Contact: <a href="mailto:niceworkforsun@gmail.com">niceworkforsun@gmail.com</a></p>
+
+<h2>2. What this policy covers</h2>
+<p>This policy covers two things:</p>
+<ul>
+<li>This website, <a href="${BASE_URL}">${BASE_URL.replace('https://','')}</a>.</li>
+<li>Our private publishing tool, which uses the Instagram API to post our own lesson graphics to our own Instagram account. The tool is not a product, is not offered to anyone else, and has no users other than the operator.</li>
+</ul>
+
+<h2>3. Information we collect</h2>
+<p><strong>On this website:</strong> nothing. There are no accounts, no sign-in, no comment forms, no advertising, and no analytics or tracking cookies. The site is static and hosted on GitHub Pages, which — like any web host — records standard server request information such as IP address and browser type. That data is handled by GitHub under its own privacy policy and is not accessible to us in an identifiable form.</p>
+<p><strong>In the publishing tool:</strong> we hold only data about our own Instagram account, obtained through Instagram Login:</p>
+<ul>
+<li>The account's Instagram user ID and username.</li>
+<li>An access token issued by Meta, used to publish posts.</li>
+<li>The images and captions we ourselves publish, and the media IDs Instagram returns.</li>
+</ul>
+<p>We do not collect, request, store, or process data belonging to other Instagram users. We do not read followers, direct messages, comments, or profile information of anyone else.</p>
+
+<h2>4. How we use it</h2>
+<p>Solely to publish our own posts to our own account, and to confirm afterwards that a post was created. We do not sell, rent, or trade any data. We do not use it for advertising, profiling, or automated decision-making, and we do not combine it with data from other sources.</p>
+
+<h2>5. Third parties</h2>
+<ul>
+<li><strong>Meta / Instagram.</strong> Posts are created through the Instagram API. Meta's handling of that data is governed by Meta's own privacy policy.</li>
+<li><strong>catbox.moe.</strong> The Instagram API only accepts images that are already reachable at a public URL, so each lesson graphic is uploaded to the file host catbox.moe immediately before posting, and the resulting link is handed to Instagram. These are our own lesson graphics, created for public posting; they contain no personal data.</li>
+<li><strong>Gumroad.</strong> If you buy a study pack, Gumroad is the seller of record and handles your payment and contact details under its own privacy policy. We only see the order information Gumroad shows sellers.</li>
+</ul>
+<p>Apart from these, we share nothing with anyone. We disclose information only where the law requires it.</p>
+
+<h2>6. How long we keep it</h2>
+<p>The access token is stored in a local environment file on the operator's own computer. It is never committed to a public repository and is regenerated or revoked when needed. Published posts stay on Instagram until we delete them.</p>
+
+<h2 id="data-deletion">7. Deleting your data</h2>
+<p>Because we do not collect other people's personal data, there is normally nothing of yours for us to delete. If you believe we hold something relating to you, email <a href="mailto:niceworkforsun@gmail.com">niceworkforsun@gmail.com</a> with the details and we will delete it and confirm within 30 days.</p>
+<p>To remove our app's access to an Instagram account you control, open the Instagram app and go to <em>Settings and privacy → Website permissions → Apps and websites</em>, then remove the app. Revoking access immediately invalidates the token, and any copy we hold stops working and is deleted.</p>
+
+<h2>8. Children</h2>
+<p>This site and its materials are not directed at children under 13, and we do not knowingly collect information from them.</p>
+
+<h2>9. Changes to this policy</h2>
+<p>If this policy changes, the revised version will be posted on this page with a new "last updated" date.</p>
+
+<h2>10. Contact</h2>
+<p>Questions about this policy: <a href="mailto:niceworkforsun@gmail.com">niceworkforsun@gmail.com</a></p>
+
+</div>`;
+  return pageShell({
+    title: `Privacy Policy | ${SITE_NAME}`,
+    desc: 'How Sunshine Korean handles data on this website and in its Instagram publishing tool.',
+    body,
+  });
 }
 
 main();
