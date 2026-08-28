@@ -371,6 +371,7 @@ function buildHome(docs, day1) {
 <title>${SITE_NAME} — Free Korean Grammar &amp; Vocabulary Lessons</title>
 <meta name="description" content="${docs.length} free Korean grammar lessons from Hangul to TOPIK II advanced, plus daily vocabulary. Learn Korean with clear English explanations.">
 <link rel="icon" href="favicon.svg">
+<meta name="p:domain_verify" content="caa813b00055ab5d911a32b935815b60"/>
 <style>
 ${SITE_CSS}
 ${DARK_CSS}
