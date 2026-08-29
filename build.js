@@ -22,6 +22,12 @@ const FREE_PACK_URL = `${STORE_URL}/l/korean-starter-sample`;
 //       아직 미출시라 죽은 링크를 만들지 않도록 스토어 첫 화면으로 보낸다.
 const GRAMMAR_PACK_URL = STORE_URL;
 
+// 어느 링크가 매출을 만드는지 보려면 위치별로 UTM 을 붙여야 한다.
+function utm(url, medium, campaign) {
+  const sep = url.includes('?') ? '&' : '?';
+  return `${url}${sep}utm_source=site&utm_medium=${medium}&utm_campaign=${campaign}`;
+}
+
 const LEVELS = {
   PRE: { slug: 'hangul-basics', label: 'Hangul & Basics', sub: 'Pre-TOPIK · the alphabet, pronunciation and sentence skeleton' },
   BEG: { slug: 'beginner', label: 'Beginner', sub: 'TOPIK I (Levels 1–2) · core particles, tenses and everyday endings' },
@@ -144,14 +150,14 @@ function freeBannerHtml() {
   return `<div class="sk-free">
   <strong>Free: your first 3 days of Korean</strong>
   <span>12 printable worksheets — vocabulary, reading, listening and daily practice. No payment needed.</span>
-  <a class="btn-primary" href="${FREE_PACK_URL}" rel="noopener" target="_blank">Download the free pack →</a>
+  <a class="btn-primary" href="${utm(FREE_PACK_URL, 'footer', 'free-pack')}" rel="noopener" target="_blank">Download the free pack →</a>
 </div>`;
 }
 
 function footerHtml() {
   return `${freeBannerHtml()}
 <div class="sk-footer">© ${SITE_NAME} · Free Korean lessons, from Hangul to advanced grammar.<br>
-Complete lessons with practice &amp; answer keys: <a href="${STORE_URL}" rel="noopener">${STORE_URL.replace('https://', '')}</a></div>`;
+Complete lessons with practice &amp; answer keys: <a href="${utm(STORE_URL, 'footer-text', 'store')}" rel="noopener">${STORE_URL.replace('https://', '')}</a></div>`;
 }
 
 function ctaHtml(url, droppedTitles) {
@@ -160,8 +166,8 @@ function ctaHtml(url, droppedTitles) {
        <ul>${droppedTitles.map((t) => `<li>${esc(t)}</li>`).join('')}<li>Practice questions with a full answer key</li><li>Print-ready PDF version</li></ul>`
     : `<p>The complete edition includes the full explanation, all example sets, and practice questions with a full answer key — as a print-ready PDF.</p>`;
   return `<div class="sk-cta"><h3>📘 Want the complete lesson?</h3>${items}
-  <a class="btn" href="${url}" rel="noopener" target="_blank">Get the full lesson on Gumroad →</a>
-  <p class="sk-cta-alt">Learning the whole thing? <a href="${GRAMMAR_PACK_URL}" rel="noopener" target="_blank">Browse the grammar packs</a> — bundles of chapters in one download, far cheaper than one at a time.</p></div>`;
+  <a class="btn" href="${utm(url, 'lesson-cta', 'single')}" rel="noopener" target="_blank">Get the full lesson on Gumroad →</a>
+  <p class="sk-cta-alt">Learning the whole thing? <a href="${utm(GRAMMAR_PACK_URL, 'lesson-alt', 'grammar-pack')}" rel="noopener" target="_blank">Browse the grammar packs</a> — bundles of chapters in one download, far cheaper than one at a time.</p></div>`;
 }
 
 // ---------- grammar docs ----------
@@ -357,7 +363,7 @@ function buildHome(docs, day1) {
     <h2>Start free — the first 3 days</h2>
     <p>12 printable worksheets covering vocabulary, reading, listening and everyday practice. Answer keys included. Finish all three and you will know whether a 30-day pack is for you.</p>
   </div>
-  <a class="btn-primary" href="${FREE_PACK_URL}" rel="noopener" target="_blank">Get the free pack →</a>
+  <a class="btn-primary" href="${utm(FREE_PACK_URL, 'home-hero', 'free-pack')}" rel="noopener" target="_blank">Get the free pack →</a>
 </section>
 
 <section class="gumroad-strip">
@@ -365,7 +371,7 @@ function buildHome(docs, day1) {
     <h2>Want the complete editions?</h2>
     <p>Every lesson here is a free preview. The full versions — complete explanations, all example sets, practice questions with answer keys, print-ready PDFs — are on Gumroad.</p>
   </div>
-  <a class="btn-primary" href="${STORE_URL}" rel="noopener" target="_blank">Visit the store →</a>
+  <a class="btn-primary" href="${utm(STORE_URL, 'home-strip', 'store')}" rel="noopener" target="_blank">Visit the store →</a>
 </section>
 
 <section id="curriculum">
