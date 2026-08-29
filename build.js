@@ -17,6 +17,10 @@ const OUT = path.join(__dirname, 'docs');
 const SITE_NAME = 'Sunshine Korean';
 const BASE_URL = 'https://sunwork747.github.io/learn-korean';
 const STORE_URL = 'https://sunshinework.gumroad.com';
+const FREE_PACK_URL = `${STORE_URL}/l/korean-starter-sample`;
+// TODO: Grammar Foundation 팩이 라이브되면 `${STORE_URL}/l/korean-grammar-foundation` 로 바꾼다.
+//       아직 미출시라 죽은 링크를 만들지 않도록 스토어 첫 화면으로 보낸다.
+const GRAMMAR_PACK_URL = STORE_URL;
 
 const LEVELS = {
   PRE: { slug: 'hangul-basics', label: 'Hangul & Basics', sub: 'Pre-TOPIK · the alphabet, pronunciation and sentence skeleton' },
@@ -102,6 +106,11 @@ html,body{background:var(--sk-bg) !important;}
 .sk-prevnext{max-width:800px;margin:14px auto 0 auto;padding:0 12px;display:flex;justify-content:space-between;gap:12px;font-family:var(--sk-body);font-size:13px;}
 .sk-prevnext a{color:var(--sk-ink);text-decoration:none;background:var(--sk-surface);border:1px solid var(--sk-border);border-radius:8px;padding:10px 14px;max-width:48%;transition:box-shadow .15s ease,transform .15s ease;}
 .sk-prevnext a:hover{box-shadow:3px 3px 0 var(--sk-accent);transform:translate(-1px,-1px);}
+.sk-free{max-width:64rem;margin:32px auto 0 auto;padding:20px 24px;border:1px solid var(--sk-border);border-radius:10px;background:var(--sk-accent-soft);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--sk-body);}
+.sk-free strong{display:block;font-size:16px;color:var(--sk-ink);}
+.sk-free span{display:block;font-size:13px;color:var(--sk-ink-soft);margin-top:4px;}
+.sk-free .btn-primary{background:var(--sk-accent);color:var(--sk-accent-text);border-radius:8px;padding:10px 18px;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;}
+.sk-cta-alt{font-size:13px;color:var(--sk-ink-soft);margin-top:10px;}
 .sk-footer{max-width:64rem;margin:28px auto 40px auto;padding:0 24px;text-align:center;font-family:var(--sk-body);font-size:12px;color:var(--sk-muted);line-height:1.8;}
 .sk-footer a{color:var(--sk-ink);}
 `;
@@ -130,8 +139,18 @@ function navHtml(depth) {
 </div></nav>`;
 }
 
+function freeBannerHtml() {
+  // 사이트 전 페이지의 이메일 수집 진입점. 핀/검색 유입이 여기서 리스트로 넘어간다.
+  return `<div class="sk-free">
+  <strong>Free: your first 3 days of Korean</strong>
+  <span>12 printable worksheets — vocabulary, reading, listening and daily practice. No payment needed.</span>
+  <a class="btn-primary" href="${FREE_PACK_URL}" rel="noopener" target="_blank">Download the free pack →</a>
+</div>`;
+}
+
 function footerHtml() {
-  return `<div class="sk-footer">© ${SITE_NAME} · Free Korean lessons, from Hangul to advanced grammar.<br>
+  return `${freeBannerHtml()}
+<div class="sk-footer">© ${SITE_NAME} · Free Korean lessons, from Hangul to advanced grammar.<br>
 Complete lessons with practice &amp; answer keys: <a href="${STORE_URL}" rel="noopener">${STORE_URL.replace('https://', '')}</a></div>`;
 }
 
@@ -141,7 +160,8 @@ function ctaHtml(url, droppedTitles) {
        <ul>${droppedTitles.map((t) => `<li>${esc(t)}</li>`).join('')}<li>Practice questions with a full answer key</li><li>Print-ready PDF version</li></ul>`
     : `<p>The complete edition includes the full explanation, all example sets, and practice questions with a full answer key — as a print-ready PDF.</p>`;
   return `<div class="sk-cta"><h3>📘 Want the complete lesson?</h3>${items}
-  <a class="btn" href="${url}" rel="noopener" target="_blank">Get the full lesson on Gumroad →</a></div>`;
+  <a class="btn" href="${url}" rel="noopener" target="_blank">Get the full lesson on Gumroad →</a>
+  <p class="sk-cta-alt">Learning the whole thing? <a href="${GRAMMAR_PACK_URL}" rel="noopener" target="_blank">Browse the grammar packs</a> — bundles of chapters in one download, far cheaper than one at a time.</p></div>`;
 }
 
 // ---------- grammar docs ----------
@@ -332,6 +352,14 @@ function buildHome(docs, day1) {
   <div class="lv-grid">${levelCards}</div>
 </section>
 
+<section class="gumroad-strip free-strip">
+  <div class="gs-text">
+    <h2>Start free — the first 3 days</h2>
+    <p>12 printable worksheets covering vocabulary, reading, listening and everyday practice. Answer keys included. Finish all three and you will know whether a 30-day pack is for you.</p>
+  </div>
+  <a class="btn-primary" href="${FREE_PACK_URL}" rel="noopener" target="_blank">Get the free pack →</a>
+</section>
+
 <section class="gumroad-strip">
   <div class="gs-text">
     <h2>Want the complete editions?</h2>
@@ -416,6 +444,7 @@ section{margin-top:2.75rem;}
 .lv-card p{margin:0 0 12px 0;font-size:13.5px;color:var(--sk-ink-soft);line-height:1.6;}
 .lv-go{font-size:13px;font-weight:600;color:var(--sk-accent);}
 
+.free-strip{background:#EAF3EC;border-color:#BFD9C6;}
 .gumroad-strip{background:var(--sk-accent-soft);border:1px solid var(--sk-border);border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:1.5rem 1.75rem;flex-wrap:wrap;}
 .gs-text h2{font-family:var(--sk-head);margin:0 0 6px 0;font-size:1.05rem;color:var(--sk-ink);}
 .gs-text p{margin:0;font-size:13.5px;color:var(--sk-ink-soft);line-height:1.65;max-width:36rem;}
@@ -451,7 +480,20 @@ ${footerHtml()}
 }
 // ---------- main ----------
 function main() {
+  // docs/pins 는 빌드 산출물이 아니라 핀터레스트용 이미지 저장소다.
+  // 통째로 지우면 CSV의 Media URL 이 전부 죽으므로 잠시 빼뒀다가 되돌린다.
+  const PINS = path.join(OUT, 'pins');
+  const PINS_TMP = path.join(path.dirname(OUT), '.pins-keep');
+  const hadPins = fs.existsSync(PINS);
+  if (hadPins) {
+    fs.rmSync(PINS_TMP, { recursive: true, force: true });
+    fs.renameSync(PINS, PINS_TMP);
+  }
   fs.rmSync(OUT, { recursive: true, force: true });
+  if (hadPins) {
+    fs.mkdirSync(OUT, { recursive: true });
+    fs.renameSync(PINS_TMP, PINS);
+  }
   fs.mkdirSync(path.join(OUT, 'grammar'), { recursive: true });
   fs.mkdirSync(path.join(OUT, 'vocab'), { recursive: true });
 
