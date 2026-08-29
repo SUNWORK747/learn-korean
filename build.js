@@ -521,18 +521,22 @@ ${footerHtml()}
 function main() {
   // docs/pins 는 빌드 산출물이 아니라 핀터레스트용 이미지 저장소다.
   // 통째로 지우면 CSV의 Media URL 이 전부 죽으므로 잠시 빼뒀다가 되돌린다.
-  const PINS = path.join(OUT, 'pins');
-  const PINS_TMP = path.join(path.dirname(OUT), '.pins-keep');
-  const hadPins = fs.existsSync(PINS);
-  if (hadPins) {
-    fs.rmSync(PINS_TMP, { recursive: true, force: true });
-    fs.renameSync(PINS, PINS_TMP);
+  // pins(핀터레스트) 와 reels(인스타) 는 빌드 산출물이 아니라 미디어 저장소다.
+  // 지우면 예약된 핀·릴스의 공개 URL 이 전부 죽는다.
+  const KEEP = ['pins', 'reels'];
+  const stash = [];
+  for (const k of KEEP) {
+    const dir = path.join(OUT, k);
+    if (fs.existsSync(dir)) {
+      const tmp = path.join(path.dirname(OUT), `.${k}-keep`);
+      fs.rmSync(tmp, { recursive: true, force: true });
+      fs.renameSync(dir, tmp);
+      stash.push([tmp, dir]);
+    }
   }
   fs.rmSync(OUT, { recursive: true, force: true });
-  if (hadPins) {
-    fs.mkdirSync(OUT, { recursive: true });
-    fs.renameSync(PINS_TMP, PINS);
-  }
+  fs.mkdirSync(OUT, { recursive: true });
+  for (const [tmp, dir] of stash) fs.renameSync(tmp, dir);
   fs.mkdirSync(path.join(OUT, 'grammar'), { recursive: true });
   fs.mkdirSync(path.join(OUT, 'vocab'), { recursive: true });
 
