@@ -523,7 +523,7 @@ function main() {
   // 통째로 지우면 CSV의 Media URL 이 전부 죽으므로 잠시 빼뒀다가 되돌린다.
   // pins(핀터레스트) 와 reels(인스타) 는 빌드 산출물이 아니라 미디어 저장소다.
   // 지우면 예약된 핀·릴스의 공개 URL 이 전부 죽는다.
-  const KEEP = ['pins', 'reels'];
+  const KEEP = ['pins', 'reels', 'carousels'];
   const stash = [];
   for (const k of KEEP) {
     const dir = path.join(OUT, k);
