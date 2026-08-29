@@ -28,6 +28,32 @@ function utm(url, medium, campaign) {
   return `${url}${sep}utm_source=site&utm_medium=${medium}&utm_campaign=${campaign}`;
 }
 
+// 라이브인 워크시트 팩만 건다. 미출시 상품을 걸면 404 가 된다.
+// (Vocabulary / Study Pack / 문법팩은 출시되면 여기에 추가)
+const PACK_TRACKS = [
+  { slug: 'korean-daily', label: 'Everyday Korean', note: 'practical sentences you can use today' },
+  { slug: 'korean-reading', label: 'Korean Reading', note: 'short passages with comprehension questions' },
+  { slug: 'korean-listening', label: 'Korean Listening', note: 'dialogue drills with full scripts' },
+];
+// 사이트의 문법 단계(PRE/BEG/INT/ADV) ↔ 워크시트 레벨(A1/A2/B1) 대응
+const LEVEL_TO_CEFR = { PRE: 'a1', BEG: 'a1', INT: 'a2', ADV: 'b1' };
+const CEFR_LABEL = { a1: 'A1 · Beginner', a2: 'A2 · Upper Beginner', b1: 'B1 · Intermediate' };
+
+function packStrip(lv) {
+  const cefr = LEVEL_TO_CEFR[lv];
+  if (!cefr) return '';
+  const items = PACK_TRACKS.map((t) => {
+    const url = utm(`${STORE_URL}/l/${t.slug}-${cefr}`, `level-${cefr}`, 'worksheet-pack');
+    return `<li><a href="${url}" rel="noopener" target="_blank"><strong>${t.label} — ${CEFR_LABEL[cefr].split(' · ')[0]}</strong></a> · 30 worksheets, $19 <span class="pk-note">${t.note}</span></li>`;
+  }).join('');
+  return `<section class="pack-strip">
+  <h2>Practice this level — printable worksheets</h2>
+  <p>30 days per pack, one page a day, answer keys included. ${CEFR_LABEL[cefr]}.</p>
+  <ul class="pk-list">${items}</ul>
+  <p class="pk-free">Not sure yet? <a href="${utm(FREE_PACK_URL, `level-${cefr}`, 'free-pack')}" rel="noopener" target="_blank">Start with the free 3-day pack</a> — 12 worksheets, no payment.</p>
+</section>`;
+}
+
 const LEVELS = {
   PRE: { slug: 'hangul-basics', label: 'Hangul & Basics', sub: 'Pre-TOPIK · the alphabet, pronunciation and sentence skeleton' },
   BEG: { slug: 'beginner', label: 'Beginner', sub: 'TOPIK I (Levels 1–2) · core particles, tenses and everyday endings' },
@@ -116,6 +142,13 @@ html,body{background:var(--sk-bg) !important;}
 .sk-free strong{display:block;font-size:16px;color:var(--sk-ink);}
 .sk-free span{display:block;font-size:13px;color:var(--sk-ink-soft);margin-top:4px;}
 .sk-free .btn-primary{background:var(--sk-accent);color:var(--sk-accent-text);border-radius:8px;padding:10px 18px;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;}
+.pack-strip{max-width:64rem;margin:28px auto;padding:22px 26px;border:1px solid var(--sk-border);border-radius:10px;background:var(--sk-surface);font-family:var(--sk-body);}
+.pack-strip h2{margin:0 0 6px 0;font-family:var(--sk-head);font-size:18px;color:var(--sk-ink);}
+.pack-strip p{margin:0 0 12px 0;font-size:13.5px;color:var(--sk-ink-soft);}
+.pk-list{margin:0 0 12px 0;padding-left:18px;font-size:14px;line-height:2;color:var(--sk-ink-soft);}
+.pk-list a{color:var(--sk-ink);}
+.pk-note{display:block;font-size:12.5px;color:var(--sk-muted);line-height:1.5;}
+.pk-free{margin:0 !important;font-size:13px;}
 .sk-cta-alt{font-size:13px;color:var(--sk-ink-soft);margin-top:10px;}
 .sk-footer{max-width:64rem;margin:28px auto 40px auto;padding:0 24px;text-align:center;font-family:var(--sk-body);font-size:12px;color:var(--sk-muted);line-height:1.8;}
 .sk-footer a{color:var(--sk-ink);}
@@ -534,6 +567,7 @@ function main() {
       list += `<a class="lesson" href="grammar/${slugOf(d)}.html"><span class="id">${d.id.replace('GRAM-', '')}</span><span class="pt">${esc(d.point)}</span><span class="en">${esc(d.engTitle)}</span></a>\n`;
     }
     const body = `<div class="hero"><span class="eyebrow">KOREAN GRAMMAR</span><h1>${esc(L.label)}</h1><p>${esc(L.sub)} · ${lvDocs.length} lessons, free to read.</p></div>
+${packStrip(lv)}
 ${list}`;
     fs.writeFileSync(path.join(OUT, `${L.slug}.html`), pageShell({ title: `${L.label} Korean Grammar | ${SITE_NAME}`, desc: `${L.sub}. ${lvDocs.length} free Korean grammar lessons.`, body }));
   }
