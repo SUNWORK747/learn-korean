@@ -34,6 +34,7 @@ const PACK_TRACKS = [
   { slug: 'korean-daily', label: 'Everyday Korean', note: 'practical sentences you can use today' },
   { slug: 'korean-reading', label: 'Korean Reading', note: 'short passages with comprehension questions' },
   { slug: 'korean-listening', label: 'Korean Listening', note: 'dialogue drills with full scripts' },
+  { slug: 'korean-vocabulary', label: 'Korean Vocabulary', note: 'themed word lists with example sentences', price: 24 },
 ];
 // 사이트의 문법 단계(PRE/BEG/INT/ADV) ↔ 워크시트 레벨(A1/A2/B1) 대응
 const LEVEL_TO_CEFR = { PRE: 'a1', BEG: 'a1', INT: 'a2', ADV: 'b1' };
@@ -44,12 +45,14 @@ function packStrip(lv) {
   if (!cefr) return '';
   const items = PACK_TRACKS.map((t) => {
     const url = utm(`${STORE_URL}/l/${t.slug}-${cefr}`, `level-${cefr}`, 'worksheet-pack');
-    return `<li><a href="${url}" rel="noopener" target="_blank"><strong>${t.label} — ${CEFR_LABEL[cefr].split(' · ')[0]}</strong></a> · 30 worksheets, $19 <span class="pk-note">${t.note}</span></li>`;
+    return `<li><a href="${url}" rel="noopener" target="_blank"><strong>${t.label} — ${CEFR_LABEL[cefr].split(' · ')[0]}</strong></a> · 30 worksheets, $${t.price || 19} <span class="pk-note">${t.note}</span></li>`;
   }).join('');
+  const bundle = utm(`${STORE_URL}/l/korean-study-pack-${cefr}`, `level-${cefr}`, 'study-pack');
   return `<section class="pack-strip">
   <h2>Practice this level — printable worksheets</h2>
   <p>30 days per pack, one page a day, answer keys included. ${CEFR_LABEL[cefr]}.</p>
   <ul class="pk-list">${items}</ul>
+  <p class="sk-cta-alt">Want all four? <a href="${bundle}" rel="noopener" target="_blank">Korean Study Pack ${cefr.toUpperCase()}</a> — 120 worksheets in one download, $59 instead of $81.</p>
   <p class="pk-free">Not sure yet? <a href="${utm(FREE_PACK_URL, `level-${cefr}`, 'free-pack')}" rel="noopener" target="_blank">Start with the free 3-day pack</a> — 12 worksheets, no payment.</p>
 </section>`;
 }
