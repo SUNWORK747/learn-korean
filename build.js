@@ -18,9 +18,7 @@ const SITE_NAME = 'Sunshine Korean';
 const BASE_URL = 'https://sunwork747.github.io/learn-korean';
 const STORE_URL = 'https://sunshinework.gumroad.com';
 const FREE_PACK_URL = `${STORE_URL}/l/korean-starter-sample`;
-// TODO: Grammar Foundation 팩이 라이브되면 `${STORE_URL}/l/korean-grammar-foundation` 로 바꾼다.
-//       아직 미출시라 죽은 링크를 만들지 않도록 스토어 첫 화면으로 보낸다.
-const GRAMMAR_PACK_URL = STORE_URL;
+const GRAMMAR_PACK_URL = `${STORE_URL}/l/korean-grammar-foundation`;
 
 // 어느 링크가 매출을 만드는지 보려면 위치별로 UTM 을 붙여야 한다.
 function utm(url, medium, campaign) {
@@ -203,7 +201,7 @@ function ctaHtml(url, droppedTitles) {
     : `<p>The complete edition includes the full explanation, all example sets, and practice questions with a full answer key — as a print-ready PDF.</p>`;
   return `<div class="sk-cta"><h3>📘 Want the complete lesson?</h3>${items}
   <a class="btn" href="${utm(url, 'lesson-cta', 'single')}" rel="noopener" target="_blank">Get the full lesson on Gumroad →</a>
-  <p class="sk-cta-alt">Learning the whole thing? <a href="${utm(GRAMMAR_PACK_URL, 'lesson-alt', 'grammar-pack')}" rel="noopener" target="_blank">Browse the grammar packs</a> — bundles of chapters in one download, far cheaper than one at a time.</p></div>`;
+  <p class="sk-cta-alt">Learning the whole thing? <a href="${utm(GRAMMAR_PACK_URL, 'lesson-alt', 'grammar-pack')}" rel="noopener" target="_blank">Grammar Foundation pack</a> — chapters 1&ndash;61 in one download ($49), far cheaper than one at a time.</p></div>`;
 }
 
 // ---------- grammar docs ----------
