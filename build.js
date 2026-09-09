@@ -7,6 +7,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { analyticsHtml } = require('./analytics');
 
 const SRC_ROOT = path.join(__dirname, '..', '한국어 학습자료');
 const GRAMMAR_DIR = path.join(SRC_ROOT, '문법', '자료');
@@ -18,7 +19,16 @@ const SITE_NAME = 'Sunshine Korean';
 const BASE_URL = 'https://sunwork747.github.io/learn-korean';
 const STORE_URL = 'https://sunshinework.gumroad.com';
 const FREE_PACK_URL = `${STORE_URL}/l/korean-starter-sample`;
-const GRAMMAR_PACK_URL = `${STORE_URL}/l/korean-grammar-foundation`;
+// 문법 팩은 챕터 구간별로 따로 판다. 어느 편을 보고 있느냐에 따라 걸 팩이 다르다.
+// 전부 Foundation 으로 걸면 96편을 읽는 사람에게 1~61편짜리 팩을 권하게 된다.
+const GRAMMAR_PACKS = {
+  PRE: { slug: 'korean-grammar-foundation', label: 'Grammar Foundation pack', range: 'chapters 1&ndash;61', price: 49 },
+  BEG: { slug: 'korean-grammar-foundation', label: 'Grammar Foundation pack', range: 'chapters 1&ndash;61', price: 49 },
+  INT: { slug: 'korean-grammar-intermediate', label: 'Grammar Intermediate pack', range: 'chapters 62&ndash;95', price: 39 },
+  ADV: { slug: 'korean-grammar-advanced', label: 'Grammar Advanced pack', range: 'chapters 96&ndash;118', price: 35 },
+};
+const GRAMMAR_MASTER = { slug: 'korean-grammar-master', label: 'Grammar Master', price: 99 };
+const VOCAB_PACK_URL = `${STORE_URL}/l/korean-vocabulary-a1`;
 
 // 어느 링크가 매출을 만드는지 보려면 위치별로 UTM 을 붙여야 한다.
 function utm(url, medium, campaign) {
@@ -26,8 +36,8 @@ function utm(url, medium, campaign) {
   return `${url}${sep}utm_source=site&utm_medium=${medium}&utm_campaign=${campaign}`;
 }
 
-// 라이브인 워크시트 팩만 건다. 미출시 상품을 걸면 404 가 된다.
-// (Vocabulary / Study Pack / 문법팩은 출시되면 여기에 추가)
+// 라이브인 팩만 건다. 미출시 상품을 걸면 404 가 된다.
+// 2026-09-09: 26종 전부 출시돼 Vocabulary / Study Pack / 문법팩 4종이 모두 연결됐다.
 const PACK_TRACKS = [
   { slug: 'korean-daily', label: 'Everyday Korean', note: 'practical sentences you can use today' },
   { slug: 'korean-reading', label: 'Korean Reading', note: 'short passages with comprehension questions' },
@@ -194,14 +204,23 @@ function footerHtml() {
 Complete lessons with practice &amp; answer keys: <a href="${utm(STORE_URL, 'footer-text', 'store')}" rel="noopener">${STORE_URL.replace('https://', '')}</a></div>`;
 }
 
-function ctaHtml(url, droppedTitles) {
+// 보고 있는 단계에 맞는 팩을 건다. level 이 없으면(어휘 페이지 등) 팩 줄을 생략한다.
+function packAltHtml(level) {
+  const pk = GRAMMAR_PACKS[level];
+  if (!pk) return '';
+  const url = utm(`${STORE_URL}/l/${pk.slug}`, 'lesson-alt', 'grammar-pack');
+  const master = utm(`${STORE_URL}/l/${GRAMMAR_MASTER.slug}`, 'lesson-alt', 'grammar-master');
+  return `<p class="sk-cta-alt">Learning the whole thing? <a href="${url}" rel="noopener" target="_blank">${pk.label}</a> — ${pk.range} in one download ($${pk.price}), far cheaper than one at a time. All four levels: <a href="${master}" rel="noopener" target="_blank">${GRAMMAR_MASTER.label}</a>, all 118 chapters ($${GRAMMAR_MASTER.price}).</p>`;
+}
+
+function ctaHtml(url, droppedTitles, level) {
   const items = droppedTitles.length
     ? `<p>This free preview covers the core concept and form. The complete edition also includes:</p>
        <ul>${droppedTitles.map((t) => `<li>${esc(t)}</li>`).join('')}<li>Practice questions with a full answer key</li><li>Print-ready PDF version</li></ul>`
     : `<p>The complete edition includes the full explanation, all example sets, and practice questions with a full answer key — as a print-ready PDF.</p>`;
   return `<div class="sk-cta"><h3>📘 Want the complete lesson?</h3>${items}
   <a class="btn" href="${utm(url, 'lesson-cta', 'single')}" rel="noopener" target="_blank">Get the full lesson on Gumroad →</a>
-  <p class="sk-cta-alt">Learning the whole thing? <a href="${utm(GRAMMAR_PACK_URL, 'lesson-alt', 'grammar-pack')}" rel="noopener" target="_blank">Grammar Foundation pack</a> — chapters 1&ndash;61 in one download ($49), far cheaper than one at a time.</p></div>`;
+  ${packAltHtml(level)}</div>`;
 }
 
 // ---------- grammar docs ----------
@@ -243,7 +262,7 @@ function condenseGrammar(doc, gumroadMap, prev, next) {
   const s3cut = keepFirstH3(s3);
 
   const gumroadUrl = gumroadMap[id] || STORE_URL;
-  const cta = ctaHtml(gumroadUrl, dropped);
+  const cta = ctaHtml(gumroadUrl, dropped, doc.level);
 
   const prevnext = `<div class="sk-prevnext">
   ${prev ? `<a href="${slugOf(prev)}.html">← ${esc(prev.point)}</a>` : '<span></span>'}
@@ -252,7 +271,7 @@ function condenseGrammar(doc, gumroadMap, prev, next) {
 
   let out = head + s1 + s2cut + s3cut + '\n' + cta + '\n' + tail;
   // inject site chrome
-  out = out.replace('</head>', `<style>${SITE_CSS}</style>\n<meta name="description" content="${esc(`${doc.point} — free Korean grammar lesson (${LEVELS[doc.level].label}). ${doc.engTitle}`)}">\n<link rel="icon" href="../favicon.svg">\n</head>`);
+  out = out.replace('</head>', `<style>${SITE_CSS}</style>\n<meta name="description" content="${esc(`${doc.point} — free Korean grammar lesson (${LEVELS[doc.level].label}). ${doc.engTitle}`)}">\n<link rel="icon" href="../favicon.svg">\n${analyticsHtml()}\n</head>`);
   out = out.replace(/<body>/, `<body>\n${navHtml(1)}`);
   out = out.replace('</body>', `${prevnext}\n${footerHtml()}\n</body>`);
   // preview marker in title
@@ -272,10 +291,10 @@ function buildVocabDay1() {
   let out = html;
   if (entries.length > 10) {
     const cut = entries[10];
-    const cta = ctaHtml(STORE_URL, [`All ${entries.length} words of Day 1 with examples and romanization`]);
+    const cta = ctaHtml(VOCAB_PACK_URL, [`All ${entries.length} words of Day 1 with examples and romanization`]);
     out = html.slice(0, cut) + `</div>\n${cta}\n</div></body></html>`;
   }
-  out = out.replace('</head>', `<style>${SITE_CSS}</style>\n<meta name="description" content="Day 1 Korean vocabulary — greetings and basic expressions. Free preview.">\n<link rel="icon" href="../favicon.svg">\n</head>`);
+  out = out.replace('</head>', `<style>${SITE_CSS}</style>\n<meta name="description" content="Day 1 Korean vocabulary — greetings and basic expressions. Free preview.">\n<link rel="icon" href="../favicon.svg">\n${analyticsHtml()}\n</head>`);
   out = out.replace(/<body[^>]*>/, (m) => `${m}\n${navHtml(1)}`);
   out = out.replace('</body>', `${footerHtml()}\n</body>`);
   out = out.replace(/<title>([\s\S]*?)<\/title>/, (m, t) => `<title>${stripTags(t)} | ${SITE_NAME}</title>`);
@@ -317,6 +336,7 @@ body{margin:0;font-family:var(--sk-body);color:var(--sk-ink);}
 .lesson .en{font-size:12.5px;color:var(--sk-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 @media(max-width:640px){.lesson .en{display:none;}}
 </style>
+${analyticsHtml()}
 </head>
 <body>
 ${navHtml(depth)}
@@ -508,6 +528,7 @@ section{margin-top:2.75rem;}
 .toc-en{font-size:12.5px;color:var(--sk-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 @media(max-width:640px){.toc-en{display:none;}}
 </style>
+${analyticsHtml()}
 </head>
 <body>
 ${navHtml(0)}
