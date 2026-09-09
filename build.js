@@ -27,6 +27,16 @@ const GRAMMAR_PACKS = {
   INT: { slug: 'korean-grammar-intermediate', label: 'Grammar Intermediate pack', range: 'chapters 62&ndash;95', price: 39 },
   ADV: { slug: 'korean-grammar-advanced', label: 'Grammar Advanced pack', range: 'chapters 96&ndash;118', price: 35 },
 };
+// 상위 티어. 30일 팩 위의 칸이다 — 한 트랙을 90일 통째로, 또는 전부.
+// 사이트에는 자리가 없어서 2026-09-09 에 홈·푸터에 넣었다.
+const TRACK_MASTERS = [
+  { slug: 'korean-daily-master', label: 'Daily Master', note: '90 days of everyday practice', price: 49 },
+  { slug: 'korean-reading-master', label: 'Reading Master', note: '90 reading worksheets', price: 49 },
+  { slug: 'korean-listening-master', label: 'Listening Master', note: '90 listening drills', price: 49 },
+  { slug: 'korean-vocabulary-master', label: 'Vocabulary Master', note: '90 days of themed word lists', price: 59 },
+];
+const FULL_COURSE = { slug: 'korean-full-course', label: 'Full Course 90 Days', price: 149, count: 360 };
+const EVERYTHING = { slug: 'korean-everything', label: 'Everything Pack', price: 199, count: 478 };
 const GRAMMAR_MASTER = { slug: 'korean-grammar-master', label: 'Grammar Master', price: 99 };
 const VOCAB_PACK_URL = `${STORE_URL}/l/korean-vocabulary-a1`;
 
@@ -62,6 +72,21 @@ function packStrip(lv) {
   <ul class="pk-list">${items}</ul>
   <p class="sk-cta-alt">Want all four? <a href="${bundle}" rel="noopener" target="_blank">Korean Study Pack ${cefr.toUpperCase()}</a> — 120 worksheets in one download, $59 instead of $81.</p>
   <p class="pk-free">Not sure yet? <a href="${utm(FREE_PACK_URL, `level-${cefr}`, 'free-pack')}" rel="noopener" target="_blank">Start with the free 3-day pack</a> — 12 worksheets, no payment.</p>
+</section>`;
+}
+
+function topTierHtml() {
+  const items = TRACK_MASTERS.map((t) => {
+    const url = utm(`${STORE_URL}/l/${t.slug}`, 'home-top-tier', 'track-master');
+    return `<li><a href="${url}" rel="noopener" target="_blank"><strong>${t.label}</strong></a> · 90 worksheets, $${t.price} <span class="pk-note">${t.note}</span></li>`;
+  }).join('');
+  const full = utm(`${STORE_URL}/l/${FULL_COURSE.slug}`, 'home-top-tier', 'full-course');
+  const every = utm(`${STORE_URL}/l/${EVERYTHING.slug}`, 'home-top-tier', 'everything');
+  return `<section class="pack-strip">
+  <h2>One track for 90 days &mdash; or all of it</h2>
+  <p>The 30-day packs cover one level. These cover the whole way through B1.</p>
+  <ul class="pk-list">${items}</ul>
+  <p class="sk-cta-alt"><a href="${full}" rel="noopener" target="_blank">${FULL_COURSE.label}</a> &mdash; every worksheet, all ${FULL_COURSE.count} of them, $${FULL_COURSE.price}. <a href="${every}" rel="noopener" target="_blank">${EVERYTHING.label}</a> adds all 118 grammar chapters &mdash; ${EVERYTHING.count} PDFs, $${EVERYTHING.price}.</p>
 </section>`;
 }
 
@@ -201,7 +226,8 @@ function freeBannerHtml() {
 function footerHtml() {
   return `${freeBannerHtml()}
 <div class="sk-footer">© ${SITE_NAME} · Free Korean lessons, from Hangul to advanced grammar.<br>
-Complete lessons with practice &amp; answer keys: <a href="${utm(STORE_URL, 'footer-text', 'store')}" rel="noopener">${STORE_URL.replace('https://', '')}</a></div>`;
+Complete lessons with practice &amp; answer keys: <a href="${utm(STORE_URL, 'footer-text', 'store')}" rel="noopener">${STORE_URL.replace('https://', '')}</a><br>
+Everything at once: <a href="${utm(`${STORE_URL}/l/${FULL_COURSE.slug}`, 'footer-text', 'full-course')}" rel="noopener">${FULL_COURSE.label}</a> (${FULL_COURSE.count} worksheets, $${FULL_COURSE.price}) &middot; <a href="${utm(`${STORE_URL}/l/${EVERYTHING.slug}`, 'footer-text', 'everything')}" rel="noopener">${EVERYTHING.label}</a> (${EVERYTHING.count} PDFs, $${EVERYTHING.price})</div>`;
 }
 
 // 보고 있는 단계에 맞는 팩을 건다. level 이 없으면(어휘 페이지 등) 팩 줄을 생략한다.
@@ -427,6 +453,8 @@ function buildHome(docs, day1) {
   </div>
   <a class="btn-primary" href="${utm(STORE_URL, 'home-strip', 'store')}" rel="noopener" target="_blank">Visit the store →</a>
 </section>
+
+${topTierHtml()}
 
 <section id="curriculum">
   <div class="section-head"><h2>Full curriculum<span class="kr">전체 목차</span></h2><span class="section-note">all ${docs.length} lessons, in order</span></div>
