@@ -568,7 +568,51 @@ ${footerHtml()}
 </html>`;
 }
 // ---------- main ----------
+// 원본이 없으면 아무것도 지우지 않고 멈춘다.
+//
+// main() 은 파일을 읽기 **전에** docs/ 를 통째로 지운다. 그래서 원본이 없는 채로
+// 실행하면 사이트 126페이지가 먼저 날아가고 그 다음에 에러가 난다.
+// 2026-09-09 기준 `../한국어 학습자료/문법/자료` 는 비어 있다 — 이 컴퓨터에도 리눅스에도 없다.
+// 상품(PDF)은 `한국어 교재/학습지`·`문법` 에서 build_pack.py 가 따로 만들므로 무관하다.
+// 사라진 것은 **무료 미리보기 사이트를 만드는 재료**뿐이고, 생성물 docs/ 는 커밋돼 있다.
+//
+// 즉 이 스크립트는 지금 돌릴 수 없다. 실수로 돌렸을 때 사이트를 잃지 않도록 먼저 막는다.
+// 원본이 돌아오면 이 검사는 저절로 통과한다.
+function assertSources() {
+  const need = [
+    [GRAMMAR_DIR, '문법 원본'],
+    [VOCAB_DIR, '어휘 원본'],
+  ];
+  const missing = [];
+  for (const [dir, label] of need) {
+    let n = 0;
+    try {
+      n = fs.readdirSync(dir).filter((f) => f.endsWith('.html')).length;
+    } catch (e) {
+      n = 0;
+    }
+    if (n === 0) missing.push(`${label}: ${dir}`);
+  }
+  if (!missing.length) return;
+
+  console.error(`
+빌드 원본이 없어 중단한다. docs/ 는 건드리지 않았다.
+`);
+  for (const m of missing) console.error('  없음 — ' + m);
+  console.error(`
+docs/ 를 지우고 새로 만드는 스크립트라, 원본 없이 돌리면 사이트가 날아간다.
+지금 사이트를 고치려면 재빌드 대신 생성물을 직접 고치는 쪽을 쓸 것:
+  node fix_pack_links.js     문법 페이지 CTA 팩 링크
+  node add_home_tier.js      홈 상위 티어 섹션
+  node add_top_tier.js       푸터 상위 티어 한 줄
+  node inject_ga.js          GA4 태그 (측정 ID 를 analytics.js 에 넣은 뒤)
+`);
+  process.exit(1);
+}
+
 function main() {
+  assertSources();
+
   // docs/pins 는 빌드 산출물이 아니라 핀터레스트용 이미지 저장소다.
   // 통째로 지우면 CSV의 Media URL 이 전부 죽으므로 잠시 빼뒀다가 되돌린다.
   // pins(핀터레스트) 와 reels(인스타) 는 빌드 산출물이 아니라 미디어 저장소다.
